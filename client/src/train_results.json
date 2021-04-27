@@ -1,0 +1,108 @@
+{
+    "train_7": {
+        "Annotation": [
+            {
+                "name": "Image 1",
+                "pixelSize": {
+                    "h": 1500,
+                    "w": 2580
+                },
+                "regions": [
+                    {
+                        "color": "#ff0000",
+                        "comment": "test1",
+                        "editingLabels": false,
+                        "highlighted": true,
+                        "id": "7826303892518429",
+                        "tags": [
+                            "tag1"
+                        ],
+                        "type": "point",
+                        "x": 0.2061310782241015,
+                        "y": 0.26969696969696977
+                    }
+                ],
+                "src": "https://geodata.lib.utexas.edu/assets/blac_featured_image_map-dca4cbca4e07010e5bd201ad8fab1cc0aa9abd24a8842f90e3c1eef1834e8498.jpg"
+            },
+            {
+                "name": "Image 2",
+                "pixelSize": {
+                    "h": 1500,
+                    "w": 2580
+                },
+                "regions": [
+                    {
+                        "color": "#ff0000",
+                        "comment": "test2",
+                        "editingLabels": false,
+                        "h": 0.22575757575757577,
+                        "highlighted": true,
+                        "id": "11647179160397592",
+                        "tags": [
+                            "tag2"
+                        ],
+                        "type": "box",
+                        "w": 0.443093727977449,
+                        "x": 0.03083157152924595,
+                        "y": 0.21363636363636368
+                    }
+                ],
+                "src": "https://geodata.lib.utexas.edu/assets/utlmaps_featured_image_map-c07ae2551145ff2e5f5fa3c71baa345d9d674a33b08f422449203cf9ed47e0d1.jpg"
+            },
+            {
+                "name": "Image 3",
+                "pixelSize": {
+                    "h": 1362,
+                    "w": 2000
+                },
+                "regions": [
+                    {
+                        "color": "#ff0000",
+                        "comment": "test3",
+                        "editingLabels": false,
+                        "highlighted": true,
+                        "id": "0647520744688721",
+                        "open": false,
+                        "points": [
+                            [
+                                0.4034409090909091,
+                                0.10454545454545454
+                            ],
+                            [
+                                0.29200454545454546,
+                                0.2878787878787879
+                            ],
+                            [
+                                0.3446272727272727,
+                                0.34545454545454546
+                            ],
+                            [
+                                0.4209818181818182,
+                                0.2681818181818182
+                            ],
+                            [
+                                0.43026818181818177,
+                                0.11818181818181818
+                            ]
+                        ],
+                        "tags": [
+                            "tag3"
+                        ],
+                        "type": "polygon"
+                    }
+                ],
+                "src": "https://1igc0ojossa412h1e3ek8d1w-wpengine.netdna-ssl.com/wp-content/uploads/2018/03/TMSELEMWORLD.M.jpg"
+            }
+        ],
+        "Hit_id": "3B9XR6P1XHY1YYG13K2Y3ISOBY6BJK",
+        "Submit": "Yes"
+    },
+    "train_8": {
+        "Hit_id": "3URJ6VVYVSQVEAMP4IKG303400ZO4A",
+        "Submit": "No"
+    },
+    "train_9": {
+        "Hit_id": "31S7M7DAHJT7PAYI6R5WJRB2LUBLTM",
+        "Submit": "No"
+    }
+}

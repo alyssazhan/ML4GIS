@@ -1,0 +1,43 @@
+{
+  "name": "transformation-matrix-js",
+  "version": "2.7.6",
+  "description": "2D affine matrix power tools for JavaScript",
+  "main": "matrix.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ken Nilsen <npm@epistemex.com> (http://epistemex.com/)",
+  "contributors": [
+    {
+      "name": "Leon Sorokin",
+      "email": "leeoniya@gmail.com",
+      "url": "https://github.com/leeoniya"
+    },
+    {
+      "name": "Henry Ruhs",
+      "email": "info@redaxmedia.com",
+      "url": "https://github.com/redaxmedia"
+    },
+    {
+      "name": "Matthieu Dumas",
+      "url": "https://github.com/solendil"
+    },
+    {
+      "name": "Viktor Hesselblom",
+      "url": "https://github.com/hesselblom"
+    },
+    {
+      "name": "Larry Gordon",
+      "url": "https://github.com/psyrendust"
+    }
+  ],
+  "keywords": ["transformation", "matrix", "affine", "2d", "rotate", "translate", "scale", "animate", "animation", "transforms"],
+  "repository" : {
+    "type": "git",
+    "url": "https://gitlab.com/epistemex/transformation-matrix-js.git"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/epistemex/transformation-matrix-js/issues"
+  },
+  "license": "MIT"
+}

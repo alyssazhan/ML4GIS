@@ -1,0 +1,4542 @@
+import React from 'react';
+import reactDom from 'react-dom';
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(source, true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(source).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (typeof call === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized(self);
+}
+
+var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+
+function unwrapExports (x) {
+	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+}
+
+function createCommonjsModule(fn, module) {
+	return module = { exports: {} }, fn(module, module.exports), module.exports;
+}
+
+var reactIs_production_min = createCommonjsModule(function (module, exports) {
+Object.defineProperty(exports,"__esModule",{value:!0});
+var b="function"===typeof Symbol&&Symbol.for,c=b?Symbol.for("react.element"):60103,d=b?Symbol.for("react.portal"):60106,e=b?Symbol.for("react.fragment"):60107,f=b?Symbol.for("react.strict_mode"):60108,g=b?Symbol.for("react.profiler"):60114,h=b?Symbol.for("react.provider"):60109,k=b?Symbol.for("react.context"):60110,l=b?Symbol.for("react.async_mode"):60111,m=b?Symbol.for("react.concurrent_mode"):60111,n=b?Symbol.for("react.forward_ref"):60112,p=b?Symbol.for("react.suspense"):60113,q=b?Symbol.for("react.suspense_list"):
+60120,r=b?Symbol.for("react.memo"):60115,t=b?Symbol.for("react.lazy"):60116,v=b?Symbol.for("react.fundamental"):60117,w=b?Symbol.for("react.responder"):60118,x=b?Symbol.for("react.scope"):60119;function y(a){if("object"===typeof a&&null!==a){var u=a.$$typeof;switch(u){case c:switch(a=a.type,a){case l:case m:case e:case g:case f:case p:return a;default:switch(a=a&&a.$$typeof,a){case k:case n:case h:return a;default:return u}}case t:case r:case d:return u}}}function z(a){return y(a)===m}
+exports.typeOf=y;exports.AsyncMode=l;exports.ConcurrentMode=m;exports.ContextConsumer=k;exports.ContextProvider=h;exports.Element=c;exports.ForwardRef=n;exports.Fragment=e;exports.Lazy=t;exports.Memo=r;exports.Portal=d;exports.Profiler=g;exports.StrictMode=f;exports.Suspense=p;
+exports.isValidElementType=function(a){return "string"===typeof a||"function"===typeof a||a===e||a===m||a===g||a===f||a===p||a===q||"object"===typeof a&&null!==a&&(a.$$typeof===t||a.$$typeof===r||a.$$typeof===h||a.$$typeof===k||a.$$typeof===n||a.$$typeof===v||a.$$typeof===w||a.$$typeof===x)};exports.isAsyncMode=function(a){return z(a)||y(a)===l};exports.isConcurrentMode=z;exports.isContextConsumer=function(a){return y(a)===k};exports.isContextProvider=function(a){return y(a)===h};
+exports.isElement=function(a){return "object"===typeof a&&null!==a&&a.$$typeof===c};exports.isForwardRef=function(a){return y(a)===n};exports.isFragment=function(a){return y(a)===e};exports.isLazy=function(a){return y(a)===t};exports.isMemo=function(a){return y(a)===r};exports.isPortal=function(a){return y(a)===d};exports.isProfiler=function(a){return y(a)===g};exports.isStrictMode=function(a){return y(a)===f};exports.isSuspense=function(a){return y(a)===p};
+});
+
+unwrapExports(reactIs_production_min);
+var reactIs_production_min_1 = reactIs_production_min.typeOf;
+var reactIs_production_min_2 = reactIs_production_min.AsyncMode;
+var reactIs_production_min_3 = reactIs_production_min.ConcurrentMode;
+var reactIs_production_min_4 = reactIs_production_min.ContextConsumer;
+var reactIs_production_min_5 = reactIs_production_min.ContextProvider;
+var reactIs_production_min_6 = reactIs_production_min.Element;
+var reactIs_production_min_7 = reactIs_production_min.ForwardRef;
+var reactIs_production_min_8 = reactIs_production_min.Fragment;
+var reactIs_production_min_9 = reactIs_production_min.Lazy;
+var reactIs_production_min_10 = reactIs_production_min.Memo;
+var reactIs_production_min_11 = reactIs_production_min.Portal;
+var reactIs_production_min_12 = reactIs_production_min.Profiler;
+var reactIs_production_min_13 = reactIs_production_min.StrictMode;
+var reactIs_production_min_14 = reactIs_production_min.Suspense;
+var reactIs_production_min_15 = reactIs_production_min.isValidElementType;
+var reactIs_production_min_16 = reactIs_production_min.isAsyncMode;
+var reactIs_production_min_17 = reactIs_production_min.isConcurrentMode;
+var reactIs_production_min_18 = reactIs_production_min.isContextConsumer;
+var reactIs_production_min_19 = reactIs_production_min.isContextProvider;
+var reactIs_production_min_20 = reactIs_production_min.isElement;
+var reactIs_production_min_21 = reactIs_production_min.isForwardRef;
+var reactIs_production_min_22 = reactIs_production_min.isFragment;
+var reactIs_production_min_23 = reactIs_production_min.isLazy;
+var reactIs_production_min_24 = reactIs_production_min.isMemo;
+var reactIs_production_min_25 = reactIs_production_min.isPortal;
+var reactIs_production_min_26 = reactIs_production_min.isProfiler;
+var reactIs_production_min_27 = reactIs_production_min.isStrictMode;
+var reactIs_production_min_28 = reactIs_production_min.isSuspense;
+
+var reactIs_development = createCommonjsModule(function (module, exports) {
+
+
+
+if (process.env.NODE_ENV !== "production") {
+  (function() {
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
+// nor polyfill, then a plain number is used for performance.
+var hasSymbol = typeof Symbol === 'function' && Symbol.for;
+var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
+var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
+var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
+var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
+var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
+var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
+var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
+// (unstable) APIs that have been removed. Can we remove the symbols?
+
+var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 0xeacf;
+var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
+var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
+var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
+var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for('react.suspense_list') : 0xead8;
+var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
+var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
+var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for('react.fundamental') : 0xead5;
+var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for('react.responder') : 0xead6;
+var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for('react.scope') : 0xead7;
+
+function isValidElementType(type) {
+  return typeof type === 'string' || typeof type === 'function' || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
+  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE);
+}
+
+/**
+ * Forked from fbjs/warning:
+ * https://github.com/facebook/fbjs/blob/e66ba20ad5be433eb54423f2b097d829324d9de6/packages/fbjs/src/__forks__/warning.js
+ *
+ * Only change is we use console.warn instead of console.error,
+ * and do nothing when 'console' is not supported.
+ * This really simplifies the code.
+ * ---
+ * Similar to invariant but only logs a warning if the condition is not met.
+ * This can be used to log issues in development environments in critical
+ * paths. Removing the logging code for production environments will keep the
+ * same logic and follow the same code paths.
+ */
+var lowPriorityWarningWithoutStack = function () {};
+
+{
+  var printWarning = function (format) {
+    for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      args[_key - 1] = arguments[_key];
+    }
+
+    var argIndex = 0;
+    var message = 'Warning: ' + format.replace(/%s/g, function () {
+      return args[argIndex++];
+    });
+
+    if (typeof console !== 'undefined') {
+      console.warn(message);
+    }
+
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
+
+  lowPriorityWarningWithoutStack = function (condition, format) {
+    if (format === undefined) {
+      throw new Error('`lowPriorityWarningWithoutStack(condition, format, ...args)` requires a warning ' + 'message argument');
+    }
+
+    if (!condition) {
+      for (var _len2 = arguments.length, args = new Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+        args[_key2 - 2] = arguments[_key2];
+      }
+
+      printWarning.apply(void 0, [format].concat(args));
+    }
+  };
+}
+
+var lowPriorityWarningWithoutStack$1 = lowPriorityWarningWithoutStack;
+
+function typeOf(object) {
+  if (typeof object === 'object' && object !== null) {
+    var $$typeof = object.$$typeof;
+
+    switch ($$typeof) {
+      case REACT_ELEMENT_TYPE:
+        var type = object.type;
+
+        switch (type) {
+          case REACT_ASYNC_MODE_TYPE:
+          case REACT_CONCURRENT_MODE_TYPE:
+          case REACT_FRAGMENT_TYPE:
+          case REACT_PROFILER_TYPE:
+          case REACT_STRICT_MODE_TYPE:
+          case REACT_SUSPENSE_TYPE:
+            return type;
+
+          default:
+            var $$typeofType = type && type.$$typeof;
+
+            switch ($$typeofType) {
+              case REACT_CONTEXT_TYPE:
+              case REACT_FORWARD_REF_TYPE:
+              case REACT_PROVIDER_TYPE:
+                return $$typeofType;
+
+              default:
+                return $$typeof;
+            }
+
+        }
+
+      case REACT_LAZY_TYPE:
+      case REACT_MEMO_TYPE:
+      case REACT_PORTAL_TYPE:
+        return $$typeof;
+    }
+  }
+
+  return undefined;
+} // AsyncMode is deprecated along with isAsyncMode
+
+var AsyncMode = REACT_ASYNC_MODE_TYPE;
+var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
+var ContextConsumer = REACT_CONTEXT_TYPE;
+var ContextProvider = REACT_PROVIDER_TYPE;
+var Element = REACT_ELEMENT_TYPE;
+var ForwardRef = REACT_FORWARD_REF_TYPE;
+var Fragment = REACT_FRAGMENT_TYPE;
+var Lazy = REACT_LAZY_TYPE;
+var Memo = REACT_MEMO_TYPE;
+var Portal = REACT_PORTAL_TYPE;
+var Profiler = REACT_PROFILER_TYPE;
+var StrictMode = REACT_STRICT_MODE_TYPE;
+var Suspense = REACT_SUSPENSE_TYPE;
+var hasWarnedAboutDeprecatedIsAsyncMode = false; // AsyncMode should be deprecated
+
+function isAsyncMode(object) {
+  {
+    if (!hasWarnedAboutDeprecatedIsAsyncMode) {
+      hasWarnedAboutDeprecatedIsAsyncMode = true;
+      lowPriorityWarningWithoutStack$1(false, 'The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');
+    }
+  }
+
+  return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
+}
+function isConcurrentMode(object) {
+  return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
+}
+function isContextConsumer(object) {
+  return typeOf(object) === REACT_CONTEXT_TYPE;
+}
+function isContextProvider(object) {
+  return typeOf(object) === REACT_PROVIDER_TYPE;
+}
+function isElement(object) {
+  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+}
+function isForwardRef(object) {
+  return typeOf(object) === REACT_FORWARD_REF_TYPE;
+}
+function isFragment(object) {
+  return typeOf(object) === REACT_FRAGMENT_TYPE;
+}
+function isLazy(object) {
+  return typeOf(object) === REACT_LAZY_TYPE;
+}
+function isMemo(object) {
+  return typeOf(object) === REACT_MEMO_TYPE;
+}
+function isPortal(object) {
+  return typeOf(object) === REACT_PORTAL_TYPE;
+}
+function isProfiler(object) {
+  return typeOf(object) === REACT_PROFILER_TYPE;
+}
+function isStrictMode(object) {
+  return typeOf(object) === REACT_STRICT_MODE_TYPE;
+}
+function isSuspense(object) {
+  return typeOf(object) === REACT_SUSPENSE_TYPE;
+}
+
+exports.typeOf = typeOf;
+exports.AsyncMode = AsyncMode;
+exports.ConcurrentMode = ConcurrentMode;
+exports.ContextConsumer = ContextConsumer;
+exports.ContextProvider = ContextProvider;
+exports.Element = Element;
+exports.ForwardRef = ForwardRef;
+exports.Fragment = Fragment;
+exports.Lazy = Lazy;
+exports.Memo = Memo;
+exports.Portal = Portal;
+exports.Profiler = Profiler;
+exports.StrictMode = StrictMode;
+exports.Suspense = Suspense;
+exports.isValidElementType = isValidElementType;
+exports.isAsyncMode = isAsyncMode;
+exports.isConcurrentMode = isConcurrentMode;
+exports.isContextConsumer = isContextConsumer;
+exports.isContextProvider = isContextProvider;
+exports.isElement = isElement;
+exports.isForwardRef = isForwardRef;
+exports.isFragment = isFragment;
+exports.isLazy = isLazy;
+exports.isMemo = isMemo;
+exports.isPortal = isPortal;
+exports.isProfiler = isProfiler;
+exports.isStrictMode = isStrictMode;
+exports.isSuspense = isSuspense;
+  })();
+}
+});
+
+unwrapExports(reactIs_development);
+var reactIs_development_1 = reactIs_development.typeOf;
+var reactIs_development_2 = reactIs_development.AsyncMode;
+var reactIs_development_3 = reactIs_development.ConcurrentMode;
+var reactIs_development_4 = reactIs_development.ContextConsumer;
+var reactIs_development_5 = reactIs_development.ContextProvider;
+var reactIs_development_6 = reactIs_development.Element;
+var reactIs_development_7 = reactIs_development.ForwardRef;
+var reactIs_development_8 = reactIs_development.Fragment;
+var reactIs_development_9 = reactIs_development.Lazy;
+var reactIs_development_10 = reactIs_development.Memo;
+var reactIs_development_11 = reactIs_development.Portal;
+var reactIs_development_12 = reactIs_development.Profiler;
+var reactIs_development_13 = reactIs_development.StrictMode;
+var reactIs_development_14 = reactIs_development.Suspense;
+var reactIs_development_15 = reactIs_development.isValidElementType;
+var reactIs_development_16 = reactIs_development.isAsyncMode;
+var reactIs_development_17 = reactIs_development.isConcurrentMode;
+var reactIs_development_18 = reactIs_development.isContextConsumer;
+var reactIs_development_19 = reactIs_development.isContextProvider;
+var reactIs_development_20 = reactIs_development.isElement;
+var reactIs_development_21 = reactIs_development.isForwardRef;
+var reactIs_development_22 = reactIs_development.isFragment;
+var reactIs_development_23 = reactIs_development.isLazy;
+var reactIs_development_24 = reactIs_development.isMemo;
+var reactIs_development_25 = reactIs_development.isPortal;
+var reactIs_development_26 = reactIs_development.isProfiler;
+var reactIs_development_27 = reactIs_development.isStrictMode;
+var reactIs_development_28 = reactIs_development.isSuspense;
+
+var reactIs = createCommonjsModule(function (module) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = reactIs_production_min;
+} else {
+  module.exports = reactIs_development;
+}
+});
+
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+/* eslint-disable no-unused-vars */
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+function toObject(val) {
+	if (val === null || val === undefined) {
+		throw new TypeError('Object.assign cannot be called with null or undefined');
+	}
+
+	return Object(val);
+}
+
+function shouldUseNative() {
+	try {
+		if (!Object.assign) {
+			return false;
+		}
+
+		// Detect buggy property enumeration order in older V8 versions.
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
+		test1[5] = 'de';
+		if (Object.getOwnPropertyNames(test1)[0] === '5') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test2 = {};
+		for (var i = 0; i < 10; i++) {
+			test2['_' + String.fromCharCode(i)] = i;
+		}
+		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+			return test2[n];
+		});
+		if (order2.join('') !== '0123456789') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test3 = {};
+		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+			test3[letter] = letter;
+		});
+		if (Object.keys(Object.assign({}, test3)).join('') !==
+				'abcdefghijklmnopqrst') {
+			return false;
+		}
+
+		return true;
+	} catch (err) {
+		// We don't expect any of the above to throw, but better to be safe.
+		return false;
+	}
+}
+
+var objectAssign = shouldUseNative() ? Object.assign : function (target, source) {
+	var from;
+	var to = toObject(target);
+	var symbols;
+
+	for (var s = 1; s < arguments.length; s++) {
+		from = Object(arguments[s]);
+
+		for (var key in from) {
+			if (hasOwnProperty.call(from, key)) {
+				to[key] = from[key];
+			}
+		}
+
+		if (getOwnPropertySymbols) {
+			symbols = getOwnPropertySymbols(from);
+			for (var i = 0; i < symbols.length; i++) {
+				if (propIsEnumerable.call(from, symbols[i])) {
+					to[symbols[i]] = from[symbols[i]];
+				}
+			}
+		}
+	}
+
+	return to;
+};
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+
+var ReactPropTypesSecret_1 = ReactPropTypesSecret;
+
+var printWarning = function() {};
+
+if (process.env.NODE_ENV !== 'production') {
+  var ReactPropTypesSecret$1 = ReactPropTypesSecret_1;
+  var loggedTypeFailures = {};
+  var has = Function.call.bind(Object.prototype.hasOwnProperty);
+
+  printWarning = function(text) {
+    var message = 'Warning: ' + text;
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
+}
+
+/**
+ * Assert that the values match with the type specs.
+ * Error messages are memorized and will only be shown once.
+ *
+ * @param {object} typeSpecs Map of name to a ReactPropType
+ * @param {object} values Runtime values that need to be type-checked
+ * @param {string} location e.g. "prop", "context", "child context"
+ * @param {string} componentName Name of the component for error messages.
+ * @param {?Function} getStack Returns the component stack.
+ * @private
+ */
+function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
+  if (process.env.NODE_ENV !== 'production') {
+    for (var typeSpecName in typeSpecs) {
+      if (has(typeSpecs, typeSpecName)) {
+        var error;
+        // Prop type validation may throw. In case they do, we don't want to
+        // fail the render phase where it didn't fail before. So we log it.
+        // After these have been cleaned up, we'll let them throw.
+        try {
+          // This is intentionally an invariant that gets caught. It's the same
+          // behavior as without this statement except with a better message.
+          if (typeof typeSpecs[typeSpecName] !== 'function') {
+            var err = Error(
+              (componentName || 'React class') + ': ' + location + ' type `' + typeSpecName + '` is invalid; ' +
+              'it must be a function, usually from the `prop-types` package, but received `' + typeof typeSpecs[typeSpecName] + '`.'
+            );
+            err.name = 'Invariant Violation';
+            throw err;
+          }
+          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret$1);
+        } catch (ex) {
+          error = ex;
+        }
+        if (error && !(error instanceof Error)) {
+          printWarning(
+            (componentName || 'React class') + ': type specification of ' +
+            location + ' `' + typeSpecName + '` is invalid; the type checker ' +
+            'function must return `null` or an `Error` but returned a ' + typeof error + '. ' +
+            'You may have forgotten to pass an argument to the type checker ' +
+            'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' +
+            'shape all require an argument).'
+          );
+        }
+        if (error instanceof Error && !(error.message in loggedTypeFailures)) {
+          // Only monitor this failure once because there tends to be a lot of the
+          // same error.
+          loggedTypeFailures[error.message] = true;
+
+          var stack = getStack ? getStack() : '';
+
+          printWarning(
+            'Failed ' + location + ' type: ' + error.message + (stack != null ? stack : '')
+          );
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Resets warning cache when testing.
+ *
+ * @private
+ */
+checkPropTypes.resetWarningCache = function() {
+  if (process.env.NODE_ENV !== 'production') {
+    loggedTypeFailures = {};
+  }
+};
+
+var checkPropTypes_1 = checkPropTypes;
+
+var has$1 = Function.call.bind(Object.prototype.hasOwnProperty);
+var printWarning$1 = function() {};
+
+if (process.env.NODE_ENV !== 'production') {
+  printWarning$1 = function(text) {
+    var message = 'Warning: ' + text;
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
+}
+
+function emptyFunctionThatReturnsNull() {
+  return null;
+}
+
+var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
+  /* global Symbol */
+  var ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
+  var FAUX_ITERATOR_SYMBOL = '@@iterator'; // Before Symbol spec.
+
+  /**
+   * Returns the iterator method function contained on the iterable object.
+   *
+   * Be sure to invoke the function with the iterable as context:
+   *
+   *     var iteratorFn = getIteratorFn(myIterable);
+   *     if (iteratorFn) {
+   *       var iterator = iteratorFn.call(myIterable);
+   *       ...
+   *     }
+   *
+   * @param {?object} maybeIterable
+   * @return {?function}
+   */
+  function getIteratorFn(maybeIterable) {
+    var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
+    if (typeof iteratorFn === 'function') {
+      return iteratorFn;
+    }
+  }
+
+  /**
+   * Collection of methods that allow declaration and validation of props that are
+   * supplied to React components. Example usage:
+   *
+   *   var Props = require('ReactPropTypes');
+   *   var MyArticle = React.createClass({
+   *     propTypes: {
+   *       // An optional string prop named "description".
+   *       description: Props.string,
+   *
+   *       // A required enum prop named "category".
+   *       category: Props.oneOf(['News','Photos']).isRequired,
+   *
+   *       // A prop named "dialog" that requires an instance of Dialog.
+   *       dialog: Props.instanceOf(Dialog).isRequired
+   *     },
+   *     render: function() { ... }
+   *   });
+   *
+   * A more formal specification of how these methods are used:
+   *
+   *   type := array|bool|func|object|number|string|oneOf([...])|instanceOf(...)
+   *   decl := ReactPropTypes.{type}(.isRequired)?
+   *
+   * Each and every declaration produces a function with the same signature. This
+   * allows the creation of custom validation functions. For example:
+   *
+   *  var MyLink = React.createClass({
+   *    propTypes: {
+   *      // An optional string or URI prop named "href".
+   *      href: function(props, propName, componentName) {
+   *        var propValue = props[propName];
+   *        if (propValue != null && typeof propValue !== 'string' &&
+   *            !(propValue instanceof URI)) {
+   *          return new Error(
+   *            'Expected a string or an URI for ' + propName + ' in ' +
+   *            componentName
+   *          );
+   *        }
+   *      }
+   *    },
+   *    render: function() {...}
+   *  });
+   *
+   * @internal
+   */
+
+  var ANONYMOUS = '<<anonymous>>';
+
+  // Important!
+  // Keep this list in sync with production version in `./factoryWithThrowingShims.js`.
+  var ReactPropTypes = {
+    array: createPrimitiveTypeChecker('array'),
+    bool: createPrimitiveTypeChecker('boolean'),
+    func: createPrimitiveTypeChecker('function'),
+    number: createPrimitiveTypeChecker('number'),
+    object: createPrimitiveTypeChecker('object'),
+    string: createPrimitiveTypeChecker('string'),
+    symbol: createPrimitiveTypeChecker('symbol'),
+
+    any: createAnyTypeChecker(),
+    arrayOf: createArrayOfTypeChecker,
+    element: createElementTypeChecker(),
+    elementType: createElementTypeTypeChecker(),
+    instanceOf: createInstanceTypeChecker,
+    node: createNodeChecker(),
+    objectOf: createObjectOfTypeChecker,
+    oneOf: createEnumTypeChecker,
+    oneOfType: createUnionTypeChecker,
+    shape: createShapeTypeChecker,
+    exact: createStrictShapeTypeChecker,
+  };
+
+  /**
+   * inlined Object.is polyfill to avoid requiring consumers ship their own
+   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+   */
+  /*eslint-disable no-self-compare*/
+  function is(x, y) {
+    // SameValue algorithm
+    if (x === y) {
+      // Steps 1-5, 7-10
+      // Steps 6.b-6.e: +0 != -0
+      return x !== 0 || 1 / x === 1 / y;
+    } else {
+      // Step 6.a: NaN == NaN
+      return x !== x && y !== y;
+    }
+  }
+  /*eslint-enable no-self-compare*/
+
+  /**
+   * We use an Error-like object for backward compatibility as people may call
+   * PropTypes directly and inspect their output. However, we don't use real
+   * Errors anymore. We don't inspect their stack anyway, and creating them
+   * is prohibitively expensive if they are created too often, such as what
+   * happens in oneOfType() for any type before the one that matched.
+   */
+  function PropTypeError(message) {
+    this.message = message;
+    this.stack = '';
+  }
+  // Make `instanceof Error` still work for returned errors.
+  PropTypeError.prototype = Error.prototype;
+
+  function createChainableTypeChecker(validate) {
+    if (process.env.NODE_ENV !== 'production') {
+      var manualPropTypeCallCache = {};
+      var manualPropTypeWarningCount = 0;
+    }
+    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
+      componentName = componentName || ANONYMOUS;
+      propFullName = propFullName || propName;
+
+      if (secret !== ReactPropTypesSecret_1) {
+        if (throwOnDirectAccess) {
+          // New behavior only for users of `prop-types` package
+          var err = new Error(
+            'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+            'Use `PropTypes.checkPropTypes()` to call them. ' +
+            'Read more at http://fb.me/use-check-prop-types'
+          );
+          err.name = 'Invariant Violation';
+          throw err;
+        } else if (process.env.NODE_ENV !== 'production' && typeof console !== 'undefined') {
+          // Old behavior for people using React.PropTypes
+          var cacheKey = componentName + ':' + propName;
+          if (
+            !manualPropTypeCallCache[cacheKey] &&
+            // Avoid spamming the console because they are often not actionable except for lib authors
+            manualPropTypeWarningCount < 3
+          ) {
+            printWarning$1(
+              'You are manually calling a React.PropTypes validation ' +
+              'function for the `' + propFullName + '` prop on `' + componentName  + '`. This is deprecated ' +
+              'and will throw in the standalone `prop-types` package. ' +
+              'You may be seeing this warning due to a third-party PropTypes ' +
+              'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.'
+            );
+            manualPropTypeCallCache[cacheKey] = true;
+            manualPropTypeWarningCount++;
+          }
+        }
+      }
+      if (props[propName] == null) {
+        if (isRequired) {
+          if (props[propName] === null) {
+            return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required ' + ('in `' + componentName + '`, but its value is `null`.'));
+          }
+          return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required in ' + ('`' + componentName + '`, but its value is `undefined`.'));
+        }
+        return null;
+      } else {
+        return validate(props, propName, componentName, location, propFullName);
+      }
+    }
+
+    var chainedCheckType = checkType.bind(null, false);
+    chainedCheckType.isRequired = checkType.bind(null, true);
+
+    return chainedCheckType;
+  }
+
+  function createPrimitiveTypeChecker(expectedType) {
+    function validate(props, propName, componentName, location, propFullName, secret) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== expectedType) {
+        // `propValue` being instance of, say, date/regexp, pass the 'object'
+        // check, but we can offer a more precise error message here rather than
+        // 'of type `object`'.
+        var preciseType = getPreciseType(propValue);
+
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createAnyTypeChecker() {
+    return createChainableTypeChecker(emptyFunctionThatReturnsNull);
+  }
+
+  function createArrayOfTypeChecker(typeChecker) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (typeof typeChecker !== 'function') {
+        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside arrayOf.');
+      }
+      var propValue = props[propName];
+      if (!Array.isArray(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
+      }
+      for (var i = 0; i < propValue.length; i++) {
+        var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']', ReactPropTypesSecret_1);
+        if (error instanceof Error) {
+          return error;
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createElementTypeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      if (!isValidElement(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createElementTypeTypeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      if (!reactIs.isValidElementType(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement type.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createInstanceTypeChecker(expectedClass) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (!(props[propName] instanceof expectedClass)) {
+        var expectedClassName = expectedClass.name || ANONYMOUS;
+        var actualClassName = getClassName(props[propName]);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + actualClassName + '` supplied to `' + componentName + '`, expected ') + ('instance of `' + expectedClassName + '`.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createEnumTypeChecker(expectedValues) {
+    if (!Array.isArray(expectedValues)) {
+      if (process.env.NODE_ENV !== 'production') {
+        if (arguments.length > 1) {
+          printWarning$1(
+            'Invalid arguments supplied to oneOf, expected an array, got ' + arguments.length + ' arguments. ' +
+            'A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z]).'
+          );
+        } else {
+          printWarning$1('Invalid argument supplied to oneOf, expected an array.');
+        }
+      }
+      return emptyFunctionThatReturnsNull;
+    }
+
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      for (var i = 0; i < expectedValues.length; i++) {
+        if (is(propValue, expectedValues[i])) {
+          return null;
+        }
+      }
+
+      var valuesString = JSON.stringify(expectedValues, function replacer(key, value) {
+        var type = getPreciseType(value);
+        if (type === 'symbol') {
+          return String(value);
+        }
+        return value;
+      });
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + String(propValue) + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createObjectOfTypeChecker(typeChecker) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (typeof typeChecker !== 'function') {
+        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside objectOf.');
+      }
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
+      }
+      for (var key in propValue) {
+        if (has$1(propValue, key)) {
+          var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret_1);
+          if (error instanceof Error) {
+            return error;
+          }
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createUnionTypeChecker(arrayOfTypeCheckers) {
+    if (!Array.isArray(arrayOfTypeCheckers)) {
+      process.env.NODE_ENV !== 'production' ? printWarning$1('Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
+      return emptyFunctionThatReturnsNull;
+    }
+
+    for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+      var checker = arrayOfTypeCheckers[i];
+      if (typeof checker !== 'function') {
+        printWarning$1(
+          'Invalid argument supplied to oneOfType. Expected an array of check functions, but ' +
+          'received ' + getPostfixForTypeWarning(checker) + ' at index ' + i + '.'
+        );
+        return emptyFunctionThatReturnsNull;
+      }
+    }
+
+    function validate(props, propName, componentName, location, propFullName) {
+      for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+        var checker = arrayOfTypeCheckers[i];
+        if (checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret_1) == null) {
+          return null;
+        }
+      }
+
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`.'));
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createNodeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (!isNode(props[propName])) {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`, expected a ReactNode.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createShapeTypeChecker(shapeTypes) {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+      }
+      for (var key in shapeTypes) {
+        var checker = shapeTypes[key];
+        if (!checker) {
+          continue;
+        }
+        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret_1);
+        if (error) {
+          return error;
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createStrictShapeTypeChecker(shapeTypes) {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+      }
+      // We need to check all keys in case some are required but missing from
+      // props.
+      var allKeys = objectAssign({}, props[propName], shapeTypes);
+      for (var key in allKeys) {
+        var checker = shapeTypes[key];
+        if (!checker) {
+          return new PropTypeError(
+            'Invalid ' + location + ' `' + propFullName + '` key `' + key + '` supplied to `' + componentName + '`.' +
+            '\nBad object: ' + JSON.stringify(props[propName], null, '  ') +
+            '\nValid keys: ' +  JSON.stringify(Object.keys(shapeTypes), null, '  ')
+          );
+        }
+        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret_1);
+        if (error) {
+          return error;
+        }
+      }
+      return null;
+    }
+
+    return createChainableTypeChecker(validate);
+  }
+
+  function isNode(propValue) {
+    switch (typeof propValue) {
+      case 'number':
+      case 'string':
+      case 'undefined':
+        return true;
+      case 'boolean':
+        return !propValue;
+      case 'object':
+        if (Array.isArray(propValue)) {
+          return propValue.every(isNode);
+        }
+        if (propValue === null || isValidElement(propValue)) {
+          return true;
+        }
+
+        var iteratorFn = getIteratorFn(propValue);
+        if (iteratorFn) {
+          var iterator = iteratorFn.call(propValue);
+          var step;
+          if (iteratorFn !== propValue.entries) {
+            while (!(step = iterator.next()).done) {
+              if (!isNode(step.value)) {
+                return false;
+              }
+            }
+          } else {
+            // Iterator will provide entry [k,v] tuples rather than values.
+            while (!(step = iterator.next()).done) {
+              var entry = step.value;
+              if (entry) {
+                if (!isNode(entry[1])) {
+                  return false;
+                }
+              }
+            }
+          }
+        } else {
+          return false;
+        }
+
+        return true;
+      default:
+        return false;
+    }
+  }
+
+  function isSymbol(propType, propValue) {
+    // Native Symbol.
+    if (propType === 'symbol') {
+      return true;
+    }
+
+    // falsy value can't be a Symbol
+    if (!propValue) {
+      return false;
+    }
+
+    // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
+    if (propValue['@@toStringTag'] === 'Symbol') {
+      return true;
+    }
+
+    // Fallback for non-spec compliant Symbols which are polyfilled.
+    if (typeof Symbol === 'function' && propValue instanceof Symbol) {
+      return true;
+    }
+
+    return false;
+  }
+
+  // Equivalent of `typeof` but with special handling for array and regexp.
+  function getPropType(propValue) {
+    var propType = typeof propValue;
+    if (Array.isArray(propValue)) {
+      return 'array';
+    }
+    if (propValue instanceof RegExp) {
+      // Old webkits (at least until Android 4.0) return 'function' rather than
+      // 'object' for typeof a RegExp. We'll normalize this here so that /bla/
+      // passes PropTypes.object.
+      return 'object';
+    }
+    if (isSymbol(propType, propValue)) {
+      return 'symbol';
+    }
+    return propType;
+  }
+
+  // This handles more types than `getPropType`. Only used for error messages.
+  // See `createPrimitiveTypeChecker`.
+  function getPreciseType(propValue) {
+    if (typeof propValue === 'undefined' || propValue === null) {
+      return '' + propValue;
+    }
+    var propType = getPropType(propValue);
+    if (propType === 'object') {
+      if (propValue instanceof Date) {
+        return 'date';
+      } else if (propValue instanceof RegExp) {
+        return 'regexp';
+      }
+    }
+    return propType;
+  }
+
+  // Returns a string that is postfixed to a warning about an invalid type.
+  // For example, "undefined" or "of type array"
+  function getPostfixForTypeWarning(value) {
+    var type = getPreciseType(value);
+    switch (type) {
+      case 'array':
+      case 'object':
+        return 'an ' + type;
+      case 'boolean':
+      case 'date':
+      case 'regexp':
+        return 'a ' + type;
+      default:
+        return type;
+    }
+  }
+
+  // Returns class name of the object, if any.
+  function getClassName(propValue) {
+    if (!propValue.constructor || !propValue.constructor.name) {
+      return ANONYMOUS;
+    }
+    return propValue.constructor.name;
+  }
+
+  ReactPropTypes.checkPropTypes = checkPropTypes_1;
+  ReactPropTypes.resetWarningCache = checkPropTypes_1.resetWarningCache;
+  ReactPropTypes.PropTypes = ReactPropTypes;
+
+  return ReactPropTypes;
+};
+
+function emptyFunction() {}
+function emptyFunctionWithReset() {}
+emptyFunctionWithReset.resetWarningCache = emptyFunction;
+
+var factoryWithThrowingShims = function() {
+  function shim(props, propName, componentName, location, propFullName, secret) {
+    if (secret === ReactPropTypesSecret_1) {
+      // It is still safe when called from React.
+      return;
+    }
+    var err = new Error(
+      'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+      'Use PropTypes.checkPropTypes() to call them. ' +
+      'Read more at http://fb.me/use-check-prop-types'
+    );
+    err.name = 'Invariant Violation';
+    throw err;
+  }  shim.isRequired = shim;
+  function getShim() {
+    return shim;
+  }  // Important!
+  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
+  var ReactPropTypes = {
+    array: shim,
+    bool: shim,
+    func: shim,
+    number: shim,
+    object: shim,
+    string: shim,
+    symbol: shim,
+
+    any: shim,
+    arrayOf: getShim,
+    element: shim,
+    elementType: shim,
+    instanceOf: getShim,
+    node: shim,
+    objectOf: getShim,
+    oneOf: getShim,
+    oneOfType: getShim,
+    shape: getShim,
+    exact: getShim,
+
+    checkPropTypes: emptyFunctionWithReset,
+    resetWarningCache: emptyFunction
+  };
+
+  ReactPropTypes.PropTypes = ReactPropTypes;
+
+  return ReactPropTypes;
+};
+
+var propTypes = createCommonjsModule(function (module) {
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+if (process.env.NODE_ENV !== 'production') {
+  var ReactIs = reactIs;
+
+  // By explicitly using `prop-types` you are opting into new development behavior.
+  // http://fb.me/prop-types-in-prod
+  var throwOnDirectAccess = true;
+  module.exports = factoryWithTypeCheckers(ReactIs.isElement, throwOnDirectAccess);
+} else {
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  module.exports = factoryWithThrowingShims();
+}
+});
+
+var classnames = createCommonjsModule(function (module) {
+/*!
+  Copyright (c) 2017 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames () {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg) && arg.length) {
+				var inner = classNames.apply(null, arg);
+				if (inner) {
+					classes.push(inner);
+				}
+			} else if (argType === 'object') {
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if ( module.exports) {
+		classNames.default = classNames;
+		module.exports = classNames;
+	} else {
+		window.classNames = classNames;
+	}
+}());
+});
+
+var shims = createCommonjsModule(function (module, exports) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.findInArray = findInArray;
+exports.isFunction = isFunction;
+exports.isNum = isNum;
+exports.int = int;
+exports.dontSetMe = dontSetMe;
+
+// @credits https://gist.github.com/rogozhnikoff/a43cfed27c41e4e68cdc
+function findInArray(array
+/*: Array<any> | TouchList*/
+, callback
+/*: Function*/
+)
+/*: any*/
+{
+  for (let i = 0, length = array.length; i < length; i++) {
+    if (callback.apply(callback, [array[i], i, array])) return array[i];
+  }
+}
+
+function isFunction(func
+/*: any*/
+)
+/*: boolean*/
+{
+  return typeof func === 'function' || Object.prototype.toString.call(func) === '[object Function]';
+}
+
+function isNum(num
+/*: any*/
+)
+/*: boolean*/
+{
+  return typeof num === 'number' && !isNaN(num);
+}
+
+function int(a
+/*: string*/
+)
+/*: number*/
+{
+  return parseInt(a, 10);
+}
+
+function dontSetMe(props
+/*: Object*/
+, propName
+/*: string*/
+, componentName
+/*: string*/
+) {
+  if (props[propName]) {
+    return new Error(`Invalid prop ${propName} passed to ${componentName} - do not set this, set it on the child.`);
+  }
+}
+});
+
+unwrapExports(shims);
+var shims_1 = shims.findInArray;
+var shims_2 = shims.isFunction;
+var shims_3 = shims.isNum;
+var shims_4 = shims.dontSetMe;
+
+var getPrefix_1 = createCommonjsModule(function (module, exports) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getPrefix = getPrefix;
+exports.browserPrefixToKey = browserPrefixToKey;
+exports.browserPrefixToStyle = browserPrefixToStyle;
+exports.default = void 0;
+const prefixes = ['Moz', 'Webkit', 'O', 'ms'];
+
+function getPrefix(prop
+/*: string*/
+= 'transform')
+/*: string*/
+{
+  // Checking specifically for 'window.document' is for pseudo-browser server-side
+  // environments that define 'window' as the global context.
+  // E.g. React-rails (see https://github.com/reactjs/react-rails/pull/84)
+  if (typeof window === 'undefined' || typeof window.document === 'undefined') return '';
+  const style = window.document.documentElement.style;
+  if (prop in style) return '';
+
+  for (let i = 0; i < prefixes.length; i++) {
+    if (browserPrefixToKey(prop, prefixes[i]) in style) return prefixes[i];
+  }
+
+  return '';
+}
+
+function browserPrefixToKey(prop
+/*: string*/
+, prefix
+/*: string*/
+)
+/*: string*/
+{
+  return prefix ? `${prefix}${kebabToTitleCase(prop)}` : prop;
+}
+
+function browserPrefixToStyle(prop
+/*: string*/
+, prefix
+/*: string*/
+)
+/*: string*/
+{
+  return prefix ? `-${prefix.toLowerCase()}-${prop}` : prop;
+}
+
+function kebabToTitleCase(str
+/*: string*/
+)
+/*: string*/
+{
+  let out = '';
+  let shouldCapitalize = true;
+
+  for (let i = 0; i < str.length; i++) {
+    if (shouldCapitalize) {
+      out += str[i].toUpperCase();
+      shouldCapitalize = false;
+    } else if (str[i] === '-') {
+      shouldCapitalize = true;
+    } else {
+      out += str[i];
+    }
+  }
+
+  return out;
+} // Default export is the prefix itself, like 'Moz', 'Webkit', etc
+// Note that you may have to re-test for certain things; for instance, Chrome 50
+// can handle unprefixed `transform`, but not unprefixed `user-select`
+
+
+var _default = getPrefix();
+
+exports.default = _default;
+});
+
+unwrapExports(getPrefix_1);
+var getPrefix_2 = getPrefix_1.getPrefix;
+var getPrefix_3 = getPrefix_1.browserPrefixToKey;
+var getPrefix_4 = getPrefix_1.browserPrefixToStyle;
+
+var domFns = createCommonjsModule(function (module, exports) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.matchesSelector = matchesSelector;
+exports.matchesSelectorAndParentsTo = matchesSelectorAndParentsTo;
+exports.addEvent = addEvent;
+exports.removeEvent = removeEvent;
+exports.outerHeight = outerHeight;
+exports.outerWidth = outerWidth;
+exports.innerHeight = innerHeight;
+exports.innerWidth = innerWidth;
+exports.offsetXYFromParent = offsetXYFromParent;
+exports.createCSSTransform = createCSSTransform;
+exports.createSVGTransform = createSVGTransform;
+exports.getTranslation = getTranslation;
+exports.getTouch = getTouch;
+exports.getTouchIdentifier = getTouchIdentifier;
+exports.addUserSelectStyles = addUserSelectStyles;
+exports.removeUserSelectStyles = removeUserSelectStyles;
+exports.styleHacks = styleHacks;
+exports.addClassName = addClassName;
+exports.removeClassName = removeClassName;
+
+
+
+var _getPrefix = _interopRequireWildcard(getPrefix_1);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+let matchesSelectorFunc = '';
+
+function matchesSelector(el
+/*: Node*/
+, selector
+/*: string*/
+)
+/*: boolean*/
+{
+  if (!matchesSelectorFunc) {
+    matchesSelectorFunc = (0, shims.findInArray)(['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector', 'oMatchesSelector'], function (method) {
+      // $FlowIgnore: Doesn't think elements are indexable
+      return (0, shims.isFunction)(el[method]);
+    });
+  } // Might not be found entirely (not an Element?) - in that case, bail
+  // $FlowIgnore: Doesn't think elements are indexable
+
+
+  if (!(0, shims.isFunction)(el[matchesSelectorFunc])) return false; // $FlowIgnore: Doesn't think elements are indexable
+
+  return el[matchesSelectorFunc](selector);
+} // Works up the tree to the draggable itself attempting to match selector.
+
+
+function matchesSelectorAndParentsTo(el
+/*: Node*/
+, selector
+/*: string*/
+, baseNode
+/*: Node*/
+)
+/*: boolean*/
+{
+  let node = el;
+
+  do {
+    if (matchesSelector(node, selector)) return true;
+    if (node === baseNode) return false;
+    node = node.parentNode;
+  } while (node);
+
+  return false;
+}
+
+function addEvent(el
+/*: ?Node*/
+, event
+/*: string*/
+, handler
+/*: Function*/
+)
+/*: void*/
+{
+  if (!el) {
+    return;
+  }
+
+  if (el.attachEvent) {
+    el.attachEvent('on' + event, handler);
+  } else if (el.addEventListener) {
+    el.addEventListener(event, handler, true);
+  } else {
+    // $FlowIgnore: Doesn't think elements are indexable
+    el['on' + event] = handler;
+  }
+}
+
+function removeEvent(el
+/*: ?Node*/
+, event
+/*: string*/
+, handler
+/*: Function*/
+)
+/*: void*/
+{
+  if (!el) {
+    return;
+  }
+
+  if (el.detachEvent) {
+    el.detachEvent('on' + event, handler);
+  } else if (el.removeEventListener) {
+    el.removeEventListener(event, handler, true);
+  } else {
+    // $FlowIgnore: Doesn't think elements are indexable
+    el['on' + event] = null;
+  }
+}
+
+function outerHeight(node
+/*: HTMLElement*/
+)
+/*: number*/
+{
+  // This is deliberately excluding margin for our calculations, since we are using
+  // offsetTop which is including margin. See getBoundPosition
+  let height = node.clientHeight;
+  const computedStyle = node.ownerDocument.defaultView.getComputedStyle(node);
+  height += (0, shims.int)(computedStyle.borderTopWidth);
+  height += (0, shims.int)(computedStyle.borderBottomWidth);
+  return height;
+}
+
+function outerWidth(node
+/*: HTMLElement*/
+)
+/*: number*/
+{
+  // This is deliberately excluding margin for our calculations, since we are using
+  // offsetLeft which is including margin. See getBoundPosition
+  let width = node.clientWidth;
+  const computedStyle = node.ownerDocument.defaultView.getComputedStyle(node);
+  width += (0, shims.int)(computedStyle.borderLeftWidth);
+  width += (0, shims.int)(computedStyle.borderRightWidth);
+  return width;
+}
+
+function innerHeight(node
+/*: HTMLElement*/
+)
+/*: number*/
+{
+  let height = node.clientHeight;
+  const computedStyle = node.ownerDocument.defaultView.getComputedStyle(node);
+  height -= (0, shims.int)(computedStyle.paddingTop);
+  height -= (0, shims.int)(computedStyle.paddingBottom);
+  return height;
+}
+
+function innerWidth(node
+/*: HTMLElement*/
+)
+/*: number*/
+{
+  let width = node.clientWidth;
+  const computedStyle = node.ownerDocument.defaultView.getComputedStyle(node);
+  width -= (0, shims.int)(computedStyle.paddingLeft);
+  width -= (0, shims.int)(computedStyle.paddingRight);
+  return width;
+} // Get from offsetParent
+
+
+function offsetXYFromParent(evt
+/*: {clientX: number, clientY: number}*/
+, offsetParent
+/*: HTMLElement*/
+)
+/*: ControlPosition*/
+{
+  const isBody = offsetParent === offsetParent.ownerDocument.body;
+  const offsetParentRect = isBody ? {
+    left: 0,
+    top: 0
+  } : offsetParent.getBoundingClientRect();
+  const x = evt.clientX + offsetParent.scrollLeft - offsetParentRect.left;
+  const y = evt.clientY + offsetParent.scrollTop - offsetParentRect.top;
+  return {
+    x,
+    y
+  };
+}
+
+function createCSSTransform(controlPos
+/*: ControlPosition*/
+, positionOffset
+/*: PositionOffsetControlPosition*/
+)
+/*: Object*/
+{
+  const translation = getTranslation(controlPos, positionOffset, 'px');
+  return {
+    [(0, _getPrefix.browserPrefixToKey)('transform', _getPrefix.default)]: translation
+  };
+}
+
+function createSVGTransform(controlPos
+/*: ControlPosition*/
+, positionOffset
+/*: PositionOffsetControlPosition*/
+)
+/*: string*/
+{
+  const translation = getTranslation(controlPos, positionOffset, '');
+  return translation;
+}
+
+function getTranslation({
+  x,
+  y
+}
+/*: ControlPosition*/
+, positionOffset
+/*: PositionOffsetControlPosition*/
+, unitSuffix
+/*: string*/
+)
+/*: string*/
+{
+  let translation = `translate(${x}${unitSuffix},${y}${unitSuffix})`;
+
+  if (positionOffset) {
+    const defaultX = `${typeof positionOffset.x === 'string' ? positionOffset.x : positionOffset.x + unitSuffix}`;
+    const defaultY = `${typeof positionOffset.y === 'string' ? positionOffset.y : positionOffset.y + unitSuffix}`;
+    translation = `translate(${defaultX}, ${defaultY})` + translation;
+  }
+
+  return translation;
+}
+
+function getTouch(e
+/*: MouseTouchEvent*/
+, identifier
+/*: number*/
+)
+/*: ?{clientX: number, clientY: number}*/
+{
+  return e.targetTouches && (0, shims.findInArray)(e.targetTouches, t => identifier === t.identifier) || e.changedTouches && (0, shims.findInArray)(e.changedTouches, t => identifier === t.identifier);
+}
+
+function getTouchIdentifier(e
+/*: MouseTouchEvent*/
+)
+/*: ?number*/
+{
+  if (e.targetTouches && e.targetTouches[0]) return e.targetTouches[0].identifier;
+  if (e.changedTouches && e.changedTouches[0]) return e.changedTouches[0].identifier;
+} // User-select Hacks:
+//
+// Useful for preventing blue highlights all over everything when dragging.
+// Note we're passing `document` b/c we could be iframed
+
+
+function addUserSelectStyles(doc
+/*: ?Document*/
+) {
+  if (!doc) return;
+  let styleEl = doc.getElementById('react-draggable-style-el');
+
+  if (!styleEl) {
+    styleEl = doc.createElement('style');
+    styleEl.type = 'text/css';
+    styleEl.id = 'react-draggable-style-el';
+    styleEl.innerHTML = '.react-draggable-transparent-selection *::-moz-selection {all: inherit;}\n';
+    styleEl.innerHTML += '.react-draggable-transparent-selection *::selection {all: inherit;}\n';
+    doc.getElementsByTagName('head')[0].appendChild(styleEl);
+  }
+
+  if (doc.body) addClassName(doc.body, 'react-draggable-transparent-selection');
+}
+
+function removeUserSelectStyles(doc
+/*: ?Document*/
+) {
+  try {
+    if (doc && doc.body) removeClassName(doc.body, 'react-draggable-transparent-selection'); // $FlowIgnore: IE
+
+    if (doc.selection) {
+      // $FlowIgnore: IE
+      doc.selection.empty();
+    } else {
+      window.getSelection().removeAllRanges(); // remove selection caused by scroll
+    }
+  } catch (e) {// probably IE
+  }
+}
+
+function styleHacks(childStyle
+/*: Object*/
+= {})
+/*: Object*/
+{
+  // Workaround IE pointer events; see #51
+  // https://github.com/mzabriskie/react-draggable/issues/51#issuecomment-103488278
+  return {
+    touchAction: 'none',
+    ...childStyle
+  };
+}
+
+function addClassName(el
+/*: HTMLElement*/
+, className
+/*: string*/
+) {
+  if (el.classList) {
+    el.classList.add(className);
+  } else {
+    if (!el.className.match(new RegExp(`(?:^|\\s)${className}(?!\\S)`))) {
+      el.className += ` ${className}`;
+    }
+  }
+}
+
+function removeClassName(el
+/*: HTMLElement*/
+, className
+/*: string*/
+) {
+  if (el.classList) {
+    el.classList.remove(className);
+  } else {
+    el.className = el.className.replace(new RegExp(`(?:^|\\s)${className}(?!\\S)`, 'g'), '');
+  }
+}
+});
+
+unwrapExports(domFns);
+var domFns_1 = domFns.matchesSelector;
+var domFns_2 = domFns.matchesSelectorAndParentsTo;
+var domFns_3 = domFns.addEvent;
+var domFns_4 = domFns.removeEvent;
+var domFns_5 = domFns.outerHeight;
+var domFns_6 = domFns.outerWidth;
+var domFns_7 = domFns.innerHeight;
+var domFns_8 = domFns.innerWidth;
+var domFns_9 = domFns.offsetXYFromParent;
+var domFns_10 = domFns.createCSSTransform;
+var domFns_11 = domFns.createSVGTransform;
+var domFns_12 = domFns.getTranslation;
+var domFns_13 = domFns.getTouch;
+var domFns_14 = domFns.getTouchIdentifier;
+var domFns_15 = domFns.addUserSelectStyles;
+var domFns_16 = domFns.removeUserSelectStyles;
+var domFns_17 = domFns.styleHacks;
+var domFns_18 = domFns.addClassName;
+var domFns_19 = domFns.removeClassName;
+
+var positionFns = createCommonjsModule(function (module, exports) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getBoundPosition = getBoundPosition;
+exports.snapToGrid = snapToGrid;
+exports.canDragX = canDragX;
+exports.canDragY = canDragY;
+exports.getControlPosition = getControlPosition;
+exports.createCoreData = createCoreData;
+exports.createDraggableData = createDraggableData;
+
+
+
+var _reactDom = _interopRequireDefault(reactDom);
+
+
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function getBoundPosition(draggable
+/*: Draggable*/
+, x
+/*: number*/
+, y
+/*: number*/
+)
+/*: [number, number]*/
+{
+  // If no bounds, short-circuit and move on
+  if (!draggable.props.bounds) return [x, y]; // Clone new bounds
+
+  let {
+    bounds
+  } = draggable.props;
+  bounds = typeof bounds === 'string' ? bounds : cloneBounds(bounds);
+  const node = findDOMNode(draggable);
+
+  if (typeof bounds === 'string') {
+    const {
+      ownerDocument
+    } = node;
+    const ownerWindow = ownerDocument.defaultView;
+    let boundNode;
+
+    if (bounds === 'parent') {
+      boundNode = node.parentNode;
+    } else {
+      boundNode = ownerDocument.querySelector(bounds);
+    }
+
+    if (!(boundNode instanceof ownerWindow.HTMLElement)) {
+      throw new Error('Bounds selector "' + bounds + '" could not find an element.');
+    }
+
+    const nodeStyle = ownerWindow.getComputedStyle(node);
+    const boundNodeStyle = ownerWindow.getComputedStyle(boundNode); // Compute bounds. This is a pain with padding and offsets but this gets it exactly right.
+
+    bounds = {
+      left: -node.offsetLeft + (0, shims.int)(boundNodeStyle.paddingLeft) + (0, shims.int)(nodeStyle.marginLeft),
+      top: -node.offsetTop + (0, shims.int)(boundNodeStyle.paddingTop) + (0, shims.int)(nodeStyle.marginTop),
+      right: (0, domFns.innerWidth)(boundNode) - (0, domFns.outerWidth)(node) - node.offsetLeft + (0, shims.int)(boundNodeStyle.paddingRight) - (0, shims.int)(nodeStyle.marginRight),
+      bottom: (0, domFns.innerHeight)(boundNode) - (0, domFns.outerHeight)(node) - node.offsetTop + (0, shims.int)(boundNodeStyle.paddingBottom) - (0, shims.int)(nodeStyle.marginBottom)
+    };
+  } // Keep x and y below right and bottom limits...
+
+
+  if ((0, shims.isNum)(bounds.right)) x = Math.min(x, bounds.right);
+  if ((0, shims.isNum)(bounds.bottom)) y = Math.min(y, bounds.bottom); // But above left and top limits.
+
+  if ((0, shims.isNum)(bounds.left)) x = Math.max(x, bounds.left);
+  if ((0, shims.isNum)(bounds.top)) y = Math.max(y, bounds.top);
+  return [x, y];
+}
+
+function snapToGrid(grid
+/*: [number, number]*/
+, pendingX
+/*: number*/
+, pendingY
+/*: number*/
+)
+/*: [number, number]*/
+{
+  const x = Math.round(pendingX / grid[0]) * grid[0];
+  const y = Math.round(pendingY / grid[1]) * grid[1];
+  return [x, y];
+}
+
+function canDragX(draggable
+/*: Draggable*/
+)
+/*: boolean*/
+{
+  return draggable.props.axis === 'both' || draggable.props.axis === 'x';
+}
+
+function canDragY(draggable
+/*: Draggable*/
+)
+/*: boolean*/
+{
+  return draggable.props.axis === 'both' || draggable.props.axis === 'y';
+} // Get {x, y} positions from event.
+
+
+function getControlPosition(e
+/*: MouseTouchEvent*/
+, touchIdentifier
+/*: ?number*/
+, draggableCore
+/*: DraggableCore*/
+)
+/*: ?ControlPosition*/
+{
+  const touchObj = typeof touchIdentifier === 'number' ? (0, domFns.getTouch)(e, touchIdentifier) : null;
+  if (typeof touchIdentifier === 'number' && !touchObj) return null; // not the right touch
+
+  const node = findDOMNode(draggableCore); // User can provide an offsetParent if desired.
+
+  const offsetParent = draggableCore.props.offsetParent || node.offsetParent || node.ownerDocument.body;
+  return (0, domFns.offsetXYFromParent)(touchObj || e, offsetParent);
+} // Create an data object exposed by <DraggableCore>'s events
+
+
+function createCoreData(draggable
+/*: DraggableCore*/
+, x
+/*: number*/
+, y
+/*: number*/
+)
+/*: DraggableData*/
+{
+  const state = draggable.state;
+  const isStart = !(0, shims.isNum)(state.lastX);
+  const node = findDOMNode(draggable);
+
+  if (isStart) {
+    // If this is our first move, use the x and y as last coords.
+    return {
+      node,
+      deltaX: 0,
+      deltaY: 0,
+      lastX: x,
+      lastY: y,
+      x,
+      y
+    };
+  } else {
+    // Otherwise calculate proper values.
+    return {
+      node,
+      deltaX: x - state.lastX,
+      deltaY: y - state.lastY,
+      lastX: state.lastX,
+      lastY: state.lastY,
+      x,
+      y
+    };
+  }
+} // Create an data exposed by <Draggable>'s events
+
+
+function createDraggableData(draggable
+/*: Draggable*/
+, coreData
+/*: DraggableData*/
+)
+/*: DraggableData*/
+{
+  const scale = draggable.props.scale;
+  return {
+    node: coreData.node,
+    x: draggable.state.x + coreData.deltaX / scale,
+    y: draggable.state.y + coreData.deltaY / scale,
+    deltaX: coreData.deltaX / scale,
+    deltaY: coreData.deltaY / scale,
+    lastX: draggable.state.x,
+    lastY: draggable.state.y
+  };
+} // A lot faster than stringify/parse
+
+
+function cloneBounds(bounds
+/*: Bounds*/
+)
+/*: Bounds*/
+{
+  return {
+    left: bounds.left,
+    top: bounds.top,
+    right: bounds.right,
+    bottom: bounds.bottom
+  };
+}
+
+function findDOMNode(draggable
+/*: Draggable | DraggableCore*/
+)
+/*: HTMLElement*/
+{
+  const node = _reactDom.default.findDOMNode(draggable);
+
+  if (!node) {
+    throw new Error('<DraggableCore>: Unmounted during event!');
+  } // $FlowIgnore we can't assert on HTMLElement due to tests... FIXME
+
+
+  return node;
+}
+});
+
+unwrapExports(positionFns);
+var positionFns_1 = positionFns.getBoundPosition;
+var positionFns_2 = positionFns.snapToGrid;
+var positionFns_3 = positionFns.canDragX;
+var positionFns_4 = positionFns.canDragY;
+var positionFns_5 = positionFns.getControlPosition;
+var positionFns_6 = positionFns.createCoreData;
+var positionFns_7 = positionFns.createDraggableData;
+
+var log_1 = createCommonjsModule(function (module, exports) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = log;
+
+/*eslint no-console:0*/
+function log(...args) {
+  if (process.env.DRAGGABLE_DEBUG) console.log(...args);
+}
+});
+
+unwrapExports(log_1);
+
+var DraggableCore_1 = createCommonjsModule(function (module, exports) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(React);
+
+var _propTypes = _interopRequireDefault(propTypes);
+
+var _reactDom = _interopRequireDefault(reactDom);
+
+
+
+
+
+
+
+var _log = _interopRequireDefault(log_1);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+// Simple abstraction for dragging events names.
+const eventsFor = {
+  touch: {
+    start: 'touchstart',
+    move: 'touchmove',
+    stop: 'touchend'
+  },
+  mouse: {
+    start: 'mousedown',
+    move: 'mousemove',
+    stop: 'mouseup'
+  }
+}; // Default to mouse events.
+
+let dragEventFor = eventsFor.mouse;
+/*:: type DraggableCoreState = {
+  dragging: boolean,
+  lastX: number,
+  lastY: number,
+  touchIdentifier: ?number
+};*/
+
+/*:: export type DraggableBounds = {
+  left: number,
+  right: number,
+  top: number,
+  bottom: number,
+};*/
+
+/*:: export type DraggableData = {
+  node: HTMLElement,
+  x: number, y: number,
+  deltaX: number, deltaY: number,
+  lastX: number, lastY: number,
+};*/
+
+/*:: export type DraggableEventHandler = (e: MouseEvent, data: DraggableData) => void;*/
+
+/*:: export type ControlPosition = {x: number, y: number};*/
+
+/*:: export type PositionOffsetControlPosition = {x: number|string, y: number|string};*/
+
+/*:: export type DraggableCoreProps = {
+  allowAnyClick: boolean,
+  cancel: string,
+  children: ReactElement<any>,
+  disabled: boolean,
+  enableUserSelectHack: boolean,
+  offsetParent: HTMLElement,
+  grid: [number, number],
+  handle: string,
+  onStart: DraggableEventHandler,
+  onDrag: DraggableEventHandler,
+  onStop: DraggableEventHandler,
+  onMouseDown: (e: MouseEvent) => void,
+};*/
+
+//
+// Define <DraggableCore>.
+//
+// <DraggableCore> is for advanced usage of <Draggable>. It maintains minimal internal state so it can
+// work well with libraries that require more control over the element.
+//
+class DraggableCore extends _react.default.Component {
+  constructor(...args) {
+    super(...args);
+
+    _defineProperty(this, "state", {
+      dragging: false,
+      // Used while dragging to determine deltas.
+      lastX: NaN,
+      lastY: NaN,
+      touchIdentifier: null
+    });
+
+    _defineProperty(this, "handleDragStart", e => {
+      // Make it possible to attach event handlers on top of this one.
+      this.props.onMouseDown(e); // Only accept left-clicks.
+
+      if (!this.props.allowAnyClick && typeof e.button === 'number' && e.button !== 0) return false; // Get nodes. Be sure to grab relative document (could be iframed)
+
+      const thisNode = _reactDom.default.findDOMNode(this);
+
+      if (!thisNode || !thisNode.ownerDocument || !thisNode.ownerDocument.body) {
+        throw new Error('<DraggableCore> not mounted on DragStart!');
+      }
+
+      const {
+        ownerDocument
+      } = thisNode; // Short circuit if handle or cancel prop was provided and selector doesn't match.
+
+      if (this.props.disabled || !(e.target instanceof ownerDocument.defaultView.Node) || this.props.handle && !(0, domFns.matchesSelectorAndParentsTo)(e.target, this.props.handle, thisNode) || this.props.cancel && (0, domFns.matchesSelectorAndParentsTo)(e.target, this.props.cancel, thisNode)) {
+        return;
+      } // Set touch identifier in component state if this is a touch event. This allows us to
+      // distinguish between individual touches on multitouch screens by identifying which
+      // touchpoint was set to this element.
+
+
+      const touchIdentifier = (0, domFns.getTouchIdentifier)(e);
+      this.setState({
+        touchIdentifier
+      }); // Get the current drag point from the event. This is used as the offset.
+
+      const position = (0, positionFns.getControlPosition)(e, touchIdentifier, this);
+      if (position == null) return; // not possible but satisfies flow
+
+      const {
+        x,
+        y
+      } = position; // Create an event object with all the data parents need to make a decision here.
+
+      const coreEvent = (0, positionFns.createCoreData)(this, x, y);
+      (0, _log.default)('DraggableCore: handleDragStart: %j', coreEvent); // Call event handler. If it returns explicit false, cancel.
+
+      (0, _log.default)('calling', this.props.onStart);
+      const shouldUpdate = this.props.onStart(e, coreEvent);
+      if (shouldUpdate === false) return; // Add a style to the body to disable user-select. This prevents text from
+      // being selected all over the page.
+
+      if (this.props.enableUserSelectHack) (0, domFns.addUserSelectStyles)(ownerDocument); // Initiate dragging. Set the current x and y as offsets
+      // so we know how much we've moved during the drag. This allows us
+      // to drag elements around even if they have been moved, without issue.
+
+      this.setState({
+        dragging: true,
+        lastX: x,
+        lastY: y
+      }); // Add events to the document directly so we catch when the user's mouse/touch moves outside of
+      // this element. We use different events depending on whether or not we have detected that this
+      // is a touch-capable device.
+
+      (0, domFns.addEvent)(ownerDocument, dragEventFor.move, this.handleDrag);
+      (0, domFns.addEvent)(ownerDocument, dragEventFor.stop, this.handleDragStop);
+    });
+
+    _defineProperty(this, "handleDrag", e => {
+      // Prevent scrolling on mobile devices, like ipad/iphone.
+      if (e.type === 'touchmove') e.preventDefault(); // Get the current drag point from the event. This is used as the offset.
+
+      const position = (0, positionFns.getControlPosition)(e, this.state.touchIdentifier, this);
+      if (position == null) return;
+      let {
+        x,
+        y
+      } = position; // Snap to grid if prop has been provided
+
+      if (Array.isArray(this.props.grid)) {
+        let deltaX = x - this.state.lastX,
+            deltaY = y - this.state.lastY;
+        [deltaX, deltaY] = (0, positionFns.snapToGrid)(this.props.grid, deltaX, deltaY);
+        if (!deltaX && !deltaY) return; // skip useless drag
+
+        x = this.state.lastX + deltaX, y = this.state.lastY + deltaY;
+      }
+
+      const coreEvent = (0, positionFns.createCoreData)(this, x, y);
+      (0, _log.default)('DraggableCore: handleDrag: %j', coreEvent); // Call event handler. If it returns explicit false, trigger end.
+
+      const shouldUpdate = this.props.onDrag(e, coreEvent);
+
+      if (shouldUpdate === false) {
+        try {
+          // $FlowIgnore
+          this.handleDragStop(new MouseEvent('mouseup'));
+        } catch (err) {
+          // Old browsers
+          const event = ((document.createEvent('MouseEvents')
+          /*: any*/
+          )
+          /*: MouseTouchEvent*/
+          ); // I see why this insanity was deprecated
+          // $FlowIgnore
+
+          event.initMouseEvent('mouseup', true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+          this.handleDragStop(event);
+        }
+
+        return;
+      }
+
+      this.setState({
+        lastX: x,
+        lastY: y
+      });
+    });
+
+    _defineProperty(this, "handleDragStop", e => {
+      if (!this.state.dragging) return;
+      const position = (0, positionFns.getControlPosition)(e, this.state.touchIdentifier, this);
+      if (position == null) return;
+      const {
+        x,
+        y
+      } = position;
+      const coreEvent = (0, positionFns.createCoreData)(this, x, y);
+
+      const thisNode = _reactDom.default.findDOMNode(this);
+
+      if (thisNode) {
+        // Remove user-select hack
+        if (this.props.enableUserSelectHack) (0, domFns.removeUserSelectStyles)(thisNode.ownerDocument);
+      }
+
+      (0, _log.default)('DraggableCore: handleDragStop: %j', coreEvent); // Reset the el.
+
+      this.setState({
+        dragging: false,
+        lastX: NaN,
+        lastY: NaN
+      }); // Call event handler
+
+      this.props.onStop(e, coreEvent);
+
+      if (thisNode) {
+        // Remove event handlers
+        (0, _log.default)('DraggableCore: Removing handlers');
+        (0, domFns.removeEvent)(thisNode.ownerDocument, dragEventFor.move, this.handleDrag);
+        (0, domFns.removeEvent)(thisNode.ownerDocument, dragEventFor.stop, this.handleDragStop);
+      }
+    });
+
+    _defineProperty(this, "onMouseDown", e => {
+      dragEventFor = eventsFor.mouse; // on touchscreen laptops we could switch back to mouse
+
+      return this.handleDragStart(e);
+    });
+
+    _defineProperty(this, "onMouseUp", e => {
+      dragEventFor = eventsFor.mouse;
+      return this.handleDragStop(e);
+    });
+
+    _defineProperty(this, "onTouchStart", e => {
+      // We're on a touch device now, so change the event handlers
+      dragEventFor = eventsFor.touch;
+      return this.handleDragStart(e);
+    });
+
+    _defineProperty(this, "onTouchEnd", e => {
+      // We're on a touch device now, so change the event handlers
+      dragEventFor = eventsFor.touch;
+      return this.handleDragStop(e);
+    });
+  }
+
+  componentWillUnmount() {
+    // Remove any leftover event handlers. Remove both touch and mouse handlers in case
+    // some browser quirk caused a touch event to fire during a mouse move, or vice versa.
+    const thisNode = _reactDom.default.findDOMNode(this);
+
+    if (thisNode) {
+      const {
+        ownerDocument
+      } = thisNode;
+      (0, domFns.removeEvent)(ownerDocument, eventsFor.mouse.move, this.handleDrag);
+      (0, domFns.removeEvent)(ownerDocument, eventsFor.touch.move, this.handleDrag);
+      (0, domFns.removeEvent)(ownerDocument, eventsFor.mouse.stop, this.handleDragStop);
+      (0, domFns.removeEvent)(ownerDocument, eventsFor.touch.stop, this.handleDragStop);
+      if (this.props.enableUserSelectHack) (0, domFns.removeUserSelectStyles)(ownerDocument);
+    }
+  }
+
+  render() {
+    // Reuse the child provided
+    // This makes it flexible to use whatever element is wanted (div, ul, etc)
+    return _react.default.cloneElement(_react.default.Children.only(this.props.children), {
+      style: (0, domFns.styleHacks)(this.props.children.props.style),
+      // Note: mouseMove handler is attached to document so it will still function
+      // when the user drags quickly and leaves the bounds of the element.
+      onMouseDown: this.onMouseDown,
+      onTouchStart: this.onTouchStart,
+      onMouseUp: this.onMouseUp,
+      onTouchEnd: this.onTouchEnd
+    });
+  }
+
+}
+
+exports.default = DraggableCore;
+
+_defineProperty(DraggableCore, "displayName", 'DraggableCore');
+
+_defineProperty(DraggableCore, "propTypes", {
+  /**
+   * `allowAnyClick` allows dragging using any mouse button.
+   * By default, we only accept the left button.
+   *
+   * Defaults to `false`.
+   */
+  allowAnyClick: _propTypes.default.bool,
+
+  /**
+   * `disabled`, if true, stops the <Draggable> from dragging. All handlers,
+   * with the exception of `onMouseDown`, will not fire.
+   */
+  disabled: _propTypes.default.bool,
+
+  /**
+   * By default, we add 'user-select:none' attributes to the document body
+   * to prevent ugly text selection during drag. If this is causing problems
+   * for your app, set this to `false`.
+   */
+  enableUserSelectHack: _propTypes.default.bool,
+
+  /**
+   * `offsetParent`, if set, uses the passed DOM node to compute drag offsets
+   * instead of using the parent node.
+   */
+  offsetParent: function (props
+  /*: DraggableCoreProps*/
+  , propName
+  /*: $Keys<DraggableCoreProps>*/
+  ) {
+    if (props[propName] && props[propName].nodeType !== 1) {
+      throw new Error('Draggable\'s offsetParent must be a DOM Node.');
+    }
+  },
+
+  /**
+   * `grid` specifies the x and y that dragging should snap to.
+   */
+  grid: _propTypes.default.arrayOf(_propTypes.default.number),
+
+  /**
+   * `handle` specifies a selector to be used as the handle that initiates drag.
+   *
+   * Example:
+   *
+   * ```jsx
+   *   let App = React.createClass({
+   *       render: function () {
+   *         return (
+   *            <Draggable handle=".handle">
+   *              <div>
+   *                  <div className="handle">Click me to drag</div>
+   *                  <div>This is some other content</div>
+   *              </div>
+   *           </Draggable>
+   *         );
+   *       }
+   *   });
+   * ```
+   */
+  handle: _propTypes.default.string,
+
+  /**
+   * `cancel` specifies a selector to be used to prevent drag initialization.
+   *
+   * Example:
+   *
+   * ```jsx
+   *   let App = React.createClass({
+   *       render: function () {
+   *           return(
+   *               <Draggable cancel=".cancel">
+   *                   <div>
+   *                     <div className="cancel">You can't drag from here</div>
+   *                     <div>Dragging here works fine</div>
+   *                   </div>
+   *               </Draggable>
+   *           );
+   *       }
+   *   });
+   * ```
+   */
+  cancel: _propTypes.default.string,
+
+  /**
+   * Called when dragging starts.
+   * If this function returns the boolean false, dragging will be canceled.
+   */
+  onStart: _propTypes.default.func,
+
+  /**
+   * Called while dragging.
+   * If this function returns the boolean false, dragging will be canceled.
+   */
+  onDrag: _propTypes.default.func,
+
+  /**
+   * Called when dragging stops.
+   * If this function returns the boolean false, the drag will remain active.
+   */
+  onStop: _propTypes.default.func,
+
+  /**
+   * A workaround option which can be passed if onMouseDown needs to be accessed,
+   * since it'll always be blocked (as there is internal use of onMouseDown)
+   */
+  onMouseDown: _propTypes.default.func,
+
+  /**
+   * These properties should be defined on the child, not here.
+   */
+  className: shims.dontSetMe,
+  style: shims.dontSetMe,
+  transform: shims.dontSetMe
+});
+
+_defineProperty(DraggableCore, "defaultProps", {
+  allowAnyClick: false,
+  // by default only accept left click
+  cancel: null,
+  disabled: false,
+  enableUserSelectHack: true,
+  offsetParent: null,
+  handle: null,
+  grid: null,
+  transform: null,
+  onStart: function () {},
+  onDrag: function () {},
+  onStop: function () {},
+  onMouseDown: function () {}
+});
+});
+
+unwrapExports(DraggableCore_1);
+
+var Draggable_1 = createCommonjsModule(function (module, exports) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(React);
+
+var _propTypes = _interopRequireDefault(propTypes);
+
+var _reactDom = _interopRequireDefault(reactDom);
+
+var _classnames = _interopRequireDefault(classnames);
+
+
+
+
+
+
+
+var _DraggableCore = _interopRequireDefault(DraggableCore_1);
+
+var _log = _interopRequireDefault(log_1);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+// Define <Draggable>
+//
+class Draggable extends _react.default.Component {
+  // React 16.3+
+  // Arity (props, state)
+  static getDerivedStateFromProps({
+    position
+  }
+  /*: DraggableProps*/
+  , {
+    prevPropsPosition
+  }
+  /*: DraggableState*/
+  ) {
+    // Set x/y if a new position is provided in props that is different than the previous.
+    if (position && (!prevPropsPosition || position.x !== prevPropsPosition.x || position.y !== prevPropsPosition.y)) {
+      (0, _log.default)('Draggable: getDerivedStateFromProps %j', {
+        position,
+        prevPropsPosition
+      });
+      return {
+        x: position.x,
+        y: position.y,
+        prevPropsPosition: { ...position
+        }
+      };
+    }
+
+    return null;
+  }
+
+  constructor(props
+  /*: DraggableProps*/
+  ) {
+    super(props);
+
+    _defineProperty(this, "onDragStart", (e, coreData) => {
+      (0, _log.default)('Draggable: onDragStart: %j', coreData); // Short-circuit if user's callback killed it.
+
+      const shouldStart = this.props.onStart(e, (0, positionFns.createDraggableData)(this, coreData)); // Kills start event on core as well, so move handlers are never bound.
+
+      if (shouldStart === false) return false;
+      this.setState({
+        dragging: true,
+        dragged: true
+      });
+    });
+
+    _defineProperty(this, "onDrag", (e, coreData) => {
+      if (!this.state.dragging) return false;
+      (0, _log.default)('Draggable: onDrag: %j', coreData);
+      const uiData = (0, positionFns.createDraggableData)(this, coreData);
+      const newState
+      /*: $Shape<DraggableState>*/
+      = {
+        x: uiData.x,
+        y: uiData.y
+      }; // Keep within bounds.
+
+      if (this.props.bounds) {
+        // Save original x and y.
+        const {
+          x,
+          y
+        } = newState; // Add slack to the values used to calculate bound position. This will ensure that if
+        // we start removing slack, the element won't react to it right away until it's been
+        // completely removed.
+
+        newState.x += this.state.slackX;
+        newState.y += this.state.slackY; // Get bound position. This will ceil/floor the x and y within the boundaries.
+
+        const [newStateX, newStateY] = (0, positionFns.getBoundPosition)(this, newState.x, newState.y);
+        newState.x = newStateX;
+        newState.y = newStateY; // Recalculate slack by noting how much was shaved by the boundPosition handler.
+
+        newState.slackX = this.state.slackX + (x - newState.x);
+        newState.slackY = this.state.slackY + (y - newState.y); // Update the event we fire to reflect what really happened after bounds took effect.
+
+        uiData.x = newState.x;
+        uiData.y = newState.y;
+        uiData.deltaX = newState.x - this.state.x;
+        uiData.deltaY = newState.y - this.state.y;
+      } // Short-circuit if user's callback killed it.
+
+
+      const shouldUpdate = this.props.onDrag(e, uiData);
+      if (shouldUpdate === false) return false;
+      this.setState(newState);
+    });
+
+    _defineProperty(this, "onDragStop", (e, coreData) => {
+      if (!this.state.dragging) return false; // Short-circuit if user's callback killed it.
+
+      const shouldStop = this.props.onStop(e, (0, positionFns.createDraggableData)(this, coreData));
+      if (shouldStop === false) return false;
+      (0, _log.default)('Draggable: onDragStop: %j', coreData);
+      const newState
+      /*: $Shape<DraggableState>*/
+      = {
+        dragging: false,
+        slackX: 0,
+        slackY: 0
+      }; // If this is a controlled component, the result of this operation will be to
+      // revert back to the old position. We expect a handler on `onDragStop`, at the least.
+
+      const controlled = Boolean(this.props.position);
+
+      if (controlled) {
+        const {
+          x,
+          y
+        } = this.props.position;
+        newState.x = x;
+        newState.y = y;
+      }
+
+      this.setState(newState);
+    });
+
+    this.state = {
+      // Whether or not we are currently dragging.
+      dragging: false,
+      // Whether or not we have been dragged before.
+      dragged: false,
+      // Current transform x and y.
+      x: props.position ? props.position.x : props.defaultPosition.x,
+      y: props.position ? props.position.y : props.defaultPosition.y,
+      prevPropsPosition: { ...props.position
+      },
+      // Used for compensating for out-of-bounds drags
+      slackX: 0,
+      slackY: 0,
+      // Can only determine if SVG after mounting
+      isElementSVG: false
+    };
+
+    if (props.position && !(props.onDrag || props.onStop)) {
+      // eslint-disable-next-line no-console
+      console.warn('A `position` was applied to this <Draggable>, without drag handlers. This will make this ' + 'component effectively undraggable. Please attach `onDrag` or `onStop` handlers so you can adjust the ' + '`position` of this element.');
+    }
+  }
+
+  componentDidMount() {
+    // Check to see if the element passed is an instanceof SVGElement
+    if (typeof window.SVGElement !== 'undefined' && _reactDom.default.findDOMNode(this) instanceof window.SVGElement) {
+      this.setState({
+        isElementSVG: true
+      });
+    }
+  }
+
+  componentWillUnmount() {
+    this.setState({
+      dragging: false
+    }); // prevents invariant if unmounted while dragging
+  }
+
+  render()
+  /*: ReactElement<any>*/
+  {
+    const {
+      axis,
+      bounds,
+      children,
+      defaultPosition,
+      defaultClassName,
+      defaultClassNameDragging,
+      defaultClassNameDragged,
+      position,
+      positionOffset,
+      scale,
+      ...draggableCoreProps
+    } = this.props;
+    let style = {};
+    let svgTransform = null; // If this is controlled, we don't want to move it - unless it's dragging.
+
+    const controlled = Boolean(position);
+    const draggable = !controlled || this.state.dragging;
+    const validPosition = position || defaultPosition;
+    const transformOpts = {
+      // Set left if horizontal drag is enabled
+      x: (0, positionFns.canDragX)(this) && draggable ? this.state.x : validPosition.x,
+      // Set top if vertical drag is enabled
+      y: (0, positionFns.canDragY)(this) && draggable ? this.state.y : validPosition.y
+    }; // If this element was SVG, we use the `transform` attribute.
+
+    if (this.state.isElementSVG) {
+      svgTransform = (0, domFns.createSVGTransform)(transformOpts, positionOffset);
+    } else {
+      // Add a CSS transform to move the element around. This allows us to move the element around
+      // without worrying about whether or not it is relatively or absolutely positioned.
+      // If the item you are dragging already has a transform set, wrap it in a <span> so <Draggable>
+      // has a clean slate.
+      style = (0, domFns.createCSSTransform)(transformOpts, positionOffset);
+    } // Mark with class while dragging
+
+
+    const className = (0, _classnames.default)(children.props.className || '', defaultClassName, {
+      [defaultClassNameDragging]: this.state.dragging,
+      [defaultClassNameDragged]: this.state.dragged
+    }); // Reuse the child provided
+    // This makes it flexible to use whatever element is wanted (div, ul, etc)
+
+    return _react.default.createElement(_DraggableCore.default, _extends({}, draggableCoreProps, {
+      onStart: this.onDragStart,
+      onDrag: this.onDrag,
+      onStop: this.onDragStop
+    }), _react.default.cloneElement(_react.default.Children.only(children), {
+      className: className,
+      style: { ...children.props.style,
+        ...style
+      },
+      transform: svgTransform
+    }));
+  }
+
+}
+
+exports.default = Draggable;
+
+_defineProperty(Draggable, "displayName", 'Draggable');
+
+_defineProperty(Draggable, "propTypes", { // Accepts all props <DraggableCore> accepts.
+  ..._DraggableCore.default.propTypes,
+
+  /**
+   * `axis` determines which axis the draggable can move.
+   *
+   *  Note that all callbacks will still return data as normal. This only
+   *  controls flushing to the DOM.
+   *
+   * 'both' allows movement horizontally and vertically.
+   * 'x' limits movement to horizontal axis.
+   * 'y' limits movement to vertical axis.
+   * 'none' limits all movement.
+   *
+   * Defaults to 'both'.
+   */
+  axis: _propTypes.default.oneOf(['both', 'x', 'y', 'none']),
+
+  /**
+   * `bounds` determines the range of movement available to the element.
+   * Available values are:
+   *
+   * 'parent' restricts movement within the Draggable's parent node.
+   *
+   * Alternatively, pass an object with the following properties, all of which are optional:
+   *
+   * {left: LEFT_BOUND, right: RIGHT_BOUND, bottom: BOTTOM_BOUND, top: TOP_BOUND}
+   *
+   * All values are in px.
+   *
+   * Example:
+   *
+   * ```jsx
+   *   let App = React.createClass({
+   *       render: function () {
+   *         return (
+   *            <Draggable bounds={{right: 300, bottom: 300}}>
+   *              <div>Content</div>
+   *           </Draggable>
+   *         );
+   *       }
+   *   });
+   * ```
+   */
+  bounds: _propTypes.default.oneOfType([_propTypes.default.shape({
+    left: _propTypes.default.number,
+    right: _propTypes.default.number,
+    top: _propTypes.default.number,
+    bottom: _propTypes.default.number
+  }), _propTypes.default.string, _propTypes.default.oneOf([false])]),
+  defaultClassName: _propTypes.default.string,
+  defaultClassNameDragging: _propTypes.default.string,
+  defaultClassNameDragged: _propTypes.default.string,
+
+  /**
+   * `defaultPosition` specifies the x and y that the dragged item should start at
+   *
+   * Example:
+   *
+   * ```jsx
+   *      let App = React.createClass({
+   *          render: function () {
+   *              return (
+   *                  <Draggable defaultPosition={{x: 25, y: 25}}>
+   *                      <div>I start with transformX: 25px and transformY: 25px;</div>
+   *                  </Draggable>
+   *              );
+   *          }
+   *      });
+   * ```
+   */
+  defaultPosition: _propTypes.default.shape({
+    x: _propTypes.default.number,
+    y: _propTypes.default.number
+  }),
+  positionOffset: _propTypes.default.shape({
+    x: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]),
+    y: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string])
+  }),
+
+  /**
+   * `position`, if present, defines the current position of the element.
+   *
+   *  This is similar to how form elements in React work - if no `position` is supplied, the component
+   *  is uncontrolled.
+   *
+   * Example:
+   *
+   * ```jsx
+   *      let App = React.createClass({
+   *          render: function () {
+   *              return (
+   *                  <Draggable position={{x: 25, y: 25}}>
+   *                      <div>I start with transformX: 25px and transformY: 25px;</div>
+   *                  </Draggable>
+   *              );
+   *          }
+   *      });
+   * ```
+   */
+  position: _propTypes.default.shape({
+    x: _propTypes.default.number,
+    y: _propTypes.default.number
+  }),
+
+  /**
+   * These properties should be defined on the child, not here.
+   */
+  className: shims.dontSetMe,
+  style: shims.dontSetMe,
+  transform: shims.dontSetMe
+});
+
+_defineProperty(Draggable, "defaultProps", { ..._DraggableCore.default.defaultProps,
+  axis: 'both',
+  bounds: false,
+  defaultClassName: 'react-draggable',
+  defaultClassNameDragging: 'react-draggable-dragging',
+  defaultClassNameDragged: 'react-draggable-dragged',
+  defaultPosition: {
+    x: 0,
+    y: 0
+  },
+  position: null,
+  scale: 1
+});
+});
+
+unwrapExports(Draggable_1);
+
+var Draggable = Draggable_1.default;
+
+// Previous versions of this lib exported <Draggable> as the root export. As to not break
+// them, or TypeScript, we export *both* as the root and as 'default'.
+// See https://github.com/mzabriskie/react-draggable/pull/254
+// and https://github.com/mzabriskie/react-draggable/issues/266
+var reactDraggable = Draggable;
+var default_1 = Draggable;
+var DraggableCore = DraggableCore_1.default;
+reactDraggable.default = default_1;
+reactDraggable.DraggableCore = DraggableCore;
+
+/**
+ * lodash (Custom Build) <https://lodash.com/>
+ * Build: `lodash modularize exports="npm" -o ./`
+ * Copyright jQuery Foundation and other contributors <https://jquery.org/>
+ * Released under MIT license <https://lodash.com/license>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+ * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ */
+
+/** Used as the `TypeError` message for "Functions" methods. */
+var FUNC_ERROR_TEXT = 'Expected a function';
+
+/** Used as references for various `Number` constants. */
+var NAN = 0 / 0;
+
+/** `Object#toString` result references. */
+var symbolTag = '[object Symbol]';
+
+/** Used to match leading and trailing whitespace. */
+var reTrim = /^\s+|\s+$/g;
+
+/** Used to detect bad signed hexadecimal string values. */
+var reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
+
+/** Used to detect binary string values. */
+var reIsBinary = /^0b[01]+$/i;
+
+/** Used to detect octal string values. */
+var reIsOctal = /^0o[0-7]+$/i;
+
+/** Built-in method references without a dependency on `root`. */
+var freeParseInt = parseInt;
+
+/** Detect free variable `global` from Node.js. */
+var freeGlobal = typeof commonjsGlobal == 'object' && commonjsGlobal && commonjsGlobal.Object === Object && commonjsGlobal;
+
+/** Detect free variable `self`. */
+var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+
+/** Used as a reference to the global object. */
+var root = freeGlobal || freeSelf || Function('return this')();
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var objectToString = objectProto.toString;
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeMax = Math.max,
+    nativeMin = Math.min;
+
+/**
+ * Gets the timestamp of the number of milliseconds that have elapsed since
+ * the Unix epoch (1 January 1970 00:00:00 UTC).
+ *
+ * @static
+ * @memberOf _
+ * @since 2.4.0
+ * @category Date
+ * @returns {number} Returns the timestamp.
+ * @example
+ *
+ * _.defer(function(stamp) {
+ *   console.log(_.now() - stamp);
+ * }, _.now());
+ * // => Logs the number of milliseconds it took for the deferred invocation.
+ */
+var now = function() {
+  return root.Date.now();
+};
+
+/**
+ * Creates a debounced function that delays invoking `func` until after `wait`
+ * milliseconds have elapsed since the last time the debounced function was
+ * invoked. The debounced function comes with a `cancel` method to cancel
+ * delayed `func` invocations and a `flush` method to immediately invoke them.
+ * Provide `options` to indicate whether `func` should be invoked on the
+ * leading and/or trailing edge of the `wait` timeout. The `func` is invoked
+ * with the last arguments provided to the debounced function. Subsequent
+ * calls to the debounced function return the result of the last `func`
+ * invocation.
+ *
+ * **Note:** If `leading` and `trailing` options are `true`, `func` is
+ * invoked on the trailing edge of the timeout only if the debounced function
+ * is invoked more than once during the `wait` timeout.
+ *
+ * If `wait` is `0` and `leading` is `false`, `func` invocation is deferred
+ * until to the next tick, similar to `setTimeout` with a timeout of `0`.
+ *
+ * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
+ * for details over the differences between `_.debounce` and `_.throttle`.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Function
+ * @param {Function} func The function to debounce.
+ * @param {number} [wait=0] The number of milliseconds to delay.
+ * @param {Object} [options={}] The options object.
+ * @param {boolean} [options.leading=false]
+ *  Specify invoking on the leading edge of the timeout.
+ * @param {number} [options.maxWait]
+ *  The maximum time `func` is allowed to be delayed before it's invoked.
+ * @param {boolean} [options.trailing=true]
+ *  Specify invoking on the trailing edge of the timeout.
+ * @returns {Function} Returns the new debounced function.
+ * @example
+ *
+ * // Avoid costly calculations while the window size is in flux.
+ * jQuery(window).on('resize', _.debounce(calculateLayout, 150));
+ *
+ * // Invoke `sendMail` when clicked, debouncing subsequent calls.
+ * jQuery(element).on('click', _.debounce(sendMail, 300, {
+ *   'leading': true,
+ *   'trailing': false
+ * }));
+ *
+ * // Ensure `batchLog` is invoked once after 1 second of debounced calls.
+ * var debounced = _.debounce(batchLog, 250, { 'maxWait': 1000 });
+ * var source = new EventSource('/stream');
+ * jQuery(source).on('message', debounced);
+ *
+ * // Cancel the trailing debounced invocation.
+ * jQuery(window).on('popstate', debounced.cancel);
+ */
+function debounce(func, wait, options) {
+  var lastArgs,
+      lastThis,
+      maxWait,
+      result,
+      timerId,
+      lastCallTime,
+      lastInvokeTime = 0,
+      leading = false,
+      maxing = false,
+      trailing = true;
+
+  if (typeof func != 'function') {
+    throw new TypeError(FUNC_ERROR_TEXT);
+  }
+  wait = toNumber(wait) || 0;
+  if (isObject(options)) {
+    leading = !!options.leading;
+    maxing = 'maxWait' in options;
+    maxWait = maxing ? nativeMax(toNumber(options.maxWait) || 0, wait) : maxWait;
+    trailing = 'trailing' in options ? !!options.trailing : trailing;
+  }
+
+  function invokeFunc(time) {
+    var args = lastArgs,
+        thisArg = lastThis;
+
+    lastArgs = lastThis = undefined;
+    lastInvokeTime = time;
+    result = func.apply(thisArg, args);
+    return result;
+  }
+
+  function leadingEdge(time) {
+    // Reset any `maxWait` timer.
+    lastInvokeTime = time;
+    // Start the timer for the trailing edge.
+    timerId = setTimeout(timerExpired, wait);
+    // Invoke the leading edge.
+    return leading ? invokeFunc(time) : result;
+  }
+
+  function remainingWait(time) {
+    var timeSinceLastCall = time - lastCallTime,
+        timeSinceLastInvoke = time - lastInvokeTime,
+        result = wait - timeSinceLastCall;
+
+    return maxing ? nativeMin(result, maxWait - timeSinceLastInvoke) : result;
+  }
+
+  function shouldInvoke(time) {
+    var timeSinceLastCall = time - lastCallTime,
+        timeSinceLastInvoke = time - lastInvokeTime;
+
+    // Either this is the first call, activity has stopped and we're at the
+    // trailing edge, the system time has gone backwards and we're treating
+    // it as the trailing edge, or we've hit the `maxWait` limit.
+    return (lastCallTime === undefined || (timeSinceLastCall >= wait) ||
+      (timeSinceLastCall < 0) || (maxing && timeSinceLastInvoke >= maxWait));
+  }
+
+  function timerExpired() {
+    var time = now();
+    if (shouldInvoke(time)) {
+      return trailingEdge(time);
+    }
+    // Restart the timer.
+    timerId = setTimeout(timerExpired, remainingWait(time));
+  }
+
+  function trailingEdge(time) {
+    timerId = undefined;
+
+    // Only invoke if we have `lastArgs` which means `func` has been
+    // debounced at least once.
+    if (trailing && lastArgs) {
+      return invokeFunc(time);
+    }
+    lastArgs = lastThis = undefined;
+    return result;
+  }
+
+  function cancel() {
+    if (timerId !== undefined) {
+      clearTimeout(timerId);
+    }
+    lastInvokeTime = 0;
+    lastArgs = lastCallTime = lastThis = timerId = undefined;
+  }
+
+  function flush() {
+    return timerId === undefined ? result : trailingEdge(now());
+  }
+
+  function debounced() {
+    var time = now(),
+        isInvoking = shouldInvoke(time);
+
+    lastArgs = arguments;
+    lastThis = this;
+    lastCallTime = time;
+
+    if (isInvoking) {
+      if (timerId === undefined) {
+        return leadingEdge(lastCallTime);
+      }
+      if (maxing) {
+        // Handle invocations in a tight loop.
+        timerId = setTimeout(timerExpired, wait);
+        return invokeFunc(lastCallTime);
+      }
+    }
+    if (timerId === undefined) {
+      timerId = setTimeout(timerExpired, wait);
+    }
+    return result;
+  }
+  debounced.cancel = cancel;
+  debounced.flush = flush;
+  return debounced;
+}
+
+/**
+ * Checks if `value` is the
+ * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
+ * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+ * @example
+ *
+ * _.isObject({});
+ * // => true
+ *
+ * _.isObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isObject(_.noop);
+ * // => true
+ *
+ * _.isObject(null);
+ * // => false
+ */
+function isObject(value) {
+  var type = typeof value;
+  return !!value && (type == 'object' || type == 'function');
+}
+
+/**
+ * Checks if `value` is object-like. A value is object-like if it's not `null`
+ * and has a `typeof` result of "object".
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+ * @example
+ *
+ * _.isObjectLike({});
+ * // => true
+ *
+ * _.isObjectLike([1, 2, 3]);
+ * // => true
+ *
+ * _.isObjectLike(_.noop);
+ * // => false
+ *
+ * _.isObjectLike(null);
+ * // => false
+ */
+function isObjectLike(value) {
+  return !!value && typeof value == 'object';
+}
+
+/**
+ * Checks if `value` is classified as a `Symbol` primitive or object.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a symbol, else `false`.
+ * @example
+ *
+ * _.isSymbol(Symbol.iterator);
+ * // => true
+ *
+ * _.isSymbol('abc');
+ * // => false
+ */
+function isSymbol(value) {
+  return typeof value == 'symbol' ||
+    (isObjectLike(value) && objectToString.call(value) == symbolTag);
+}
+
+/**
+ * Converts `value` to a number.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to process.
+ * @returns {number} Returns the number.
+ * @example
+ *
+ * _.toNumber(3.2);
+ * // => 3.2
+ *
+ * _.toNumber(Number.MIN_VALUE);
+ * // => 5e-324
+ *
+ * _.toNumber(Infinity);
+ * // => Infinity
+ *
+ * _.toNumber('3.2');
+ * // => 3.2
+ */
+function toNumber(value) {
+  if (typeof value == 'number') {
+    return value;
+  }
+  if (isSymbol(value)) {
+    return NAN;
+  }
+  if (isObject(value)) {
+    var other = typeof value.valueOf == 'function' ? value.valueOf() : value;
+    value = isObject(other) ? (other + '') : other;
+  }
+  if (typeof value != 'string') {
+    return value === 0 ? value : +value;
+  }
+  value = value.replace(reTrim, '');
+  var isBinary = reIsBinary.test(value);
+  return (isBinary || reIsOctal.test(value))
+    ? freeParseInt(value.slice(2), isBinary ? 2 : 8)
+    : (reIsBadHex.test(value) ? NAN : +value);
+}
+
+var lodash_debounce = debounce;
+
+/* MIT https://github.com/kenwheeler/cash */
+const doc = document, win = window, div = doc.createElement('div'), { filter, indexOf, map, push, reverse, slice, some, splice } = Array.prototype;
+const idRe = /^#[\w-]*$/, classRe = /^\.[\w-]*$/, htmlRe = /<.+>/, tagRe = /^\w+$/;
+// @require ./variables.ts
+function find(selector, context = doc) {
+    return !isDocument(context) && !isElement(context)
+        ? []
+        : classRe.test(selector)
+            ? context.getElementsByClassName(selector.slice(1))
+            : tagRe.test(selector)
+                ? context.getElementsByTagName(selector)
+                : context.querySelectorAll(selector);
+}
+// @require ./find.ts
+// @require ./variables.ts
+class Cash {
+    constructor(selector, context = doc) {
+        if (!selector)
+            return;
+        if (isCash(selector))
+            return selector;
+        let eles = selector;
+        if (isString(selector)) {
+            const ctx = isCash(context) ? context[0] : context;
+            eles = idRe.test(selector)
+                ? ctx.getElementById(selector.slice(1))
+                : htmlRe.test(selector)
+                    ? parseHTML(selector)
+                    : find(selector, ctx);
+            if (!eles)
+                return;
+        }
+        else if (isFunction(selector)) {
+            return this.ready(selector); //FIXME: `fn.ready` is not included in `core`, but it's actually a core functionality
+        }
+        if (eles.nodeType || eles === win)
+            eles = [eles];
+        this.length = eles.length;
+        for (let i = 0, l = this.length; i < l; i++) {
+            this[i] = eles[i];
+        }
+    }
+    init(selector, context) {
+        return new Cash(selector, context);
+    }
+}
+const cash = Cash.prototype.init;
+cash.fn = cash.prototype = Cash.prototype; // Ensuring that `cash () instanceof cash`
+Cash.prototype.length = 0;
+Cash.prototype.splice = splice; // Ensuring a cash collection gets printed as array-like in Chrome's devtools
+if (typeof Symbol === 'function') {
+    Cash.prototype[Symbol['iterator']] = Array.prototype[Symbol['iterator']];
+}
+Cash.prototype.get = function (index) {
+    if (index === undefined)
+        return slice.call(this);
+    return this[index < 0 ? index + this.length : index];
+};
+Cash.prototype.eq = function (index) {
+    return cash(this.get(index));
+};
+Cash.prototype.first = function () {
+    return this.eq(0);
+};
+Cash.prototype.last = function () {
+    return this.eq(-1);
+};
+Cash.prototype.map = function (callback) {
+    return cash(map.call(this, (ele, i) => callback.call(ele, i, ele)));
+};
+Cash.prototype.slice = function () {
+    return cash(slice.apply(this, arguments));
+};
+// @require ./cash.ts
+const dashAlphaRe = /-([a-z])/g;
+function camelCaseReplace(match, letter) {
+    return letter.toUpperCase();
+}
+function camelCase(str) {
+    return str.replace(dashAlphaRe, camelCaseReplace);
+}
+cash.camelCase = camelCase;
+function each(arr, callback) {
+    for (let i = 0, l = arr.length; i < l; i++) {
+        if (callback.call(arr[i], i, arr[i]) === false)
+            break;
+    }
+}
+cash.each = each;
+Cash.prototype.each = function (callback) {
+    each(this, callback);
+    return this;
+};
+Cash.prototype.removeProp = function (prop) {
+    return this.each((i, ele) => { delete ele[prop]; });
+};
+// @require ./cash.ts
+function extend(target, ...objs) {
+    const args = arguments, length = args.length;
+    for (let i = (length < 2 ? 0 : 1); i < length; i++) {
+        for (const key in args[i]) {
+            target[key] = args[i][key];
+        }
+    }
+    return target;
+}
+Cash.prototype.extend = function (plugins) {
+    return extend(cash.fn, plugins);
+};
+cash.extend = extend;
+cash.guid = 1;
+// @require ./cash.ts
+function matches(ele, selector) {
+    const matches = ele && (ele['matches'] || ele['webkitMatchesSelector'] || ele['mozMatchesSelector'] || ele['msMatchesSelector'] || ele['oMatchesSelector']);
+    return !!matches && matches.call(ele, selector);
+}
+cash.matches = matches;
+// @require ./variables.ts
+function pluck(arr, prop, deep) {
+    const plucked = [];
+    for (let i = 0, l = arr.length; i < l; i++) {
+        let val = arr[i][prop];
+        while (val != null) {
+            plucked.push(val);
+            if (!deep)
+                break;
+            val = val[prop];
+        }
+    }
+    return plucked;
+}
+// @require ./cash.ts
+function isCash(x) {
+    return x instanceof Cash;
+}
+function isWindow(x) {
+    return !!x && x === x.window;
+}
+function isDocument(x) {
+    return !!x && x.nodeType === 9;
+}
+function isElement(x) {
+    return !!x && x.nodeType === 1;
+}
+function isFunction(x) {
+    return typeof x === 'function';
+}
+function isString(x) {
+    return typeof x === 'string';
+}
+function isNumeric(x) {
+    return !isNaN(parseFloat(x)) && isFinite(x);
+}
+const { isArray } = Array;
+cash.isWindow = isWindow;
+cash.isFunction = isFunction;
+cash.isString = isString;
+cash.isNumeric = isNumeric;
+cash.isArray = isArray;
+Cash.prototype.prop = function (prop, value) {
+    if (!prop)
+        return;
+    if (isString(prop)) {
+        if (arguments.length < 2)
+            return this[0] && this[0][prop];
+        return this.each((i, ele) => { ele[prop] = value; });
+    }
+    for (const key in prop) {
+        this.prop(key, prop[key]);
+    }
+    return this;
+};
+// @require ./matches.ts
+// @require ./type_checking.ts
+function getCompareFunction(comparator) {
+    return isString(comparator)
+        ? (i, ele) => matches(ele, comparator)
+        : isFunction(comparator)
+            ? comparator
+            : isCash(comparator)
+                ? (i, ele) => comparator.is(ele)
+                : (i, ele) => ele === comparator;
+}
+Cash.prototype.filter = function (comparator) {
+    if (!comparator)
+        return cash();
+    const compare = getCompareFunction(comparator);
+    return cash(filter.call(this, (ele, i) => compare.call(ele, i, ele)));
+};
+// @require collection/filter.ts
+function filtered(collection, comparator) {
+    return !comparator || !collection.length ? collection : collection.filter(comparator);
+}
+// @require ./type_checking.ts
+const splitValuesRe = /\S+/g;
+function getSplitValues(str) {
+    return isString(str) ? str.match(splitValuesRe) || [] : [];
+}
+Cash.prototype.hasClass = function (cls) {
+    return cls && some.call(this, (ele) => ele.classList.contains(cls));
+};
+Cash.prototype.removeAttr = function (attr) {
+    const attrs = getSplitValues(attr);
+    if (!attrs.length)
+        return this;
+    return this.each((i, ele) => {
+        each(attrs, (i, a) => {
+            ele.removeAttribute(a);
+        });
+    });
+};
+function attr(attr, value) {
+    if (!attr)
+        return;
+    if (isString(attr)) {
+        if (arguments.length < 2) {
+            if (!this[0])
+                return;
+            const value = this[0].getAttribute(attr);
+            return value === null ? undefined : value;
+        }
+        if (value === undefined)
+            return this;
+        if (value === null)
+            return this.removeAttr(attr);
+        return this.each((i, ele) => { ele.setAttribute(attr, value); });
+    }
+    for (const key in attr) {
+        this.attr(key, attr[key]);
+    }
+    return this;
+}
+Cash.prototype.attr = attr;
+Cash.prototype.toggleClass = function (cls, force) {
+    const classes = getSplitValues(cls), isForce = (force !== undefined);
+    if (!classes.length)
+        return this;
+    return this.each((i, ele) => {
+        each(classes, (i, c) => {
+            if (isForce) {
+                force ? ele.classList.add(c) : ele.classList.remove(c);
+            }
+            else {
+                ele.classList.toggle(c);
+            }
+        });
+    });
+};
+Cash.prototype.addClass = function (cls) {
+    return this.toggleClass(cls, true);
+};
+Cash.prototype.removeClass = function (cls) {
+    return !arguments.length ? this.attr('class', '') : this.toggleClass(cls, false);
+};
+// @optional ./add_class.ts
+// @optional ./attr.ts
+// @optional ./has_class.ts
+// @optional ./prop.ts
+// @optional ./remove_attr.ts
+// @optional ./remove_class.ts
+// @optional ./remove_prop.ts
+// @optional ./toggle_class.ts
+// @require ./cash.ts
+// @require ./variables
+function unique(arr) {
+    return arr.length > 1 ? filter.call(arr, (item, index, self) => indexOf.call(self, item) === index) : arr;
+}
+cash.unique = unique;
+Cash.prototype.add = function (selector, context) {
+    return cash(unique(this.get().concat(cash(selector, context).get())));
+};
+// @require core/type_checking.ts
+// @require core/variables.ts
+function computeStyle(ele, prop, isVariable) {
+    if (!isElement(ele) || !prop)
+        return;
+    const style = win.getComputedStyle(ele, null);
+    return prop ? (isVariable ? style.getPropertyValue(prop) || undefined : style[prop]) : style;
+}
+// @require ./compute_style.ts
+function computeStyleInt(ele, prop) {
+    return parseInt(computeStyle(ele, prop), 10) || 0;
+}
+const cssVariableRe = /^--/;
+// @require ./variables.ts
+function isCSSVariable(prop) {
+    return cssVariableRe.test(prop);
+}
+// @require core/camel_case.ts
+// @require core/cash.ts
+// @require core/each.ts
+// @require core/variables.ts
+// @require ./is_css_variable.ts
+const prefixedProps = {}, { style } = div, vendorsPrefixes = ['webkit', 'moz', 'ms', 'o'];
+function getPrefixedProp(prop, isVariable = isCSSVariable(prop)) {
+    if (isVariable)
+        return prop;
+    if (!prefixedProps[prop]) {
+        const propCC = camelCase(prop), propUC = `${propCC.charAt(0).toUpperCase()}${propCC.slice(1)}`, props = (`${propCC} ${vendorsPrefixes.join(`${propUC} `)}${propUC}`).split(' ');
+        each(props, (i, p) => {
+            if (p in style) {
+                prefixedProps[prop] = p;
+                return false;
+            }
+        });
+    }
+    return prefixedProps[prop];
+}
+cash.prefixedProp = getPrefixedProp;
+// @require core/type_checking.ts
+// @require ./is_css_variable.ts
+const numericProps = {
+    animationIterationCount: true,
+    columnCount: true,
+    flexGrow: true,
+    flexShrink: true,
+    fontWeight: true,
+    lineHeight: true,
+    opacity: true,
+    order: true,
+    orphans: true,
+    widows: true,
+    zIndex: true
+};
+function getSuffixedValue(prop, value, isVariable = isCSSVariable(prop)) {
+    return !isVariable && !numericProps[prop] && isNumeric(value) ? `${value}px` : value;
+}
+function css(prop, value) {
+    if (isString(prop)) {
+        const isVariable = isCSSVariable(prop);
+        prop = getPrefixedProp(prop, isVariable);
+        if (arguments.length < 2)
+            return this[0] && computeStyle(this[0], prop, isVariable);
+        if (!prop)
+            return this;
+        value = getSuffixedValue(prop, value, isVariable);
+        return this.each((i, ele) => {
+            if (!isElement(ele))
+                return;
+            if (isVariable) {
+                ele.style.setProperty(prop, value); //TSC
+            }
+            else {
+                ele.style[prop] = value; //TSC
+            }
+        });
+    }
+    for (const key in prop) {
+        this.css(key, prop[key]);
+    }
+    return this;
+}
+Cash.prototype.css = css;
+// @optional ./css.ts
+// @require core/camel_case.ts
+function getData(ele, key) {
+    const value = ele.dataset ? ele.dataset[key] || ele.dataset[camelCase(key)] : ele.getAttribute(`data-${key}`);
+    try {
+        return JSON.parse(value);
+    }
+    catch (_a) { }
+    return value;
+}
+// @require core/camel_case.ts
+function setData(ele, key, value) {
+    try {
+        value = JSON.stringify(value);
+    }
+    catch (_a) { }
+    if (ele.dataset) {
+        ele.dataset[camelCase(key)] = value;
+    }
+    else {
+        ele.setAttribute(`data-${key}`, value);
+    }
+}
+const dataAttributeRe = /^data-(.+)/;
+function data(name, value) {
+    if (!name) {
+        if (!this[0])
+            return;
+        const datas = {};
+        each(this[0].attributes, (i, attr) => {
+            const match = attr.name.match(dataAttributeRe);
+            if (!match)
+                return;
+            datas[match[1]] = this.data(match[1]);
+        });
+        return datas;
+    }
+    if (isString(name)) {
+        if (value === undefined)
+            return this[0] && getData(this[0], name);
+        return this.each((i, ele) => setData(ele, name, value));
+    }
+    for (const key in name) {
+        this.data(key, name[key]);
+    }
+    return this;
+}
+Cash.prototype.data = data;
+// @optional ./data.ts
+// @require css/helpers/compute_style_int.ts
+function getExtraSpace(ele, xAxis) {
+    return computeStyleInt(ele, `border${xAxis ? 'Left' : 'Top'}Width`) + computeStyleInt(ele, `padding${xAxis ? 'Left' : 'Top'}`) + computeStyleInt(ele, `padding${xAxis ? 'Right' : 'Bottom'}`) + computeStyleInt(ele, `border${xAxis ? 'Right' : 'Bottom'}Width`);
+}
+each(['Width', 'Height'], (i, prop) => {
+    Cash.prototype[`inner${prop}`] = function () {
+        if (!this[0])
+            return;
+        if (isWindow(this[0]))
+            return win[`inner${prop}`];
+        return this[0][`client${prop}`];
+    };
+});
+each(['width', 'height'], (index, prop) => {
+    Cash.prototype[prop] = function (value) {
+        if (!this[0])
+            return value === undefined ? undefined : this;
+        if (!arguments.length) {
+            if (isWindow(this[0]))
+                return this[0][camelCase(`outer-${prop}`)];
+            return this[0].getBoundingClientRect()[prop] - getExtraSpace(this[0], !index);
+        }
+        const valueNumber = parseInt(value, 10); //TSC
+        return this.each((i, ele) => {
+            if (!isElement(ele))
+                return;
+            const boxSizing = computeStyle(ele, 'boxSizing');
+            ele.style[prop] = getSuffixedValue(prop, valueNumber + (boxSizing === 'border-box' ? getExtraSpace(ele, !index) : 0));
+        });
+    };
+});
+each(['Width', 'Height'], (index, prop) => {
+    Cash.prototype[`outer${prop}`] = function (includeMargins) {
+        if (!this[0])
+            return;
+        if (isWindow(this[0]))
+            return win[`outer${prop}`];
+        return this[0][`offset${prop}`] + (includeMargins ? computeStyleInt(this[0], `margin${!index ? 'Left' : 'Top'}`) + computeStyleInt(this[0], `margin${!index ? 'Right' : 'Bottom'}`) : 0);
+    };
+});
+// @optional ./inner.ts
+// @optional ./normal.ts
+// @optional ./outer.ts
+// @require css/helpers/compute_style.ts
+const defaultDisplay = {};
+function getDefaultDisplay(tagName) {
+    if (defaultDisplay[tagName])
+        return defaultDisplay[tagName];
+    const ele = doc.createElement(tagName);
+    doc.body.appendChild(ele);
+    const display = computeStyle(ele, 'display');
+    doc.body.removeChild(ele);
+    return defaultDisplay[tagName] = display !== 'none' ? display : 'block';
+}
+// @require css/helpers/compute_style.ts
+function isHidden(ele) {
+    return computeStyle(ele, 'display') === 'none';
+}
+Cash.prototype.toggle = function (force) {
+    return this.each((i, ele) => {
+        const show = force !== undefined ? force : isHidden(ele);
+        if (show) {
+            ele.style.display = '';
+            if (isHidden(ele)) {
+                ele.style.display = getDefaultDisplay(ele.tagName);
+            }
+        }
+        else {
+            ele.style.display = 'none';
+        }
+    });
+};
+Cash.prototype.hide = function () {
+    return this.toggle(false);
+};
+Cash.prototype.show = function () {
+    return this.toggle(true);
+};
+// @optional ./hide.ts
+// @optional ./show.ts
+// @optional ./toggle.ts
+function hasNamespaces(ns1, ns2) {
+    return !ns2 || !some.call(ns2, (ns) => ns1.indexOf(ns) < 0);
+}
+const eventsNamespace = '__cashEvents', eventsNamespacesSeparator = '.', eventsFocus = { focus: 'focusin', blur: 'focusout' }, eventsHover = { mouseenter: 'mouseover', mouseleave: 'mouseout' }, eventsMouseRe = /^(?:mouse|pointer|contextmenu|drag|drop|click|dblclick)/i;
+// @require ./variables.ts
+function getEventNameBubbling(name) {
+    return eventsHover[name] || eventsFocus[name] || name;
+}
+// @require ./variables.ts
+function getEventsCache(ele) {
+    return ele[eventsNamespace] = (ele[eventsNamespace] || {});
+}
+// @require core/guid.ts
+// @require events/helpers/get_events_cache.ts
+function addEvent(ele, name, namespaces, selector, callback) {
+    callback.guid = callback.guid || cash.guid++;
+    const eventCache = getEventsCache(ele);
+    eventCache[name] = (eventCache[name] || []);
+    eventCache[name].push([namespaces, selector, callback]);
+    ele.addEventListener(name, callback);
+}
+// @require ./variables.ts
+function parseEventName(eventName) {
+    const parts = eventName.split(eventsNamespacesSeparator);
+    return [parts[0], parts.slice(1).sort()]; // [name, namespace[]]
+}
+// @require ./get_events_cache.ts
+// @require ./has_namespaces.ts
+// @require ./parse_event_name.ts
+function removeEvent(ele, name, namespaces, selector, callback) {
+    const cache = getEventsCache(ele);
+    if (!name) {
+        for (name in cache) {
+            removeEvent(ele, name, namespaces, selector, callback);
+        }
+        delete ele[eventsNamespace];
+    }
+    else if (cache[name]) {
+        cache[name] = cache[name].filter(([ns, sel, cb]) => {
+            if ((callback && cb.guid !== callback.guid) || !hasNamespaces(ns, namespaces) || (selector && selector !== sel))
+                return true;
+            ele.removeEventListener(name, cb);
+        });
+    }
+}
+Cash.prototype.off = function (eventFullName, selector, callback) {
+    if (eventFullName === undefined) {
+        this.each((i, ele) => removeEvent(ele));
+    }
+    else {
+        if (isFunction(selector)) {
+            callback = selector;
+            selector = '';
+        }
+        each(getSplitValues(eventFullName), (i, eventFullName) => {
+            const [name, namespaces] = parseEventName(getEventNameBubbling(eventFullName));
+            this.each((i, ele) => removeEvent(ele, name, namespaces, selector, callback)); //TSC
+        });
+    }
+    return this;
+};
+function on(eventFullName, selector, callback, _one) {
+    if (!isString(eventFullName)) {
+        for (const key in eventFullName) {
+            this.on(key, selector, eventFullName[key]);
+        }
+        return this;
+    }
+    if (isFunction(selector)) {
+        callback = selector;
+        selector = '';
+    }
+    each(getSplitValues(eventFullName), (i, eventFullName) => {
+        const [name, namespaces] = parseEventName(getEventNameBubbling(eventFullName));
+        this.each((i, ele) => {
+            const finalCallback = function (event) {
+                if (event.namespace && !hasNamespaces(namespaces, event.namespace.split(eventsNamespacesSeparator)))
+                    return;
+                let thisArg = ele;
+                if (selector) {
+                    let target = event.target;
+                    while (!matches(target, selector)) { //TSC
+                        if (target === ele)
+                            return;
+                        target = target.parentNode;
+                        if (!target)
+                            return;
+                    }
+                    thisArg = target;
+                    event.__delegate = true;
+                }
+                if (event.__delegate) {
+                    Object.defineProperty(event, 'currentTarget', {
+                        configurable: true,
+                        get() {
+                            return thisArg;
+                        }
+                    });
+                }
+                const returnValue = callback.call(thisArg, event, event.data); //TSC
+                if (_one) {
+                    removeEvent(ele, name, namespaces, selector, finalCallback); //TSC
+                }
+                if (returnValue === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+            };
+            finalCallback.guid = callback['guid'] = (callback['guid'] || cash.guid++); //TSC
+            addEvent(ele, name, namespaces, selector, finalCallback); //TSC
+        });
+    });
+    return this;
+}
+Cash.prototype.on = on;
+function one(eventFullName, selector, callback) {
+    return this.on(eventFullName, selector, callback, true); //TSC
+}
+Cash.prototype.one = one;
+Cash.prototype.ready = function (callback) {
+    const finalCallback = () => callback(cash);
+    if (doc.readyState !== 'loading') {
+        setTimeout(finalCallback);
+    }
+    else {
+        doc.addEventListener('DOMContentLoaded', finalCallback);
+    }
+    return this;
+};
+Cash.prototype.trigger = function (eventFullName, data) {
+    let evt;
+    if (isString(eventFullName)) {
+        const [name, namespaces] = parseEventName(eventFullName), type = eventsMouseRe.test(name) ? 'MouseEvents' : 'HTMLEvents';
+        evt = doc.createEvent(type);
+        evt.initEvent(name, true, true);
+        evt.namespace = namespaces.join(eventsNamespacesSeparator);
+    }
+    else {
+        evt = eventFullName;
+    }
+    evt.data = data;
+    const isEventFocus = (evt.type in eventsFocus);
+    return this.each((i, ele) => {
+        if (isEventFocus && isFunction(ele[evt.type])) {
+            ele[evt.type]();
+        }
+        else {
+            ele.dispatchEvent(evt);
+        }
+    });
+};
+// @optional ./off.ts
+// @optional ./on.ts
+// @optional ./one.ts
+// @optional ./ready.ts
+// @optional ./trigger.ts
+// @require core/pluck.ts
+// @require core/variables.ts
+function getValue(ele) {
+    if (ele.multiple && ele.options)
+        return pluck(filter.call(ele.options, option => option.selected && !option.disabled && !option.parentNode.disabled), 'value');
+    return ele.value || '';
+}
+const queryEncodeSpaceRe = /%20/g;
+function queryEncode(prop, value) {
+    return `&${encodeURIComponent(prop)}=${encodeURIComponent(value).replace(queryEncodeSpaceRe, '+')}`;
+}
+// @require core/cash.ts
+// @require core/each.ts
+// @require core/type_checking.ts
+// @require ./helpers/get_value.ts
+// @require ./helpers/query_encode.ts
+const skippableRe = /file|reset|submit|button|image/i, checkableRe = /radio|checkbox/i;
+Cash.prototype.serialize = function () {
+    let query = '';
+    this.each((i, ele) => {
+        each(ele.elements || [ele], (i, ele) => {
+            if (ele.disabled || !ele.name || ele.tagName === 'FIELDSET' || skippableRe.test(ele.type) || (checkableRe.test(ele.type) && !ele.checked))
+                return;
+            const value = getValue(ele);
+            if (value === undefined)
+                return;
+            const values = isArray(value) ? value : [value];
+            each(values, (i, value) => {
+                query += queryEncode(ele.name, value);
+            });
+        });
+    });
+    return query.substr(1);
+};
+function val(value) {
+    if (value === undefined)
+        return this[0] && getValue(this[0]);
+    return this.each((i, ele) => {
+        if (ele.tagName === 'SELECT') {
+            const eleValue = isArray(value) ? value : (value === null ? [] : [value]);
+            each(ele.options, (i, option) => {
+                option.selected = eleValue.indexOf(option.value) >= 0;
+            });
+        }
+        else {
+            ele.value = value === null ? '' : value;
+        }
+    });
+}
+Cash.prototype.val = val;
+Cash.prototype.clone = function () {
+    return this.map((i, ele) => ele.cloneNode(true));
+};
+Cash.prototype.detach = function () {
+    return this.each((i, ele) => {
+        if (ele.parentNode) {
+            ele.parentNode.removeChild(ele);
+        }
+    });
+};
+// @require ./cash.ts
+// @require ./variables.ts
+// @require ./type_checking.ts
+// @require collection/get.ts
+// @require manipulation/detach.ts
+const fragmentRe = /^\s*<(\w+)[^>]*>/, singleTagRe = /^\s*<(\w+)\s*\/?>(?:<\/\1>)?\s*$/;
+let containers;
+function initContainers() {
+    if (containers)
+        return;
+    const table = doc.createElement('table'), tr = doc.createElement('tr');
+    containers = {
+        '*': div,
+        tr: doc.createElement('tbody'),
+        td: tr,
+        th: tr,
+        thead: table,
+        tbody: table,
+        tfoot: table,
+    };
+}
+function parseHTML(html) {
+    initContainers();
+    if (!isString(html))
+        return [];
+    if (singleTagRe.test(html))
+        return [doc.createElement(RegExp.$1)];
+    const fragment = fragmentRe.test(html) && RegExp.$1, container = containers[fragment] || containers['*'];
+    container.innerHTML = html;
+    return cash(container.childNodes).detach().get();
+}
+cash.parseHTML = parseHTML;
+Cash.prototype.empty = function () {
+    return this.each((i, ele) => {
+        while (ele.firstChild) {
+            ele.removeChild(ele.firstChild);
+        }
+    });
+};
+function html(html) {
+    if (html === undefined)
+        return this[0] && this[0].innerHTML;
+    return this.each((i, ele) => { ele.innerHTML = html; });
+}
+Cash.prototype.html = html;
+Cash.prototype.remove = function () {
+    return this.detach().off();
+};
+function text(text) {
+    if (text === undefined)
+        return this[0] ? this[0].textContent : '';
+    return this.each((i, ele) => { ele.textContent = text; });
+}
+Cash.prototype.text = text;
+Cash.prototype.unwrap = function () {
+    this.parent().each((i, ele) => {
+        const $ele = cash(ele);
+        $ele.replaceWith($ele.children());
+    });
+    return this;
+};
+// @require core/cash.ts
+// @require core/variables.ts
+const docEle = doc.documentElement;
+Cash.prototype.offset = function () {
+    const ele = this[0];
+    if (!ele)
+        return;
+    const rect = ele.getBoundingClientRect();
+    return {
+        top: rect.top + win.pageYOffset - docEle.clientTop,
+        left: rect.left + win.pageXOffset - docEle.clientLeft
+    };
+};
+Cash.prototype.offsetParent = function () {
+    return cash(this[0] && this[0].offsetParent);
+};
+Cash.prototype.position = function () {
+    const ele = this[0];
+    if (!ele)
+        return;
+    return {
+        left: ele.offsetLeft,
+        top: ele.offsetTop
+    };
+};
+Cash.prototype.children = function (comparator) {
+    const result = [];
+    this.each((i, ele) => {
+        push.apply(result, ele.children);
+    });
+    return filtered(cash(unique(result)), comparator);
+};
+Cash.prototype.contents = function () {
+    const result = [];
+    this.each((i, ele) => {
+        push.apply(result, ele.tagName === 'IFRAME' ? [ele.contentDocument] : ele.childNodes);
+    });
+    return cash(unique(result));
+};
+Cash.prototype.find = function (selector) {
+    const result = [];
+    for (let i = 0, l = this.length; i < l; i++) {
+        const found = find(selector, this[i]);
+        if (found.length) {
+            push.apply(result, found);
+        }
+    }
+    return cash(unique(result));
+};
+// @require collection/filter.ts
+// @require traversal/find.ts
+const scriptTypeRe = /^$|^module$|\/(?:java|ecma)script/i, HTMLCDATARe = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g;
+function evalScripts(node) {
+    const collection = cash(node);
+    collection.filter('script').add(collection.find('script')).each((i, ele) => {
+        if (!ele.src && scriptTypeRe.test(ele.type)) { // The script type is supported
+            if (ele.ownerDocument.documentElement.contains(ele)) { // The element is attached to the DOM // Using `documentElement` for broader browser support
+                eval(ele.textContent.replace(HTMLCDATARe, ''));
+            }
+        }
+    });
+}
+// @require ./eval_scripts.ts
+function insertElement(anchor, child, prepend, prependTarget) {
+    if (prepend) {
+        anchor.insertBefore(child, prependTarget);
+    }
+    else {
+        anchor.appendChild(child);
+    }
+    evalScripts(child);
+}
+// @require core/each.ts
+// @require core/type_checking.ts
+// @require ./insert_element.ts
+function insertContent(parent, child, prepend) {
+    each(parent, (index, parentEle) => {
+        each(child, (i, childEle) => {
+            insertElement(parentEle, !index ? childEle : childEle.cloneNode(true), prepend, prepend && parentEle.firstChild);
+        });
+    });
+}
+Cash.prototype.append = function () {
+    each(arguments, (i, selector) => {
+        insertContent(this, cash(selector));
+    });
+    return this;
+};
+Cash.prototype.appendTo = function (selector) {
+    insertContent(cash(selector), this);
+    return this;
+};
+Cash.prototype.insertAfter = function (selector) {
+    cash(selector).each((index, ele) => {
+        const parent = ele.parentNode;
+        if (parent) {
+            this.each((i, e) => {
+                insertElement(parent, !index ? e : e.cloneNode(true), true, ele.nextSibling);
+            });
+        }
+    });
+    return this;
+};
+Cash.prototype.after = function () {
+    each(reverse.apply(arguments), (i, selector) => {
+        reverse.apply(cash(selector).slice()).insertAfter(this);
+    });
+    return this;
+};
+Cash.prototype.insertBefore = function (selector) {
+    cash(selector).each((index, ele) => {
+        const parent = ele.parentNode;
+        if (parent) {
+            this.each((i, e) => {
+                insertElement(parent, !index ? e : e.cloneNode(true), true, ele);
+            });
+        }
+    });
+    return this;
+};
+Cash.prototype.before = function () {
+    each(arguments, (i, selector) => {
+        cash(selector).insertBefore(this);
+    });
+    return this;
+};
+Cash.prototype.prepend = function () {
+    each(arguments, (i, selector) => {
+        insertContent(this, cash(selector), true);
+    });
+    return this;
+};
+Cash.prototype.prependTo = function (selector) {
+    insertContent(cash(selector), reverse.apply(this.slice()), true);
+    return this;
+};
+Cash.prototype.replaceWith = function (selector) {
+    return this.before(selector).remove();
+};
+Cash.prototype.replaceAll = function (selector) {
+    cash(selector).replaceWith(this);
+    return this;
+};
+Cash.prototype.wrapAll = function (selector) {
+    if (this[0]) {
+        const structure = cash(selector);
+        this.first().before(structure);
+        let wrapper = structure[0];
+        while (wrapper.children.length)
+            wrapper = wrapper.firstElementChild;
+        this.appendTo(wrapper);
+    }
+    return this;
+};
+Cash.prototype.wrap = function (selector) {
+    return this.each((index, ele) => {
+        const wrapper = cash(selector)[0];
+        cash(ele).wrapAll(!index ? wrapper : wrapper.cloneNode(true));
+    });
+};
+Cash.prototype.wrapInner = function (selector) {
+    return this.each((i, ele) => {
+        const $ele = cash(ele), contents = $ele.contents();
+        contents.length ? contents.wrapAll(selector) : $ele.append(selector);
+    });
+};
+Cash.prototype.has = function (selector) {
+    const comparator = isString(selector)
+        ? (i, ele) => !!find(selector, ele).length
+        : (i, ele) => ele.contains(selector);
+    return this.filter(comparator);
+};
+Cash.prototype.is = function (comparator) {
+    if (!comparator || !this[0])
+        return false;
+    const compare = getCompareFunction(comparator);
+    let check = false;
+    this.each((i, ele) => {
+        check = compare.call(ele, i, ele);
+        return !check;
+    });
+    return check;
+};
+Cash.prototype.next = function (comparator, _all) {
+    return filtered(cash(unique(pluck(this, 'nextElementSibling', _all))), comparator);
+};
+Cash.prototype.nextAll = function (comparator) {
+    return this.next(comparator, true);
+};
+Cash.prototype.not = function (comparator) {
+    if (!comparator || !this[0])
+        return this;
+    const compare = getCompareFunction(comparator);
+    return this.filter((i, ele) => !compare.call(ele, i, ele));
+};
+Cash.prototype.parent = function (comparator) {
+    return filtered(cash(unique(pluck(this, 'parentNode'))), comparator);
+};
+Cash.prototype.index = function (selector) {
+    const child = selector ? cash(selector)[0] : this[0], collection = selector ? this : cash(child).parent().children();
+    return indexOf.call(collection, child);
+};
+Cash.prototype.closest = function (comparator) {
+    if (!comparator || !this[0])
+        return cash();
+    const filtered = this.filter(comparator);
+    if (filtered.length)
+        return filtered;
+    return this.parent().closest(comparator);
+};
+Cash.prototype.parents = function (comparator) {
+    return filtered(cash(unique(pluck(this, 'parentElement', true))), comparator);
+};
+Cash.prototype.prev = function (comparator, _all) {
+    return filtered(cash(unique(pluck(this, 'previousElementSibling', _all))), comparator);
+};
+Cash.prototype.prevAll = function (comparator) {
+    return this.prev(comparator, true);
+};
+Cash.prototype.siblings = function (comparator) {
+    const result = [];
+    this.each((i, ele) => {
+        push.apply(result, cash(ele).parent().children((ci, child) => child !== ele));
+    });
+    return filtered(cash(unique(result)), comparator);
+};
+
+var bind = createCommonjsModule(function (module) {
+/*!
+  Copyright (c) 2017 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames () {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(this && this[arg] || arg);
+			} else if (Array.isArray(arg)) {
+				classes.push(classNames.apply(this, arg));
+			} else if (argType === 'object') {
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(this && this[key] || key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if ( module.exports) {
+		classNames.default = classNames;
+		module.exports = classNames;
+	} else {
+		window.classNames = classNames;
+	}
+}());
+});
+
+function styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var css$1 = ".ResizePanel-module_Container__2HTOj {\r\n    display: -webkit-box;\r\n    display: flex;\r\n    -webkit-box-align: stretch;\r\n            align-items: stretch;\r\n}\r\n.ResizePanel-module_ContainerHorizontal__1uF_- {\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-direction: normal;\r\n            flex-flow: row nowrap;\r\n}\r\n.ResizePanel-module_ContainerVertical__1_kb6 {\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n            flex-flow: column nowrap;\r\n}\r\n.ResizePanel-module_ResizeContent__1zLCK {\r\n    -webkit-box-flex: 1;\r\n            flex-grow: 1;\r\n    align-self: stretch;\r\n    display: -webkit-box;\r\n    display: flex;\r\n}\r\n.ResizePanel-module_ResizeContentVertical__1OGHY {\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n            flex-flow: column;\r\n}\r\n.ResizePanel-module_ResizeContentHorizontal__1gGbA {\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-direction: normal;\r\n            flex-flow: row;\r\n}\r\n\r\n.ResizePanel-module_ResizeBarHorizontal__3TBZ5 {\r\n    cursor: ew-resize;\r\n    width: 20px;\r\n    margin-left: -10px;\r\n    margin-right: -10px;\r\n    background: transparent;\r\n    display: -webkit-box;\r\n    display: flex;\r\n    z-index: 10;\r\n    -webkit-box-align: center ;\r\n            align-items: center ;\r\n    align-content: center ;\r\n    -webkit-box-pack: center;\r\n            justify-content: center;\r\n\r\n}\r\n\r\n.ResizePanel-module_ResizeBarVertical__2LUZV {\r\n    cursor: ns-resize;\r\n    height: 20px;\r\n    margin-top: -10px;\r\n    margin-bottom: -10px;\r\n    background: transparent;\r\n    display: -webkit-box;\r\n    display: flex;\r\n    z-index: 10;\r\n    -webkit-box-align: center ;\r\n            align-items: center ;\r\n    align-content: center ;\r\n    -webkit-box-pack: center;\r\n            justify-content: center;\r\n\r\n}\r\n.ResizePanel-module_ResizeHandleHorizontal__PkS9u {\r\n    cursor: ew-resize;\r\n    width: 12px;\r\n    height: 50px;\r\n    background: white;\r\n    border: 2px solid lightgray;\r\n    border-radius: 8px;\r\n    text-align: center;\r\n    z-index: 10;\r\n    overflow: hidden;\r\n    display: -webkit-box;\r\n    display: flex;\r\n    -webkit-box-align: center ;\r\n            align-items: center ;\r\n\r\n}\r\n\r\n.ResizePanel-module_ResizeHandleVertical__I0jId {\r\n    cursor: ns-resize;\r\n    width:50px;\r\n    height: 12px;\r\n    border-radius: 8px;\r\n    background: white;\r\n    border: 2px solid lightgray;\r\n    z-index: 10;\r\n    overflow: hidden;\r\n    display: -webkit-box;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n            justify-content: center;\r\n\r\n}\r\n\r\n.ResizePanel-module_ResizeHandleHorizontal__PkS9u>span, .ResizePanel-module_ResizeHandleVertical__I0jId>span {\r\n    display: inline-block;\r\n    overflow: hidden;\r\n    font-size: 12px;\r\n    font-weight: bold;\r\n    font-family: sans-serif;\r\n    letter-spacing: 1px;\r\n    color: #b3b3b3;\r\n    text-shadow: 1px 0 1px rgb(90, 90, 90);\r\n}\r\n.ResizePanel-module_ResizeHandleHorizontal__PkS9u>span {\r\n    line-height: 4px;\r\n}\r\n.ResizePanel-module_ResizeHandleVertical__I0jId>span {\r\n    text-align: center;\r\n    line-height: 12px;\r\n    margin-top: -3px;\r\n}\r\n.ResizePanel-module_ResizeHandleHorizontal__PkS9u>span::after{\r\n    content: '. . . . . . . .';\r\n}\r\n.ResizePanel-module_ResizeHandleVertical__I0jId>span::after{\r\n    content: '......';\r\n}";
+var style$1 = {"Container":"ResizePanel-module_Container__2HTOj","ContainerHorizontal":"ResizePanel-module_ContainerHorizontal__1uF_- ResizePanel-module_Container__2HTOj","ContainerVertical":"ResizePanel-module_ContainerVertical__1_kb6 ResizePanel-module_Container__2HTOj","ResizeContent":"ResizePanel-module_ResizeContent__1zLCK","ResizeContentVertical":"ResizePanel-module_ResizeContentVertical__1OGHY","ResizeContentHorizontal":"ResizePanel-module_ResizeContentHorizontal__1gGbA","ResizeBarHorizontal":"ResizePanel-module_ResizeBarHorizontal__3TBZ5","ResizeBarVertical":"ResizePanel-module_ResizeBarVertical__2LUZV","ResizeHandleHorizontal":"ResizePanel-module_ResizeHandleHorizontal__PkS9u","ResizeHandleVertical":"ResizePanel-module_ResizeHandleVertical__I0jId"};
+styleInject(css$1);
+
+var cx = bind.bind(style$1);
+
+var ResizePanel =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(ResizePanel, _React$Component);
+
+  function ResizePanel(props) {
+    var _this;
+
+    _classCallCheck(this, ResizePanel);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ResizePanel).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "isHorizontal", function () {
+      return _this.props.direction === "w" || _this.props.direction === "e";
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleDrag", function (e, ui) {
+      var direction = _this.props.direction;
+      var factor = direction === "e" || direction === "s" ? -1 : 1; // modify the size based on the drag delta
+
+      var delta = _this.isHorizontal() ? ui.deltaX : ui.deltaY;
+
+      _this.setState(function (s, p) {
+        return {
+          size: Math.max(10, s.size - delta * factor)
+        };
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleDragEnd", function (e, ui) {
+      _this.validateSize();
+    });
+
+    _this.state = {
+      size: 0
+    };
+    _this.contentRef = React.createRef();
+    _this.wrapperRef = React.createRef();
+    _this.validateSize = lodash_debounce(_this.validateSize, 100).bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(ResizePanel, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var content = this.contentRef.current;
+      var actualContent = content.children[0];
+      var initialSize = this.isHorizontal() ? cash(actualContent).outerWidth(true) : cash(actualContent).outerHeight(true); // Initialize the size value based on the content's current size
+
+      this.setState({
+        size: initialSize
+      });
+      this.validateSize();
+    }
+  }, {
+    key: "validateSize",
+    value: function validateSize() {
+      var isHorizontal = this.isHorizontal();
+      var content = this.contentRef.current;
+      var wrapper = this.wrapperRef.current;
+      var actualContent = content.children[0];
+      var containerParent = wrapper.parentElement; //
+      // Or if our size doesn't equal the actual content size, then we
+      // must have pushed past the min size of the content, so resize back
+      //let minSize = isHorizontal ? $(actualContent).outerWidth(true) : $(actualContent).outerHeight(true);
+
+      var minSize = isHorizontal ? actualContent.scrollWidth : actualContent.scrollHeight;
+      var margins = isHorizontal ? cash(actualContent).outerWidth(true) - cash(actualContent).outerWidth() : cash(actualContent).outerHeight(true) - cash(actualContent).outerHeight();
+      minSize += margins;
+
+      if (this.state.size !== minSize) {
+        this.setState(_objectSpread2({}, this.state, {
+          size: minSize
+        }));
+      } else {
+        // If our resizing has left the parent container's content overflowing
+        // then we need to shrink back down to fit
+        var overflow = isHorizontal ? containerParent.scrollWidth - containerParent.clientWidth : containerParent.scrollHeight - containerParent.clientHeight;
+
+        if (overflow) {
+          console.log("overflow", overflow);
+          this.setState(_objectSpread2({}, this.state, {
+            size: isHorizontal ? actualContent.clientWidth - overflow : actualContent.clientHeight - overflow
+          }));
+        }
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var dragHandlers = {
+        onDrag: this.handleDrag,
+        onStop: this.handleDragEnd
+      };
+      var direction = this.props.direction;
+      var isHorizontal = this.isHorizontal();
+      var containerClass = cx({
+        ContainerHorizontal: isHorizontal,
+        ContainerVertical: !isHorizontal
+      });
+
+      if (this.props.containerClass) {
+        containerClass += " ".concat(this.props.containerClass);
+      }
+
+      var containerStyle = _objectSpread2({}, this.props.style) || {};
+
+      if (this.state.size !== 0) {
+        containerStyle.flexGrow = 0;
+        containerStyle[isHorizontal ? "width" : "height"] = "auto";
+      }
+
+      var handleClasses = this.props.handleClass || cx({
+        ResizeHandleHorizontal: isHorizontal,
+        ResizeHandleVertical: !isHorizontal
+      });
+      var resizeBarClasses = this.props.borderClass || cx({
+        ResizeBarHorizontal: isHorizontal,
+        ResizeBarVertical: !isHorizontal
+      });
+      var contentStyle = isHorizontal ? {
+        width: this.state.size + "px"
+      } : {
+        height: this.state.size + "px"
+      };
+      var contentClassName = cx("ResizeContent", {
+        ResizeContentHorizontal: isHorizontal,
+        ResizeContentVertical: !isHorizontal
+      });
+      var content = [React.createElement("div", {
+        key: "content",
+        ref: this.contentRef,
+        className: contentClassName,
+        style: contentStyle
+      }, React.Children.only(this.props.children))];
+      var handle = React.createElement(DraggableCore, _extends({
+        key: "handle"
+      }, dragHandlers), React.createElement("div", {
+        className: resizeBarClasses
+      }, React.createElement("div", {
+        className: handleClasses
+      }, React.createElement("span", null)))); // Insert the handle at the beginning of the content if our directio is west or north
+
+      if (direction === "w" || direction === "n") {
+        content.unshift(handle);
+      } else {
+        content.push(handle);
+      }
+
+      return React.createElement("div", {
+        ref: this.wrapperRef,
+        className: containerClass,
+        style: containerStyle
+      }, content);
+    }
+  }]);
+
+  return ResizePanel;
+}(React.Component);
+
+export default ResizePanel;

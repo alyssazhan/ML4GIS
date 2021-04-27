@@ -1,0 +1,36 @@
+{
+    "name": "react-use-dimensions",
+    "version": "1.2.1",
+    "description": "useDimensions - a React Hook to measure DOM nodes",
+    "main": "lib/index.js",
+    "module": "es/index.js",
+    "files": [
+        "es",
+        "lib",
+        "umd"
+    ],
+    "scripts": {
+        "build": "npm run build:ts && nwb build-react-component",
+        "build:ts": "tsc",
+        "clean": "nwb clean-module",
+        "start": "npm run build:ts && nwb serve-react-demo",
+        "test": "nwb test",
+        "test:coverage": "nwb test --coverage",
+        "test:watch": "nwb test --server"
+    },
+    "peerDependencies": {
+        "@types/react": "^16.8.20",
+        "react": "^16.8.x",
+        "typescript": "^3.5.2"
+    },
+    "devDependencies": {
+        "nwb": "0.21.x",
+        "react": "^16.8.4",
+        "react-dom": "^16.8.4"
+    },
+    "author": "Swizec Teller",
+    "homepage": "https://swizec.com",
+    "license": "MIT",
+    "repository": "https://github.com/Swizec/useDimensions",
+    "dependencies": {}
+}
