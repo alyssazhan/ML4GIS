@@ -11,12 +11,15 @@ export default function Introduction (props){
     const [opened, setOpened] = React.useState(false);
     const [title, setTitle]=React.useState('Show Tutorial');
     function toggleBox(e) {
-        setOpened(!opened);
         if (opened) {
-            setTitle('Hide Tutorial');
-        } else {
             setTitle('Show Tutorial');
+
+        } else {
+            setTitle('Hide Tutorial');
+
         }
+        setOpened(!opened);
+
     }
     return (
         <div>
