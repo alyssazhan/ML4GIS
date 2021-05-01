@@ -53,8 +53,7 @@
     "start": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build": "npm run build:babel && cp ./package.json ./dist/package.json && cp ./README.md ./dist/README.md",
-    "dist": "npm run build && cd dist && npm publish"
+    "build": "npm run build"
   },
   "proxy": "http://localhost:3001",
   "eslintConfig": {

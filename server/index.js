@@ -2,15 +2,23 @@
 
 const express = require("express");
 
-const PORT = process.env.PORT || 3001;
 
 const app = express();
 
 const path = require('path');
-
+const PORT = process.env.PORT || 3001;
 var env = process.env.NODE_ENV || 'development';
+var configEnv=require('./config.json').setup.development
 // Have Node serve the files for our built React app
 // Without middleware
+if (configEnv) {
+        process.env.NODE_ENV = 'development';
+    }
+    else {
+        process.env.NODE_ENV='production';
+    }
+
+console.log("config env is: ", process.env.NODE_ENV);
 app.get('/api', function(req, res,next){
     var options = {
         root: path.join(__dirname)
@@ -36,5 +44,4 @@ app.use(allowCrossDomain);
 app.listen(PORT, function(err){
     if (err) console.log(err);
     console.log("Server listening on PORT", PORT);
-    console.log("Environment is: ", env);
 });
