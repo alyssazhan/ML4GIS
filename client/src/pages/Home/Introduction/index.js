@@ -62,9 +62,9 @@ class Introduction extends React.Component {
         var { title, children } = this.props;
         const { opened, error, isLoaded ,intro} = this.state;
         if (opened){
-            title ='Hide Index';
+            title ='Hide Tutorial';
         }else{
-            title ='Show Index';
+            title ='Show Tutorial';
         }
         if (error) {
             return <div>Error: {error.message}</div>;

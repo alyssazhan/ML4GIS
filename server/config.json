@@ -1,9 +1,9 @@
 {
   "setup": {
     "enabledTools": [{"create point": true},{"create rectangle": true},{"create polygon": true}],
-    "allow-comments": false,
+    "allow-comments": true,
     "tags": ["tag1","tag2","tag3","tag4","tag5"],
-    "introduction": "We aim to build a annotation tool that can collect map data.",
+    "introduction": "We aim to build an annotation tool that can collect map data.",
     "tutorial": {
       "imgUrl": "https://geodata.lib.utexas.edu/assets/utlmaps_featured_image_map-c07ae2551145ff2e5f5fa3c71baa345d9d674a33b08f422449203cf9ed47e0d1.jpg",
       "steps": ["Step 1: Locate title with rectangle and label it TITLE.",

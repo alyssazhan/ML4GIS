@@ -33,7 +33,7 @@
                - [index.js](client/src/pages/Home/annotateComponents/RegionLabel/index.js)
                - [styles.js](client/src/pages/Home/annotateComponents/RegionLabel/styles.js)
              - __RegionSelectAndTransformBoxes__
-               - [index.js](client/src/pages/Home/annotateComponents/RegionSelectAndTransformBoxes/index.js)
+               - [index.js](client/src/pages/Home/annotateComponents/TransformBoxes/index.js)
              - __RegionShapes__
                - [index.js](client/src/pages/Home/annotateComponents/RegionShapes/index.js)
              - __RegionTags__

@@ -17,40 +17,9 @@ function generate(data) {
     });
 
 };
-export default function Index() {
+export default function Tutorial(props) {
     const classes = useStyles();
     const [dense, setDense] = React.useState(false);
-
-    const [state, setState] = useState({
-        steps:null,
-        imgUrl:null,
-    })
-    const [hasError, setHasError] = useState(false)
-    const [loading, setLoading]= useState(false)
-
-    useEffect(() => {
-        setLoading(true)
-        fetch("/api",{ mode: 'cors'}).then(res=>res.json()).then(
-            (result) => {
-                console.log("start setState");
-                setState({
-                    steps:result["setup"]["tutorial"]["steps"],
-                    imgUrl:result["setup"]["tutorial"]["imgUrl"]
-                });
-                setLoading(false);
-            }
-        ).catch(err => {
-            setHasError(err)
-        setLoading(false)})
-},[]);
-
-    if (hasError!=false) {
-        return <div>Error: {hasError.message}</div>;
-    } else if (loading) {
-        return <div>Loading...</div>;
-    } else {
-        const img=state.imgUrl;
-        const steps=state.steps;
         return (
             <div className={classes.root}>
                 <Card className={classes.card}>
@@ -64,17 +33,17 @@ export default function Index() {
                     <div className={classes.imageContainer}>
                         <CardMedia
                             className={classes.media}
-                            image={img}/>
+                            image={props.tutorial.imgUrl}/>
                     </div>
                     <Box boxShadow={3}>
                         <CardContent className={classes.steps}>
                             <List dense={dense}>
-                                {generate(steps)}
+                                {generate(props.tutorial.steps)}
                             </List>
                         </CardContent>
                     </Box>
                 </Card>
             </div>
         );
-    }
+    // }
 }
