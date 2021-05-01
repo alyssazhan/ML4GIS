@@ -1,6 +1,6 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
-import styles from "../styles.js"
+import styles from "../styles_Home"
 import {Jumbotron} from "react-bootstrap";
 import { makeStyles } from '@material-ui/core/styles';
 

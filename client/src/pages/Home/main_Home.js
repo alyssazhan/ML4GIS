@@ -1,8 +1,8 @@
 import React, {Component, useEffect, useState} from "react";
-import Intro from "./Introduction";
-import Tutorial from "./Tutorial";
-import SubmitHIT from "./SubmitHIT"
-import styles from './styles.js'
+import Intro from "./Introduction/main_Introduction";
+import Tutorial from "./Tutorial/main_Tutorial";
+import SubmitHIT from "./SubmitHIT/main_SubmitHIT"
+import styles from './styles_Home'
 import {makeStyles} from "@material-ui/core/styles";
 
 const useStyles = makeStyles(styles)

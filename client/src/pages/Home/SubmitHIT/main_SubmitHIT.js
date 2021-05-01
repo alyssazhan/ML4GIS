@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import AnnotationTool from "../annotateComponents";
+import AnnotationTool from "../annotateComponents/main_Annotate";
 import Button from 'react-bootstrap/Button';
 
 var env = process.env.NODE_ENV;

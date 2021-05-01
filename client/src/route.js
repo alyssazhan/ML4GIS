@@ -7,8 +7,8 @@ import {
 } from 'react-router-dom';
 import { createBrowserHistory } from "history";
 
-import Home from './pages/Home';
-import preview from './pages/ShowResult';
+import Home from './pages/Home/main_Home';
+import preview from './pages/ShowResult/main_ShowResult';
 
 const customHistory = createBrowserHistory();
 

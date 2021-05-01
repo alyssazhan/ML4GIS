@@ -1,7 +1,7 @@
 
 import React from "react"
 import Paper from "@material-ui/core/Paper"
-import DefaultRegionLabel from "../RegionLabel"
+import DefaultRegionLabel from "../RegionLabel/main_RegionLabel"
 import LockIcon from "@material-ui/icons/Lock"
 
 const copyWithout = (obj, ...args) => {

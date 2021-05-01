@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import AnnotationTool from "../Home/annotateComponents";
+import AnnotationTool from "../Home/annotateComponents/main_Annotate";
 
 import results from "../../train_results.json";
 
 
 
-export default class index extends Component {
+export default class main_ShowResult extends Component {
 
   render() {
     //transfer object to arr

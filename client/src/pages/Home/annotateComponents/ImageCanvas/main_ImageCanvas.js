@@ -13,15 +13,15 @@ import type {
   Rectangle,
 } from "./regionTools.js"
 import { makeStyles } from "@material-ui/core/styles"
-import styles from "./styles"
+import styles from "./styles_ImageCanvas"
 import useMouse from "./useMouse"
 import useProjectRegionBox from "./useProjectBox"
 import { useRafState } from "react-use"
-import RegionTags from "../RegionTags"
-import RegionSelectAndTransformBoxes from "../TransformBoxes"
+import RegionTags from "../RegionTags/main_RegionTags"
+import RegionSelectAndTransformBoxes from "../TransformBoxes/main_TransformBoxes"
 import ImageCanvasBackground from "./background"
 import useEventCallback from "use-event-callback"
-import RegionShapes from "../RegionShapes"
+import RegionShapes from "../RegionShapes/main_RegionShapes"
 
 const useStyles = makeStyles(styles)
 

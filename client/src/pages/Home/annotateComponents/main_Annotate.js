@@ -1,6 +1,6 @@
 
 import React, { useReducer, useEffect } from "react"
-import MainLayout from "./MainLayout"
+import MainLayout from "./MainLayout/main_MainLayout"
 import type {
   Image,
   MainLayoutState,

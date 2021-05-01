@@ -2,7 +2,7 @@
 import React, { useRef, memo } from "react"
 import Paper from "@material-ui/core/Paper"
 import { makeStyles } from "@material-ui/core/styles"
-import styles from "./styles"
+import styles from "./styles_RegionLabel"
 import classnames from "classnames"
 import type { Region } from "../ImageCanvas/regionTools.js"
 import IconButton from "@material-ui/core/IconButton"
