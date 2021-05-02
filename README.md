@@ -15,20 +15,7 @@ An annotation tool that can collect map data.
 - Add polygons
   * add tag
   * allow comment
-  
-## Configuration
 
-All of the following properties can be defined on the config.json
-
-| Prop                     | Type                          | Description                                                                             | 
-| ------------------------ | ------------------------------| --------------------------------------------------------------------------------------- | 
-| `enabledTools`           | `boolean`                     | Tools allowed to be used.                                                               |               
-| `allow-comments`         | `boolean`                     | Allow user to input text.                                                               | 
-| `tags`                   | `Array<string>`               | Allowed "tags" (exclusive) for regions.                                                 |    
-| `introduction`           | `string`                      | Introduction to the task.                                                               |               
-| `imgUrl`                 | `string`                      | Image path on the tutorial.                                                             |               
-| `steps`                  | `Array<string>`               | Steps on the tutorial.                                                                  |               
-| `development`            | `boolean`                     | Environment. true means "development", otherwise, "production"                          |
                        
 ## UI and Corresponding Folder Path
 ![image info](./assets/imgs/home.png)
