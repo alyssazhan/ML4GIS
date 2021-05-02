@@ -18,7 +18,7 @@ An annotation tool that can collect map data.
   
 ## Configuration
 
-All of the following properties can be defined on the config.json
+All the properties can be defined on the config.json
 
 | Prop                     | Type                          | Description                                                                             | 
 | ------------------------ | ------------------------------| --------------------------------------------------------------------------------------- | 
