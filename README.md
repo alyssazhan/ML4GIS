@@ -14,6 +14,9 @@ A ReactJS & NodeJS based annotation tool that can collect image data.
   * add tag
   * allow comment
   
+## UI Components and their Corresponding Folder Names
+![image info](./assets/imgs/home.png)
+
 ## Configuration
 
 The following properties can be defined on the [config.json](server/config.json)
@@ -22,14 +25,11 @@ The following properties can be defined on the [config.json](server/config.json)
 | ------------------------ | ------------------------------| --------------------------------------------------------------------------------------- | 
 | `enabledTools`           | `Array<string>`               | Tools(Add Rectangles/Add Points/Add polygons) allowed to be used.                       |               
 | `allow-comments`         | `boolean`                     | Allow user to input text.                                                               | 
-| `tags`                   | `Array<string>`               | Allowed "tags" (exclusive) for regions.                                                 |    
+| `tags`                   | `Array<string>`               | Allowed tags for regions.                                                 |    
 | `introduction`           | `string`                      | Introduction text showing on the task overview.                                         |               
 | `imgUrl`                 | `string`                      | Path to the image displayed on the tutorial.                                            |               
 | `steps`                  | `Array<string>`               | Steps displayed on the tutorial.                                                        |               
 | `development`            | `boolean`                     | AMT Sandbox Development Environment(true) vs. Production Environment(false).            |
-                       
-## UI Components and the Corresponding Folder Paths
-![image info](./assets/imgs/home.png)
 
 
 ## File Tree
