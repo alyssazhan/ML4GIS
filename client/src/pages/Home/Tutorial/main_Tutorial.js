@@ -5,8 +5,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import styles from "../styles_Home"
 import {Card, CardContent, CardHeader, CardMedia, Box} from "@material-ui/core";
+// get style from style.js
 
-const useStyles = makeStyles(styles);
+const myStyle = makeStyles(styles);
 
 function generate(data) {
     console.log("data before is:",data)
@@ -18,7 +19,7 @@ function generate(data) {
 
 };
 export default function Tutorial(props) {
-    const classes = useStyles();
+    const classes = myStyle();
     const [dense, setDense] = React.useState(false);
         return (
             <div className={classes.root}>

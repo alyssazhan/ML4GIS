@@ -12,8 +12,8 @@ import CheckIcon from "@material-ui/icons/Check"
 import TextField from "@material-ui/core/TextField"
 import Select from "react-select"
 import { asMutable } from "seamless-immutable"
-
-const useStyles = makeStyles(styles)
+// get style from style.js
+const myStyle = makeStyles(styles)
 
 type Props = {
   region: Region,
@@ -38,7 +38,7 @@ export const RegionLabel = ({
   onOpen,
                               allowComments,
 }: Props) => {
-  const classes = useStyles()
+  const classes = myStyle()
   const commentInputRef = useRef(null)
   const onCommentInputClick = (_) => {
     // The TextField wraps the <input> tag with two divs

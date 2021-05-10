@@ -23,7 +23,8 @@ import ImageCanvasBackground from "./background"
 import useEventCallback from "use-event-callback"
 import RegionShapes from "../RegionShapes/main_RegionShapes"
 
-const useStyles = makeStyles(styles)
+// get style from style.js
+const myStyle = makeStyles(styles)
 
 type Props = {
   regions: Array<Region>,
@@ -89,7 +90,7 @@ export const ImageCanvas = ({
   zoomOnAllowedArea = true,
   allowComments,
 }: Props) => {
-  const classes = useStyles()
+  const classes = myStyle()
 
   const canvasEl = useRef(null)
   const layoutParams = useRef({})

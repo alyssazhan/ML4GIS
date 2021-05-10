@@ -4,12 +4,12 @@ import Tutorial from "./Tutorial/main_Tutorial";
 import SubmitHIT from "./SubmitHIT/main_SubmitHIT"
 import styles from './styles_Home'
 import {makeStyles} from "@material-ui/core/styles";
-
-const useStyles = makeStyles(styles)
+// get style from style.js
+const myStyle = makeStyles(styles)
 
 export default function Home() {
 
-    const classes = useStyles();
+    const classes = myStyle();
     const [tutorial, setTutorial] = useState({
         steps:null,
         imgUrl:null,

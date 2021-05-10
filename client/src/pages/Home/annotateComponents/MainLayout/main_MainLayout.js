@@ -12,8 +12,9 @@ import { withHotKeys } from "react-hotkeys"
 import iconDictionary from "./iconDictionary"
 import Workspace from "react-material-workspace-layout/Workspace"
 import useEventCallback from "use-event-callback"
+// get style from style.js
 
-const useStyles = makeStyles(styles)
+const myStyle = makeStyles(styles)
 
 const HotkeyDiv = withHotKeys(({ hotKeys, children, divRef, ...props }) => (
   <div {...{ ...hotKeys, ...props }} ref={divRef}>
@@ -31,7 +32,7 @@ export const MainLayout = ({
   state,
   dispatch,
 }: Props) => {
-  const classes = useStyles()
+  const classes = myStyle()
 
   const memoizedActionFns = useRef({})
   const action = (type: string, ...params: Array<string>) => {

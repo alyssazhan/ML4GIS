@@ -3,11 +3,11 @@ import Button from 'react-bootstrap/Button';
 import styles from "../styles_Home"
 import {Jumbotron} from "react-bootstrap";
 import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles(styles);
+// get style from style.js
+const myStyle = makeStyles(styles);
 
 export default function Introduction (props){
-    const classes = useStyles();
+    const classes = myStyle();
     const [opened, setOpened] = React.useState(false);
     const [title, setTitle]=React.useState('Show Tutorial');
     function toggleBox(e) {
