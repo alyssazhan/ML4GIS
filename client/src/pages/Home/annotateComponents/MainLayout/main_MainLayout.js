@@ -24,13 +24,13 @@ const HotkeyDiv = withHotKeys(({ hotKeys, children, divRef, ...props }) => (
 
 type Props = {
   state: MainLayoutState,
-  dispatch: (Action) => any,
+  dispatchAction: (Action) => any,
   onRegionClassAdded: () => {},
 }
 
 export const MainLayout = ({
   state,
-  dispatch,
+  dispatchAction,
 }: Props) => {
   const classes = myStyle()
 
@@ -42,13 +42,13 @@ export const MainLayout = ({
 
     const fn = (...args: any) =>
       params.length > 0
-        ? dispatch(
+        ? dispatchAction(
             ({
               type,
               ...params.reduce((acc, p, i) => ((acc[p] = args[i]), acc), {}),
             }: any)
           )
-        : dispatch({ type, ...args[0] })
+        : dispatchAction({ type, ...args[0] })
     memoizedActionFns.current[fnKey] = fn
     return fn
   }
@@ -59,12 +59,12 @@ export const MainLayout = ({
     nextImage = state.images[currentImageIndex + 1]
   }
 
-  useKey(() => dispatch({ type: "CANCEL" }), {
+  useKey(() => dispatchAction({ type: "CANCEL" }), {
     detectKeys: [27],
   })
 
   const innerContainerRef = useRef()
-  const hotkeyHandlers = useDispatchHotkeyHandlers({ dispatch })
+  const hotkeyHandlers = useDispatchHotkeyHandlers({ dispatchAction })
   const refocusOnMouseEvent = useCallback((e) => {
     if (!innerContainerRef.current) return
     if (innerContainerRef.current.contains(document.activeElement)) return
@@ -115,11 +115,11 @@ export const MainLayout = ({
   )
 
   const onClickIconSidebarItem = useEventCallback((item) => {
-    dispatch({ type: "SELECT_TOOL", selectedTool: item.name })
+    dispatchAction({ type: "SELECT_TOOL", selectedTool: item.name })
   })
 
   const onClickHeaderItem = useEventCallback((item) => {
-    dispatch({ type: "HEADER_BUTTON_CLICKED", buttonName: item.name })
+    dispatchAction({ type: "HEADER_BUTTON_CLICKED", buttonName: item.name })
   })
   return (
         <HotkeyDiv

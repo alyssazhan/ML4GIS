@@ -10,7 +10,7 @@ export default function Introduction (props){
     const classes = myStyle();
     const [opened, setOpened] = React.useState(false);
     const [title, setTitle]=React.useState('Show Tutorial');
-    function toggleBox(e) {
+    function toggleTutorial(e) {
         if (opened) {
             setTitle('Show Tutorial');
 
@@ -34,7 +34,7 @@ export default function Introduction (props){
                             <Button
                                 variant="outline-primary"
                                 size="lg"
-                                onClick={e => toggleBox(e)}>
+                                onClick={e => toggleTutorial(e)}>
                                 {title}
                             </Button>
                         </div>

@@ -9,7 +9,7 @@ import {Card, CardContent, CardHeader, CardMedia, Box} from "@material-ui/core";
 
 const myStyle = makeStyles(styles);
 
-function generate(data) {
+function generateSteps(data) {
     console.log("data before is:",data)
     return !data ? null :data.map(step => {
         return (<ListItem>
@@ -39,7 +39,7 @@ export default function Tutorial(props) {
                     <Box boxShadow={3}>
                         <CardContent className={classes.steps}>
                             <List dense={dense}>
-                                {generate(props.tutorial.steps)}
+                                {generateSteps(props.tutorial.steps)}
                             </List>
                         </CardContent>
                     </Box>

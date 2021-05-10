@@ -54,14 +54,14 @@ type Props = {
   }) => any,
   onRegionClassAdded: () => {},
 }
-const getDefaultMat = (allowedArea = null, { iw, ih } = {}) => {
-  let mat = Matrix.from(1, 0, 0, 1, -10, -10)
+const getCanvasDimension = (allowedArea = null, { iw, ih } = {}) => {
+  let dimension = Matrix.from(1, 0, 0, 1, -10, -10)
   if (allowedArea && iw) {
-    mat = mat
+    dimension = dimension
       .translate(allowedArea.x * iw, allowedArea.y * ih)
       .scaleU(allowedArea.w + 0.05)
   }
-  return mat
+  return dimension
 }
 
 export const ImageCanvas = ({
@@ -97,7 +97,7 @@ export const ImageCanvas = ({
   const [dragging, changeDragging] = useRafState(false)
   const [zoomStart, changeZoomStart] = useRafState(null)
   const [zoomEnd, changeZoomEnd] = useRafState(null)
-  const [mat, changeMat] = useRafState(getDefaultMat())
+  const [mat, changeMat] = useRafState(getCanvasDimension())
 
   const { mouseEvents, mousePosition } = useMouse({
     canvasEl,
@@ -158,7 +158,7 @@ export const ImageCanvas = ({
   useEffect(() => {
     if (!imageLoaded) return
     changeMat(
-      getDefaultMat(
+        getCanvasDimension(
         zoomOnAllowedArea ? allowedArea : null,
         layoutParams.current
       )

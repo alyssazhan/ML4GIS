@@ -66,7 +66,7 @@ export const Annotator = ({
     })
   )
 
-  const dispatch = useEventCallback((action: Action) => {
+  const dispatchAction = useEventCallback((action: Action) => {
     if (action.type === "HEADER_BUTTON_CLICKED") {
       if (["Exit", "Done", "Save", "Complete"].includes(action.buttonName)) {
         return onExit(without(state, "history"))
@@ -104,7 +104,7 @@ export const Annotator = ({
         alwaysShowNextButton={Boolean(onNextImage)}
         alwaysShowPrevButton={Boolean(onPrevImage)}
         state={state}
-        dispatch={dispatch}
+        dispatchAction={dispatchAction}
         onRegionClassAdded={onRegionClassAdded}
       />
 

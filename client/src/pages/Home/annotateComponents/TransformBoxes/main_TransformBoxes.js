@@ -1,7 +1,7 @@
 import React, { Fragment, memo } from "react"
 import { styled } from "@material-ui/core/styles"
 
-const TransformGrabber = styled("div")({
+const TransformMyStyles = styled("div")({
   width: 8,
   height: 8,
   zIndex: 2,
@@ -64,7 +64,7 @@ export const RegionSelectAndTransformBox = memo(
               [0, 0.5],
               [0.5, 0.5],
             ].map(([px, py], i) => (
-              <TransformGrabber
+              <TransformMyStyles
                 key={i}
                 {...mouseEvents}
                 onMouseDown={(e) => {
@@ -91,7 +91,7 @@ export const RegionSelectAndTransformBox = memo(
                 .inverse()
                 .applyToPoint(px * iw, py * ih)
               return (
-                <TransformGrabber
+                <TransformMyStyles
                   key={i}
                   {...mouseEvents}
                   onMouseDown={(e) => {
@@ -126,7 +126,7 @@ export const RegionSelectAndTransformBox = memo(
                   .inverse()
                   .applyToPoint(pa[0] * iw, pa[1] * ih)
                 return (
-                  <TransformGrabber
+                  <TransformMyStyles
                     key={i}
                     {...mouseEvents}
                     onMouseDown={(e) => {

@@ -20,11 +20,6 @@ export default function Home() {
     const [loading, setLoading]= useState(false)
     useEffect(() => {
         setLoading(true);
-        // function getIntro(data) {
-        //     const intro =data["introduction"]
-        //     return intro
-        //
-        // }
         fetch("/api",{ mode: 'cors'}).then(res=>res.json()).then(
             (result) => {
                 console.log("start setState");
