@@ -18,11 +18,11 @@ An annotation tool that can collect map data.
   
 ## Configuration
 
-All the properties can be defined on the config.json
+All the properties can be defined on the [config.json](server/config.json)
 
 | Prop                     | Type                          | Description                                                                             | 
 | ------------------------ | ------------------------------| --------------------------------------------------------------------------------------- | 
-| `enabledTools`           | `boolean`                     | Tools allowed to be used.                                                               |               
+| `enabledTools`           | `Array<string>`                   | Tools allowed to be used.                                                               |               
 | `allow-comments`         | `boolean`                     | Allow user to input text.                                                               | 
 | `tags`                   | `Array<string>`               | Allowed "tags" (exclusive) for regions.                                                 |    
 | `introduction`           | `string`                      | Introduction to the task.                                                               |               
