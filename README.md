@@ -1,9 +1,7 @@
 # Introduction
-An annotation tool that can collect map data.
+A ReactJS & NodeJS based annotation tool that can collect image data.
 
 ## Functionalities
-
-- Tutorial
 - Drag Image
 - Zoom In/Out Image
 - Add Rectangles
@@ -18,19 +16,19 @@ An annotation tool that can collect map data.
   
 ## Configuration
 
-All the properties can be defined on the [config.json](server/config.json)
+The following properties can be defined on the [config.json](server/config.json)
 
 | Prop                     | Type                          | Description                                                                             | 
 | ------------------------ | ------------------------------| --------------------------------------------------------------------------------------- | 
-| `enabledTools`           | `Array<string>`                   | Tools allowed to be used.                                                               |               
+| `enabledTools`           | `Array<string>`               | Tools(Add Rectangles/Add Points/Add polygons) allowed to be used.                       |               
 | `allow-comments`         | `boolean`                     | Allow user to input text.                                                               | 
 | `tags`                   | `Array<string>`               | Allowed "tags" (exclusive) for regions.                                                 |    
-| `introduction`           | `string`                      | Introduction to the task.                                                               |               
-| `imgUrl`                 | `string`                      | Image path on the tutorial.                                                             |               
-| `steps`                  | `Array<string>`               | Steps on the tutorial.                                                                  |               
-| `development`            | `boolean`                     | Environment. true means "development", otherwise, "production"                          |
+| `introduction`           | `string`                      | Introduction text showing on the task overview.                                         |               
+| `imgUrl`                 | `string`                      | Path to the image displayed on the tutorial.                                            |               
+| `steps`                  | `Array<string>`               | Steps displayed on the tutorial.                                                        |               
+| `development`            | `boolean`                     | AMT Sandbox Development Environment(true) vs. Production Environment(false).            |
                        
-## UI and Corresponding Folder Path
+## UI Components and the Corresponding Folder Paths
 ![image info](./assets/imgs/home.png)
 
 
