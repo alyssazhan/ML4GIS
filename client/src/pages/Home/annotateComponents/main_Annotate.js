@@ -31,6 +31,7 @@ export const Annotator = ({
     "create-point",
     "create-rectangle",
     "create-polygon",
+    "create-polygon1",
   ],
   selectedTool = "select",
   regionTagList = [],

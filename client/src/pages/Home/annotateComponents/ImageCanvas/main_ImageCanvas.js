@@ -10,6 +10,7 @@ import type {
   Region,
   Point,
   Polygon,
+  Polygon1,
   Rectangle,
 } from "./regionTools.js"
 import { makeStyles } from "@material-ui/core/styles"
@@ -46,6 +47,8 @@ type Props = {
   onBeginBoxTransform: (Rectangle, [number, number]) => any,
   onBeginMovePolygonPoint: (Polygon, index: number) => any,
   onAddPolygonPoint: (Polygon, point: [number, number], index: number) => any,
+  onBeginMovePolygon1Point: (Polygon1, index1: number) => any,
+  onAddPolygon1Point: (Polygon1, point1: [number, number], index1: number) => any,
   onSelectRegion: (Region) => any,
   onBeginMovePoint: (Point) => any,
   onLoaded: ({
@@ -82,6 +85,8 @@ export const ImageCanvas = ({
   onBeginBoxTransform,
   onBeginMovePolygonPoint,
   onAddPolygonPoint,
+  onBeginMovePolygon1Point,
+  onAddPolygon1Point,
   onBeginMoveKeypoint,
   onSelectRegion,
   onBeginMovePoint,
@@ -294,6 +299,8 @@ export const ImageCanvas = ({
           onBeginMovePolygonPoint={onBeginMovePolygonPoint}
           onBeginMoveKeypoint={onBeginMoveKeypoint}
           onAddPolygonPoint={onAddPolygonPoint}
+          onAddPolygon1Point={onAddPolygon1Point}
+          onBeginMovePolygon1Point={onBeginMovePolygon1Point}
         />
       )}
       {imageLoaded  && !dragging && (

@@ -60,6 +60,9 @@ export default class SubmitHIT extends Component {
                 else if(enabledTools[i]["create polygon"]==true){
                     res.push("create-polygon")
                 }
+                else if(enabledTools[i]["create polygon1"]==true){
+                    res.push("create-polygon1")
+                }
             }
             return res
 

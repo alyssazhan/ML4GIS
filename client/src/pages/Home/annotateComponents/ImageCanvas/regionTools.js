@@ -32,10 +32,18 @@ export type Polygon = {|
   open?: boolean,
   points: Array<[number, number]>,
 |}
+
+export type Polygon1 = {|
+...$Exact<BaseRegion>,
+    type: "polygon1",
+    open?: boolean,
+    points: Array<[number, number]>,
+|}
 export type Region =
   | Point
   | Rectangle
   | Polygon
+  | Polygon1
 
 export const getEnclosingBox = (region: Region) => {
   switch (region.type) {
@@ -50,7 +58,17 @@ export const getEnclosingBox = (region: Region) => {
       rectangle.h = Math.max(...region.points.map(([x, y]) => y)) - rectangle.y
       return rectangle
     }
-
+    case "polygon1": {
+      const rectangle = {
+        x: Math.min(...region.points.map(([x, y]) => x)),
+        y: Math.min(...region.points.map(([x, y]) => y)),
+        w: 0,
+        h: 0,
+      }
+      rectangle.w = Math.max(...region.points.map(([x, y]) => x)) - rectangle.x
+      rectangle.h = Math.max(...region.points.map(([x, y]) => y)) - rectangle.y
+      return rectangle
+    }
     case "rectangle": {
       return { x: region.x, y: region.y, w: region.w, h: region.h }
     }

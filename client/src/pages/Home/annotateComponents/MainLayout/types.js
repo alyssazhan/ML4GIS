@@ -2,6 +2,7 @@
 import type {
   Region,
   Polygon,
+  Polygon1,
   Rectangle,
   Point,
 } from "../ImageCanvas/regionTools.js"
@@ -12,6 +13,7 @@ export type ToolEnum =
   | "create-point"
   | "create-box"
   | "create-polygon"
+| "create-polygon1"
 
 export type Image = {
   src: string,
@@ -26,6 +28,8 @@ export type Mode =
   | null
   | {| mode: "DRAW_POLYGON", regionId: string |}
   | {| mode: "MOVE_POLYGON_POINT", regionId: string, pointIndex: number |}
+| {| mode: "DRAW_POLYGON1", regionId: string |}
+| {| mode: "MOVE_POLYGON1_POINT", regionId: string, pointIndex: number |}
   | {|
       mode: "RESIZE_BOX",
       regionId: string,
@@ -66,16 +70,24 @@ export type Action =
   | {| type: "CHANGE_REGION", region: Region |}
   | {| type: "RESTORE_HISTORY" |}
   | {| type: "CLOSE_POLYGON", polygon: Polygon |}
+| {| type: "CLOSE_POLYGON1", polygon1: Polygon1 |}
   | {| type: "SELECT_REGION", region: Region |}
   | {| type: "BEGIN_MOVE_POINT", point: Point |}
   | {| type: "BEGIN_BOX_TRANSFORM", rectangle: Rectangle, directions: [number, number] |}
   | {| type: "BEGIN_MOVE_POLYGON_POINT", polygon: Polygon, pointIndex: number |}
+| {| type: "BEGIN_MOVE_POLYGON1_POINT", polygon1: Polygon1, point1Index: number |}
   | {|
       type: "ADD_POLYGON_POINT",
       polygon: Polygon,
       point: { x: number, y: number },
       pointIndex: number,
     |}
+| {|
+  type: "ADD_POLYGON1_POINT",
+      polygon1: Polygon1,
+      point: { x: number, y: number },
+  point1Index: number,
+|}
   | {| type: "MOUSE_MOVE", x: number, y: number |}
   | {| type: "MOUSE_DOWN", x: number, y: number |}
   | {| type: "MOUSE_UP", x: number, y: number |}

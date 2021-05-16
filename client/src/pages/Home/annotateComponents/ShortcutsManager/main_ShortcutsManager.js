@@ -23,6 +23,10 @@ export const defaultHotkeys = [
     description: "Create a Polygon",
   },
   {
+    id: "create_polygon1",
+    description: "Create a Polygon1",
+  },
+  {
     id: "save_and_previous_sample",
     description: "Save and go to previous sample",
   },
@@ -82,6 +86,12 @@ export const useDispatchHotkeyHandlers = ({ dispatch }) => {
         dispatch({
           type: "SELECT_TOOL",
           selectedTool: "create-polygon",
+        })
+      },
+      create_polygon1: () => {
+        dispatch({
+          type: "SELECT_TOOL",
+          selectedTool: "create-polygon1",
         })
       },
 

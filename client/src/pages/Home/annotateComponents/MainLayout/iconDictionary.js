@@ -38,6 +38,14 @@ export const iconDictionary = {
       icon={faDrawPolygon}
     />
   ),
+  "create-polygon1": () => (
+      <FontAwesomeIcon
+          style={faStyle}
+          size="xs"
+          fixedWidth
+          icon={faDrawPolygon}
+      />
+  ),
 
 }
 

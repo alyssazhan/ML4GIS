@@ -39,8 +39,10 @@ export const RegionSelectAndTransformBox = memo(
     mat,
     onBeginBoxTransform,
     onBeginMovePolygonPoint,
+       onBeginMovePolygon1Point,
     onBeginMoveKeypoint,
     onAddPolygonPoint,
+       onAddPolygon1Point,
   }) => {
     const pbox = projectRegionBox(r)
     const { iw, ih } = layoutParams.current
@@ -110,6 +112,36 @@ export const RegionSelectAndTransformBox = memo(
                 />
               )
             })}
+            {r.type === "polygon1" &&
+            !dragWithPrimary &&
+            !zoomWithPrimary &&
+            !r.locked &&
+            r.highlighted &&
+            r.points.map(([px, py], i) => {
+                const proj = mat
+                    .clone()
+                    .inverse()
+                    .applyToPoint(px * iw, py * ih)
+                return (
+                    <TransformMyStyles
+                        key={i}
+                        {...mouseEvents}
+                        onMouseDown={(e) => {
+                            if (e.button === 0 && (!r.open || i === 0))
+                                return onBeginMovePolygon1Point(r, i)
+                            mouseEvents.onMouseDown(e)
+                        }}
+                        style={{
+                            cursor: !r.open ? "move" : i === 0 ? "pointer" : undefined,
+                            zIndex: 10,
+                            pointerEvents:
+                                r.open && i === r.points.length - 1 ? "none" : undefined,
+                            left: proj.x - 4,
+                            top: proj.y - 4,
+                        }}
+                    />
+                )
+            })}
           {r.type === "polygon" &&
             r.highlighted &&
             !dragWithPrimary &&
@@ -144,6 +176,40 @@ export const RegionSelectAndTransformBox = memo(
                   />
                 )
               })}
+            {r.type === "polygon1" &&
+            r.highlighted &&
+            !dragWithPrimary &&
+            !zoomWithPrimary &&
+            !r.locked &&
+            !r.open &&
+            r.points.length > 1 &&
+            r.points
+                .map((p1, i) => [p1, r.points[(i + 1) % r.points.length]])
+                .map(([p1, p2]) => [(p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2])
+                .map((pa, i) => {
+                    const proj = mat
+                        .clone()
+                        .inverse()
+                        .applyToPoint(pa[0] * iw, pa[1] * ih)
+                    return (
+                        <TransformMyStyles
+                            key={i}
+                            {...mouseEvents}
+                            onMouseDown={(e) => {
+                                if (e.button === 0) return onAddPolygon1Point(r, pa, i + 1)
+                                mouseEvents.onMouseDown(e)
+                            }}
+                            style={{
+                                cursor: "copy",
+                                zIndex: 10,
+                                left: proj.x - 4,
+                                top: proj.y - 4,
+                                border: "2px dotted #fff",
+                                opacity: 0.5,
+                            }}
+                        />
+                    )
+                })}
         </div>
       </Fragment>
     )

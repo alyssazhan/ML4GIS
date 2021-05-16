@@ -107,6 +107,17 @@ export const MainLayout = ({
         "point",
         "pointIndex"
       )}
+      onBeginMovePolygon1Point={action(
+          "BEGIN_MOVE_POLYGON1_POINT",
+          "polygon1",
+          "point1Index"
+      )}
+      onAddPolygon1Point={action(
+          "ADD_POLYGON1_POINT",
+          "polygon1",
+          "point1",
+          "point1Index"
+      )}
       onSelectRegion={action("SELECT_REGION", "region")}
       onBeginMovePoint={action("BEGIN_MOVE_POINT", "point")}
       onImageLoaded={action("IMAGE_LOADED", "image")}
@@ -176,6 +187,10 @@ export const MainLayout = ({
               {
                 name: "create-polygon",
                 helperText: "Add Polygon",
+              },
+              {
+                name: "create-polygon1",
+                helperText: "Add Polygon1",
               },
 
             ]

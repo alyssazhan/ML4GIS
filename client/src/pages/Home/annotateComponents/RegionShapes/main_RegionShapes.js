@@ -44,8 +44,23 @@ const RegionComponents = {
       />
     )
   }),
+    polygon1: memo(({ region, iw, ih, fullSegmentationMode }) => {
+        const Component = region.open ? "polyline" : "polygon"
+        return (
+            <Component
+                points={region.points
+                    .map(([x, y]) => [x * iw, y * ih])
+                    .map((a) => a.join(" "))
+                    .join(" ")}
+                strokeWidth={2}
+                stroke={colorAlpha(region.color, 0.75)}
+                fill={colorAlpha(region.color, 0.25)}
+            />
+        )
+    }),
   pixel: () => null,
 }
+
 
 export const WrappedRegionList = memo(
   ({ regions, keypointDefinitions, iw, ih, fullSegmentationMode }) => {
