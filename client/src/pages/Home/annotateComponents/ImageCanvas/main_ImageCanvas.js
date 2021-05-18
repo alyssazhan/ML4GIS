@@ -96,7 +96,7 @@ export const ImageCanvas = ({
   onRegionClassAdded,
   zoomOnAllowedArea = true,
   allowComments,
-                              onBeginCircleTransform,
+nBeginCircleTransform,
 }: Props) => {
   const classes = myStyle()
 

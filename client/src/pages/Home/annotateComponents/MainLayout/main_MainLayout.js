@@ -199,7 +199,7 @@ export const MainLayout = ({
               },
               {
                 name: "create-circle",
-                helperText: "Add Circle",
+                helperText: "Add Ellipse",
               },
 
             ]

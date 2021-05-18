@@ -32,12 +32,12 @@ const RegionComponents = {
   )),
     circle: memo(({ region, iw, ih }) => (
         <g transform={`translate(${region.x * iw} ${region.y * ih})`}>
-            <circle
+            <ellipse
                 strokeWidth={2}
-                x={0}
-                y={0}
-                width={Math.max(region.w * iw, 0)}
-                height={Math.max(region.h * ih, 0)}
+                rx={Math.max(region.xr*iw,0)}
+                ry={Math.max(region.yr*ih,0)}
+                cx={region.x}
+                cy={region.y}
                 stroke={colorAlpha(region.color, 0.75)}
                 fill={colorAlpha(region.color, 0.25)}
             />

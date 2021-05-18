@@ -5,6 +5,7 @@ import type {
   Polygon1,
   Rectangle,
   Point,
+    Circle,
 } from "../ImageCanvas/regionTools.js"
 
 export type ToolEnum =
@@ -14,6 +15,7 @@ export type ToolEnum =
   | "create-box"
   | "create-polygon"
   | "create-polygon1"
+|"create-circle"
 
 export type Image = {
   src: string,

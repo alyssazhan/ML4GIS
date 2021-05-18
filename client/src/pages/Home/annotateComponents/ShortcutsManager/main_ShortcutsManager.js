@@ -28,7 +28,7 @@ export const defaultHotkeys = [
   },
   {
     id: "create_circle",
-    description: "Create a Circle",
+    description: "Create a Ellipse",
   },
   {
     id: "save_and_previous_sample",

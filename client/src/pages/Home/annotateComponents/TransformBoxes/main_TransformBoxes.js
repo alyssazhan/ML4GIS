@@ -43,6 +43,7 @@ export const RegionSelectAndTransformBox = memo(
     onBeginMoveKeypoint,
     onAddPolygonPoint,
        onAddPolygon1Point,
+       onBeginCircleTransform
   }) => {
     const pbox = projectRegionBox(r)
     const { iw, ih } = layoutParams.current
@@ -82,6 +83,45 @@ export const RegionSelectAndTransformBox = memo(
                 }}
               />
             ))}
+            {
+                r.type === "circle" &&
+                !dragWithPrimary &&
+                !zoomWithPrimary &&
+                !r.locked &&
+                r.highlighted &&
+                [
+                    [r.x, r.y],
+                    [(r.x*iw + Math.sqrt(Math.pow((r.xr-r.x)*iw,2) + Math.pow((r.yr-r.y)*ih,2)))/iw, r.y],
+                    [r.x, (r.y*ih + Math.sqrt(Math.pow((r.xr-r.x)*iw,2) + Math.pow((r.yr-r.y)*ih,2)))/ih],
+                    [(r.x*iw - Math.sqrt(Math.pow((r.xr-r.x)*iw,2) + Math.pow((r.yr-r.y)*ih,2)))/iw, r.y],
+                    [r.x, (r.y*ih - Math.sqrt(Math.pow((r.xr-r.x)*iw,2) + Math.pow((r.yr-r.y)*ih,2)))/ih]
+                ].map(([px, py], i) => {
+                    const proj = mat
+                        .clone()
+                        .inverse()
+                        .applyToPoint(px * iw, py * ih)
+                    return(
+                        <div
+                            key={i}
+                            // className={classes.transformGrabber}
+                            {...mouseEvents}
+                            onMouseDown={e => {
+                                if (e.button === 0 && i==0){
+                                    return onBeginCircleTransform(r, "MOVE_REGION")
+                                }else if(e.button === 0 && i!=0){
+                                    return onBeginCircleTransform(r, "RESIZE_CIRCLE")
+                                }
+                                mouseEvents.onMouseDown(e)
+                            }}
+                            style={{
+                                left: proj.x - 4,
+                                top: proj.y - 4,
+                                borderRadius: px === r.x && py === r.y ? 4 : undefined
+                            }}
+                        />
+                    )
+                })
+            }
           {r.type === "polygon" &&
             !dragWithPrimary &&
             !zoomWithPrimary &&

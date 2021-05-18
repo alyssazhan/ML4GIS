@@ -380,6 +380,20 @@ export default (state: MainLayoutState, action: Action) => {
               [x, y]
           )
         }
+        case "RESIZE_CIRCLE": {
+          const { regionId } = state.mode
+          const [region, regionIndex] = getRegion(regionId)
+          if (!region) return setIn(state, ["mode"], null)
+          return setIn(
+              state,
+              ["images", currentImageIndex, "regions", regionIndex],
+              {
+                ...region,
+                xr: Math.abs(region.x - x),
+                yr: Math.abs(region.y - y)
+              }
+          )
+        }
         default:
           return state
       }
@@ -410,7 +424,15 @@ export default (state: MainLayoutState, action: Action) => {
                 { ...polygon1, points: polygon1.points.concat([[x, y]]),holes:polygon1.holes.concat([[x, y]]) }
             )
           }
-
+          case "DRAW_CIRCLE": {
+            const [circle, regionIndex] = getRegion(state.mode.regionId)
+            if (!circle) break
+            return setIn(
+                state,
+                [...pathToActiveImage, "regions", regionIndex],
+                { ...circle}
+            )
+          }
           default:
             break
         }
@@ -681,6 +703,22 @@ export default (state: MainLayoutState, action: Action) => {
       state = setIn(state, ["mode"], null)
       return setIn(state, ["selectedTool"], action.selectedTool)
     }
+    case "BEGIN_CIRCLE_TRANSFORM": {
+      const { circle, directions } = action
+      state = closeEditors(state)
+      if (directions === "MOVE_REGION") {
+        return setIn(state, ["mode"], {
+          mode: "MOVE_REGION",
+          regionId: circle.id
+        })
+      } else {
+        return setIn(state, ["mode"], {
+          mode: "RESIZE_CIRCLE",
+          regionId: circle.id,
+          original: { x: circle.x, y: circle.y, rx: circle.rx, ry: circle.ry }
+        })
+      }
+    }
     case "CANCEL": {
       const { mode } = state
       if (mode) {
@@ -727,36 +765,8 @@ export default (state: MainLayoutState, action: Action) => {
       }
       break
     }
-    case "BEGIN_CIRCLE_TRANSFORM": {
-      const { circle, directions } = action
-      state = closeEditors(state)
-      if (directions === "MOVE_REGION") {
-        return setIn(state, ["mode"], {
-          mode: "MOVE_REGION",
-          regionId: circle.id
-        })
-      } else {
-        return setIn(state, ["mode"], {
-          mode: "RESIZE_CIRCLE",
-          regionId: circle.id,
-          original: { x: circle.x, y: circle.y, rx: circle.rx, ry: circle.ry }
-        })
-      }
-    }
-    // case "RESIZE_CIRCLE": {
-    //   const { regionId } = state.mode
-    //   const [region, regionIndex] = getRegion(regionId)
-    //   if (!region) return setIn(state, ["mode"], null)
-    //   return setIn(
-    //       state,
-    //       ["images", currentImageIndex, "regions", regionIndex],
-    //       {
-    //         ...region,
-    //         xr: Math.abs(region.x - x),
-    //         yr: Math.abs(region.y - y)
-    //       }
-    //   )
-    // }
+
+
     default:
       break
   }
