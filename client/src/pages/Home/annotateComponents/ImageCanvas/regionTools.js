@@ -35,15 +35,29 @@ export type Polygon = {|
 
 export type Polygon1 = {|
 ...$Exact<BaseRegion>,
-    type: "polygon1",
+    type:
+"polygon1",
+    points:Array<[number, number]>,
+    holes: Array<[number, number]>,
     open?: boolean,
-    points: Array<[number, number]>,
+    creatingHole?:  boolean,
+|}
+export type Circle = {|
+...$Exact<BaseRegion>,
+    type: "circle",
+    // x and y indicate the coordinates of the centre of the circle
+    x: number,
+    y: number,
+    // x and y radius (technically, Circles are capable of representing Ovals)
+    xr: number,
+    xr: number
 |}
 export type Region =
   | Point
   | Rectangle
   | Polygon
   | Polygon1
+  |Circle
 
 export const getEnclosingBox = (region: Region) => {
   switch (region.type) {
@@ -69,6 +83,14 @@ export const getEnclosingBox = (region: Region) => {
       rectangle.h = Math.max(...region.points.map(([x, y]) => y)) - rectangle.y
       return rectangle
     }
+    case "circle": {
+      return {
+        x: region.x - region.xr,
+        y: region.y - region.yr,
+        w: region.xr * 2,
+        h: region.yr * 2
+      }
+    }
     case "rectangle": {
       return { x: region.x, y: region.y, w: region.w, h: region.h }
     }
@@ -89,6 +111,13 @@ export const moveRegion = (region: Region, x: number, y: number) => {
     }
     case "rectangle": {
       return { ...region, x: x - region.w / 2, y: y - region.h / 2 }
+    }
+    case "circle": {
+      return {
+        ...region,
+        x,
+        y
+      }
     }
   }
   return region

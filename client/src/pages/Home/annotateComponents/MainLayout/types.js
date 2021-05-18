@@ -13,7 +13,7 @@ export type ToolEnum =
   | "create-point"
   | "create-box"
   | "create-polygon"
-| "create-polygon1"
+  | "create-polygon1"
 
 export type Image = {
   src: string,
@@ -37,6 +37,12 @@ export type Mode =
       original: { x: number, y: number, w: number, h: number },
       isNew?: boolean,
     |}
+| {|
+  mode: "RESIZE_CIRCLE",
+      editLabelEditorAfter?: boolean,
+      regionId: string,
+      original: { x: number, y: number, r: number }
+|}
   | {| mode: "MOVE_REGION" |}
 
 export type MainLayoutStateBase = {|
@@ -64,13 +70,13 @@ export type Action =
       metadata: {
         naturalWidth: number,
         naturalHeight: number,
-        // duration?: number,
       },
     |}
   | {| type: "CHANGE_REGION", region: Region |}
   | {| type: "RESTORE_HISTORY" |}
   | {| type: "CLOSE_POLYGON", polygon: Polygon |}
 | {| type: "CLOSE_POLYGON1", polygon1: Polygon1 |}
+
   | {| type: "SELECT_REGION", region: Region |}
   | {| type: "BEGIN_MOVE_POINT", point: Point |}
   | {| type: "BEGIN_BOX_TRANSFORM", rectangle: Rectangle, directions: [number, number] |}
@@ -86,7 +92,8 @@ export type Action =
   type: "ADD_POLYGON1_POINT",
       polygon1: Polygon1,
       point: { x: number, y: number },
-  point1Index: number,
+      holes: { x: number, y: number },
+      point1Index: number,
 |}
   | {| type: "MOUSE_MOVE", x: number, y: number |}
   | {| type: "MOUSE_DOWN", x: number, y: number |}
@@ -99,3 +106,4 @@ export type Action =
   | {| type: "HEADER_BUTTON_CLICKED", buttonName: string |}
   | {| type: "SELECT_TOOL", selectedTool: ToolEnum |}
   | {| type: "CANCEL" |}
+| {| type: "BEGIN_CIRCLE_TRANSFORM", region: Circle, directions: string |}

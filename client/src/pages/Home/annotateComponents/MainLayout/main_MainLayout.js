@@ -118,6 +118,11 @@ export const MainLayout = ({
           "point1",
           "point1Index"
       )}
+      onBeginCircleTransform={action(
+          "BEGIN_CIRCLE_TRANSFORM",
+          "circle",
+          "directions"
+      )}
       onSelectRegion={action("SELECT_REGION", "region")}
       onBeginMovePoint={action("BEGIN_MOVE_POINT", "point")}
       onImageLoaded={action("IMAGE_LOADED", "image")}
@@ -190,7 +195,11 @@ export const MainLayout = ({
               },
               {
                 name: "create-polygon1",
-                helperText: "Add Polygon1",
+                helperText: "Add Polygon with Holes",
+              },
+              {
+                name: "create-circle",
+                helperText: "Add Circle",
               },
 
             ]

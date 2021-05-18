@@ -12,6 +12,7 @@ import type {
   Polygon,
   Polygon1,
   Rectangle,
+  Circle
 } from "./regionTools.js"
 import { makeStyles } from "@material-ui/core/styles"
 import styles from "./styles_ImageCanvas"
@@ -48,7 +49,8 @@ type Props = {
   onBeginMovePolygonPoint: (Polygon, index: number) => any,
   onAddPolygonPoint: (Polygon, point: [number, number], index: number) => any,
   onBeginMovePolygon1Point: (Polygon1, index1: number) => any,
-  onAddPolygon1Point: (Polygon1, point1: [number, number], index1: number) => any,
+  onAddPolygon1Point: (Polygon1, Polygon1Index:number, point1: [number, number], index1: number) => any,
+  onBeginCircleTransform: (Circle, directions: string) => any,
   onSelectRegion: (Region) => any,
   onBeginMovePoint: (Point) => any,
   onLoaded: ({
@@ -94,6 +96,7 @@ export const ImageCanvas = ({
   onRegionClassAdded,
   zoomOnAllowedArea = true,
   allowComments,
+                              onBeginCircleTransform,
 }: Props) => {
   const classes = myStyle()
 

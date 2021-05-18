@@ -24,7 +24,11 @@ export const defaultHotkeys = [
   },
   {
     id: "create_polygon1",
-    description: "Create a Polygon1",
+    description: "Create a Polygon with Holes",
+  },
+  {
+    id: "create_circle",
+    description: "Create a Circle",
   },
   {
     id: "save_and_previous_sample",
@@ -92,6 +96,12 @@ export const useDispatchHotkeyHandlers = ({ dispatch }) => {
         dispatch({
           type: "SELECT_TOOL",
           selectedTool: "create-polygon1",
+        })
+      },
+      create_circle: () => {
+        dispatch({
+          type: "SELECT_TOOL",
+          selectedTool: "create-circle",
         })
       },
 

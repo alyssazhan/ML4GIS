@@ -213,14 +213,25 @@ export default (state: MainLayoutState, action: Action) => {
       })
     }
     case "ADD_POLYGON1_POINT": {
-      const { polygon1, point1, point1Index } = action
+      const { polygon1, point1, point1Index} = action
       const regionIndex = getRegionIndex(polygon1)
       if (regionIndex === null) return state
       const points = [...polygon1.points]
+      const holes = [...polygon1.holes]
+      const open=[...polygon1.open]
+      let creatingHole=[...polygon1.creatingHole]
+
       points.splice(point1Index, 0, point1)
+      if(!open){
+        creatingHole=true
+        holes.splice(point1Index-points.length, 0, point1);
+      }
+
       return setIn(state, [...pathToActiveImage, "regions", regionIndex], {
         ...polygon1,
         points,
+        holes,
+        creatingHole,
       })
     }
     case "MOUSE_MOVE": {
@@ -257,6 +268,7 @@ export default (state: MainLayoutState, action: Action) => {
                 "regions",
                 regionIndex,
                 "points",
+                "holes",
                 pointIndex,
               ],
               [x, y]
@@ -361,7 +373,9 @@ export default (state: MainLayoutState, action: Action) => {
                 "regions",
                 regionIndex,
                 "points",
-                (region: any).points.length - 1,
+                "holes",
+                "createHole",
+                (region: any).points.length+(region: any).holes.length - 1,
               ],
               [x, y]
           )
@@ -393,9 +407,10 @@ export default (state: MainLayoutState, action: Action) => {
             return setIn(
                 state,
                 [...pathToActiveImage, "regions", region1Index],
-                { ...polygon1, points: polygon1.points.concat([[x, y]]) }
+                { ...polygon1, points: polygon1.points.concat([[x, y]]),holes:polygon1.holes.concat([[x, y]]) }
             )
           }
+
           default:
             break
         }
@@ -481,7 +496,10 @@ export default (state: MainLayoutState, action: Action) => {
               [x, y],
               [x, y],
             ],
+            holes:[[x, y],
+              [x, y],],
             open: true,
+            creatingHole:false,
             highlighted: true,
             color: defaultRegionColor,
             cls: defaultRegionCls,
@@ -490,6 +508,28 @@ export default (state: MainLayoutState, action: Action) => {
           state = setIn(state, ["mode"], {
             mode: "DRAW_POLYGON1",
             regionId: newRegion.id,
+          })
+          break
+        }
+        case "create-circle": {
+          state = saveToHistory(state, "Create Circle")
+          newRegion = {
+            type: "circle",
+            x: x,
+            y: y,
+            xr: 0.1,
+            yr: 0.1,
+            highlighted: true,
+            editingLabels: false,
+            color: defaultRegionColor,
+            id: getRandomId()
+          }
+          // state = unselectRegions(state)
+          state = setIn(state, ["mode"], {
+            mode: "RESIZE_CIRCLE",
+            editLabelEditorAfter: true,
+            regionId: newRegion.id,
+            original: { x: x, y: y, xr: newRegion.xr, yr: newRegion.yr }
           })
           break
         }
@@ -533,6 +573,14 @@ export default (state: MainLayoutState, action: Action) => {
           }
         }
         case "MOVE_REGION":
+        case "RESIZE_CIRCLE": {
+          if (state.mode.editLabelEditorAfter) {
+            return {
+              ...modifyRegion(state.mode.regionId, { editingLabels: true }),
+              mode: null
+            }
+          }
+        }
         case "MOVE_POLYGON_POINT": {
           return { ...state, mode: null }
         }
@@ -648,6 +696,7 @@ export default (state: MainLayoutState, action: Action) => {
           case "MOVE_POLYGON_POINT":
           case "MOVE_POLYGON1_POINT":
           case "RESIZE_BOX":
+          case "RESIZE_CIRCLE":
           case "MOVE_REGION": {
             return setIn(state, ["mode"], null)
           }
@@ -678,6 +727,36 @@ export default (state: MainLayoutState, action: Action) => {
       }
       break
     }
+    case "BEGIN_CIRCLE_TRANSFORM": {
+      const { circle, directions } = action
+      state = closeEditors(state)
+      if (directions === "MOVE_REGION") {
+        return setIn(state, ["mode"], {
+          mode: "MOVE_REGION",
+          regionId: circle.id
+        })
+      } else {
+        return setIn(state, ["mode"], {
+          mode: "RESIZE_CIRCLE",
+          regionId: circle.id,
+          original: { x: circle.x, y: circle.y, rx: circle.rx, ry: circle.ry }
+        })
+      }
+    }
+    // case "RESIZE_CIRCLE": {
+    //   const { regionId } = state.mode
+    //   const [region, regionIndex] = getRegion(regionId)
+    //   if (!region) return setIn(state, ["mode"], null)
+    //   return setIn(
+    //       state,
+    //       ["images", currentImageIndex, "regions", regionIndex],
+    //       {
+    //         ...region,
+    //         xr: Math.abs(region.x - x),
+    //         yr: Math.abs(region.y - y)
+    //       }
+    //   )
+    // }
     default:
       break
   }

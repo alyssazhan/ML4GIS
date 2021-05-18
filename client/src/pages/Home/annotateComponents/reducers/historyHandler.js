@@ -7,6 +7,7 @@ const typesToSaveWithHistory = {
   BEGIN_BOX_TRANSFORM: "Transform/Move Box",
   BEGIN_MOVE_POINT: "Move Point",
   DELETE_REGION: "Delete Region",
+  BEGIN_CIRCLE_TRANSFORM: "Transform/Move Circle",
 }
 
 export const saveToHistory = (state: MainLayoutState, name: string) =>

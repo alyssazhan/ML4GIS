@@ -8,7 +8,9 @@ import {
   faVectorSquare,
   faHandPaper,
   faSearch,
+    faMinusSquare,
 } from "@fortawesome/free-solid-svg-icons"
+import { faCircle } from "@fortawesome/free-regular-svg-icons"
 
 const faStyle = { marginTop: 4, width: 16, height: 16, marginBottom: 4 }
 
@@ -43,9 +45,18 @@ export const iconDictionary = {
           style={faStyle}
           size="xs"
           fixedWidth
-          icon={faDrawPolygon}
+          icon={faMinusSquare}
       />
   ),
+  "create-circle": () => (
+      <FontAwesomeIcon
+          style={faStyle}
+          size="xs"
+          fixedWidth
+          icon={faCircle}
+      />
+  ),
+
 
 }
 

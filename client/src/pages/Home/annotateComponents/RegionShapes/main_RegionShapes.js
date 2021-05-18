@@ -30,21 +30,44 @@ const RegionComponents = {
       />
     </g>
   )),
-  polygon: memo(({ region, iw, ih, fullSegmentationMode }) => {
-    const Component = region.open ? "polyline" : "polygon"
+    circle: memo(({ region, iw, ih }) => (
+        <g transform={`translate(${region.x * iw} ${region.y * ih})`}>
+            <circle
+                strokeWidth={2}
+                x={0}
+                y={0}
+                width={Math.max(region.w * iw, 0)}
+                height={Math.max(region.h * ih, 0)}
+                stroke={colorAlpha(region.color, 0.75)}
+                fill={colorAlpha(region.color, 0.25)}
+            />
+        </g>
+    )),
+  polygon1: memo(({ region, iw, ih, fullSegmentationMode }) => {
+    const Component = region.open? "polyline" : "polygon"
+
+      // const Hole=region.creatingHole ? "polyline" : "polygon"
     return (
       <Component
+          // paths={[region.points,region.holes]}
         points={region.points
           .map(([x, y]) => [x * iw, y * ih])
           .map((a) => a.join(" "))
           .join(" ")}
+        // holes={region.holes
+        //     .map(([x, y]) => [x * iw, y * ih])
+        //     .map((a) => a.join(" "))
+        //     .join(" ")}
         strokeWidth={2}
         stroke={colorAlpha(region.color, 0.75)}
-        fill={colorAlpha(region.color, 0.25)}
-      />
+        fill={colorAlpha(region.color, 0.25)}>
+
+         </Component>
+
+
     )
   }),
-    polygon1: memo(({ region, iw, ih, fullSegmentationMode }) => {
+    polygon: memo(({ region, iw, ih, fullSegmentationMode }) => {
         const Component = region.open ? "polyline" : "polygon"
         return (
             <Component

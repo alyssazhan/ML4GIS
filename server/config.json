@@ -1,6 +1,6 @@
 {
   "setup": {
-    "enabledTools": [{"create point": true},{"create rectangle": true},{"create polygon": true},{"create polygon1": true}],
+    "enabledTools": [{"create point": true},{"create rectangle": true},{"create polygon": true},{"create polygon1": true},{"create circle": true}],
     "allow-comments": true,
     "tags": ["tag1","tag2","tag3","tag4","tag5"],
     "introduction": "We aim to build an annotation tool that can collect map data.",
