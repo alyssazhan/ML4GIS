@@ -31,6 +31,29 @@ The following properties can be defined on the [config.json](server/config.json)
 | `steps`                  | `Array<string>`               | Steps displayed on the tutorial.                                                        |               
 | `development`            | `boolean`                     | AMT Sandbox Development Environment(true) vs. Production Environment(false).            |
 
+## Front-end Development:
+Run npm run <SCRIPT_NAME> to run a script. When developing the app, cd to 'client' folder and run "npm run start".
+
+| Script                    | Description                         | 
+| ------------------------ | ------------------------------| 
+| `start`           | `Run back-end app on port 3001`               |      
+| `build`         | ` creates a build directory with a production build of the app`                     |
+
+##Back-end Development:
+Run npm run <SCRIPT_NAME> to run a script. When we are developing the app, cd to 'server' folder and run "npm run start".
+
+| Script                    | Description                         | 
+| ------------------------ | ------------------------------| 
+| `start`           | `Run back-end on port 3001`               |      
+| `build`         | ` creates a build directory with a production build of the app`                     |
+
+##Full-stack Development:
+Run npm run <SCRIPT_NAME> to run a script. When we are developing the app, go to top-level folder and run "npm run dev".
+
+| Script                    | Description                         | 
+| ------------------------ | ------------------------------| 
+| `dev`           | `Run front-end app on port 3000 and back-end on port 3001`               |      
+| `build`         | ` creates a build directory with a production build of the app`|
 
 ## File Tree
  - __client__

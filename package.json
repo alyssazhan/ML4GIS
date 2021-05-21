@@ -8,7 +8,7 @@
     "server": "cd server && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "start": "node server/index.js",
-    "build": "cd client && npm install && npm run build"
+    "build": "concurrently \"cd client && npm install && npm run build\" \"cd server && npm install && npm run build\""
   },
   "keywords": [],
   "author": "",
