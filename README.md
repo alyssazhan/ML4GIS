@@ -36,7 +36,7 @@ Run npm run <SCRIPT_NAME> to run a script. When developing the app, cd to 'clien
 
 | Script                    | Description                         | 
 | ------------------------ | ------------------------------| 
-| `start`           | `Run back-end app on port 3001`               |      
+| `start`           | `Run font-end app on port 3000`               |      
 | `build`         | ` creates a build directory with a production build of the app`                     |
 
 ## Back-end Development:
