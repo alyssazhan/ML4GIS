@@ -3,8 +3,8 @@ import json
 import pandas as pd
 MTURK_SANDBOX = 'https://mturk-requester-sandbox.us-east-1.amazonaws.com'
 mturk = boto3.client('mturk',
-   aws_access_key_id = "AKIAJEBMD4ANBMYLQSCA",
-   aws_secret_access_key = "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",
+   aws_access_key_id = "",
+   aws_secret_access_key = "",
    region_name='us-east-1',
    endpoint_url = MTURK_SANDBOX
 )

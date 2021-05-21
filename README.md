@@ -39,7 +39,7 @@ Run npm run <SCRIPT_NAME> to run a script. When developing the app, cd to 'clien
 | `start`           | `Run back-end app on port 3001`               |      
 | `build`         | ` creates a build directory with a production build of the app`                     |
 
-##Back-end Development:
+## Back-end Development:
 Run npm run <SCRIPT_NAME> to run a script. When we are developing the app, cd to 'server' folder and run "npm run start".
 
 | Script                    | Description                         | 
@@ -47,7 +47,7 @@ Run npm run <SCRIPT_NAME> to run a script. When we are developing the app, cd to
 | `start`           | `Run back-end on port 3001`               |      
 | `build`         | ` creates a build directory with a production build of the app`                     |
 
-##Full-stack Development:
+## Full-stack Development:
 Run npm run <SCRIPT_NAME> to run a script. When we are developing the app, go to top-level folder and run "npm run dev".
 
 | Script                    | Description                         | 
