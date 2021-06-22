@@ -1,6 +1,9 @@
 # Introduction
 A ReactJS & NodeJS based annotation tool that can collect image data.
 
+## Acknowledgements
+- [React Image Annotate](https://github.com/UniversalDataTool/react-image-annotate)
+
 ## Functionalities
 - Drag Image
 - Zoom In/Out Image
