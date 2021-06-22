@@ -12210,6 +12210,11 @@
     "tiny-invariant" "^1.0.2"
     "tiny-warning" "^1.0.0"
 
+"react-script@^2.0.5":
+  "integrity" "sha1-nawg+Xz/H7QPW0CE4/RLguMAFXI="
+  "resolved" "https://registry.npmjs.org/react-script/-/react-script-2.0.5.tgz"
+  "version" "2.0.5"
+
 "react-scripts@^3.4.1":
   "integrity" "sha512-7J7GZyF/QvZkKAZLneiOIhHozvOMHey7hO9cdO9u68jjhGZlI8hDdOm6UyuHofn6Ajc9Uji5I6Psm/nKNuWdyw=="
   "resolved" "http://mirrors.cloud.tencent.com/npm/react-scripts/-/react-scripts-3.4.4.tgz"
