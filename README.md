@@ -3,6 +3,10 @@ A ReactJS & NodeJS based annotation tool that can collect image data.
 
 ## Acknowledgements
 - [React Image Annotate](https://github.com/UniversalDataTool/react-image-annotate)
+- [turktool](https://github.com/jaxony/turktool)
+- [VizWiz-Visual Grounding](https://chongyanchen.com/TraditionalGroundingV2/index.html)
+- [Visual Grounding for VQA](https://github.com/CCYChongyanChen/CCYChongyanChen.github.io)
+
 
 ## Functionalities
 - Drag Image
