@@ -20,7 +20,7 @@ export default function Home() {
     const [loading, setLoading]= useState(false)
     useEffect(() => {
         setLoading(true);
-        fetch("/api",{ mode: 'cors'}).then(res=>res.json()).then(
+        fetch("./backendConfig.json").then(res=>res.json()).then(
             (result) => {
                 console.log("start setState");
                 setTutorial({

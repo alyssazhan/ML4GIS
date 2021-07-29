@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import AnnotationTool from "../annotateComponents/main_Annotate";
 import Button from 'react-bootstrap/Button';
+import { CSVLink, CSVDownload } from "react-csv";
+import json2csv from "json2csv";
 
 var env = process.env.NODE_ENV;
 var config = require("../../../config.json");
@@ -33,6 +35,7 @@ export default class SubmitHIT extends Component {
                     regions: []
                 }
             ],
+            Local:null
         }
         this.props = props;
         this.submitTask = this.submitTask.bind(this);
@@ -48,7 +51,7 @@ export default class SubmitHIT extends Component {
 //get data from api
     componentDidMount() {
         function getEnabledTools(data) {
-            const enabledTools =data["enabledTools"]
+            const enabledTools=data["enabledTools"]
             var res=[]
             for (var i = 0; i < enabledTools.length; i++) {
                 if (enabledTools[i]["create point"]==true){
@@ -68,10 +71,9 @@ export default class SubmitHIT extends Component {
                 }
             }
             return res
-
         }
 
-        fetch("/api",{ mode: 'cors'})
+        fetch("./backendConfig.json")
             .then(res => res.json())
             .then(
                 (result) => {
@@ -80,7 +82,8 @@ export default class SubmitHIT extends Component {
                         isLoaded: true,
                         EnabledTools:enabledTools,
                         AllowComments:result["setup"]["allow-comments"],
-                        Tags:result["setup"]["tags"]
+                        Tags:result["setup"]["tags"],
+                        Local:result["setup"]["local"]
                     });
                     console.log("res is: ", result)
                 },
@@ -153,12 +156,55 @@ export default class SubmitHIT extends Component {
     }
 
     render() {
-        const { error, isLoaded, EnabledTools, AllowComments, Tags, imgData} = this.state;
-        console.log("data is:", this.state)
+        const { error, isLoaded, EnabledTools, AllowComments, Tags, imgData, Local} = this.state;
+        console.log("render data is:", this.state)
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
             return <div>Loading...</div>;
+        } else if (Local) {
+            return (
+                <div id="Submit">
+
+                    <form
+                        id="submitForm"
+                        type="submit"
+                        method="POST"
+                        action={this.getSubmissionUrl()}
+                    >
+                        <AnnotationTool
+                            name="AnnotationTool"
+                            type="submit"
+                            ref={value => {
+                                this.value = value;
+                            }}
+                            images={imgData}
+                            enabledTools={EnabledTools}
+                            regionTagList={Tags}
+                            allowComments={AllowComments}
+                            Local={Local}
+                            onExit={output => {
+                                this.setState({imgData: output.images});
+                                console.log("output:", JSON.stringify(output.images));
+                                console.log(typeof({imgData}));
+                                console.log({imgData});
+                            }}
+
+                        />
+                        <div>
+                            <CSVLink 
+                                data={JSON.stringify(this.state.imgData)}
+                                onClick={() => {
+                                    console.log("You click the link");
+                                    console.log({imgData}) // 👍🏻 Your click handling logic
+                                  }}
+                            >
+                                Download me
+                            </CSVLink>
+                        </div>
+                    </form>
+                </div>
+            );
         } else {
             return (
                 <div id="Submit">
@@ -179,9 +225,10 @@ export default class SubmitHIT extends Component {
                             enabledTools={EnabledTools}
                             regionTagList={Tags}
                             allowComments={AllowComments}
+                            Local={Local}
                             onExit={output => {
                                 this.setState({imgData: output.images});
-                                console.log(JSON.stringify(output.images))
+                                console.log("output:", JSON.stringify(output.images));
                             }}
 
                         />
