@@ -1,0 +1,17 @@
+[
+    {
+        "src":"https://geodata.lib.utexas.edu/assets/blac_featured_image_map-dca4cbca4e07010e5bd201ad8fab1cc0aa9abd24a8842f90e3c1eef1834e8498.jpg",
+        "name": "Image 1",
+        "regions": []
+    },
+    {
+        "src":"https://geodata.lib.utexas.edu/assets/utlmaps_featured_image_map-c07ae2551145ff2e5f5fa3c71baa345d9d674a33b08f422449203cf9ed47e0d1.jpg",
+        "name": "Image 2",
+        "regions": []
+    },
+    {
+        "src":"https://1igc0ojossa412h1e3ek8d1w-wpengine.netdna-ssl.com/wp-content/uploads/2018/03/TMSELEMWORLD.M.jpg",
+        "name": "Image 3",
+        "regions": []
+    }
+]
