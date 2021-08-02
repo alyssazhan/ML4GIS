@@ -1,12 +1,11 @@
 # Introduction
-A ReactJS & NodeJS based annotation tool that can collect image data.
+A ReactJS based annotation tool that can collect image data.
 
 ## Acknowledgements
 - [React Image Annotate](https://github.com/UniversalDataTool/react-image-annotate)
 - [turktool](https://github.com/jaxony/turktool)
 - [VizWiz-Visual Grounding](https://chongyanchen.com/TraditionalGroundingV2/index.html)
 - [Visual Grounding for VQA](https://github.com/CCYChongyanChen/CCYChongyanChen.github.io)
-
 
 ## Functionalities
 - Drag Image
@@ -26,7 +25,7 @@ A ReactJS & NodeJS based annotation tool that can collect image data.
 
 ## Configuration
 
-The following properties can be defined on the [config.json](server/config.json)
+The following properties can be defined in the [backendConfig.json](/client/public/backendConfig.json)
 
 | Prop                     | Type                          | Description                                                                             | 
 | ------------------------ | ------------------------------| --------------------------------------------------------------------------------------- | 
@@ -36,7 +35,8 @@ The following properties can be defined on the [config.json](server/config.json)
 | `introduction`           | `string`                      | Introduction text showing on the task overview.                                         |               
 | `imgUrl`                 | `string`                      | Path to the image displayed on the tutorial.                                            |               
 | `steps`                  | `Array<string>`               | Steps displayed on the tutorial.                                                        |               
-| `development`            | `boolean`                     | AMT Sandbox Development Environment(true) vs. Production Environment(false).            |
+| `local`                  | `boolean`                     | Local Environment(true) vs. AMT Sandbox Development Environment(false).                 |
+| `imgData`                | `Array<string>`               | Initiate images (and annotations).                                                      |
 
 ## Front-end Development:
 Run npm run <SCRIPT_NAME> to run a script. When developing the app, cd to 'client' folder and run "npm run start".
@@ -46,7 +46,7 @@ Run npm run <SCRIPT_NAME> to run a script. When developing the app, cd to 'clien
 | `start`           | `Run font-end app on port 3000`               |      
 | `build`         | ` creates a build directory with a production build of the app`                     |
 
-## Back-end Development:
+<!-- ## Back-end Development:
 Run npm run <SCRIPT_NAME> to run a script. When we are developing the app, cd to 'server' folder and run "npm run start".
 
 | Script                    | Description                         | 
@@ -60,7 +60,7 @@ Run npm run <SCRIPT_NAME> to run a script. When we are developing the app, go to
 | Script                    | Description                         | 
 | ------------------------ | ------------------------------| 
 | `dev`           | `Run front-end app on port 3000 and back-end on port 3001`               |      
-| `build`         | ` creates a build directory with a production build of the app`|
+| `build`         | ` creates a build directory with a production build of the app`| -->
 
 ## File Tree
  - __client__
