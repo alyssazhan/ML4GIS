@@ -19,6 +19,7 @@
     "classnames": "^2.3.1",
     "color-alpha": "^1.0.4",
     "colorette": "^1.2.2",
+    "file-saver": "^2.0.5",
     "get-image-data": "^3.0.1",
     "json2csv": "^5.0.6",
     "material-survey": "^1.0.34",

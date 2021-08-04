@@ -1,6 +1,6 @@
 {
   "submit": {
-    "production": "https://workersandbox.mturk.com/mturk/externalSubmit",
+    "production": "https://www.mturk.com/mturk/externalSubmit",
     "development": "https://workersandbox.mturk.com/mturk/externalSubmit"
   },
   "server": null

@@ -2,12 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import AnnotationTool from "../annotateComponents/main_Annotate";
 import Button from 'react-bootstrap/Button';
-import { CSVLink, CSVDownload } from "react-csv";
-import json2csv from "json2csv";
 
 var env = process.env.NODE_ENV;
 var config = require("../../../config.json");
-
 
 export default class SubmitHIT extends Component {
     constructor(props) {
@@ -170,7 +167,6 @@ export default class SubmitHIT extends Component {
                         id="submitForm"
                         type="submit"
                         method="POST"
-                        action={this.getSubmissionUrl()}
                     >
                         <AnnotationTool
                             name="AnnotationTool"
@@ -192,15 +188,18 @@ export default class SubmitHIT extends Component {
 
                         />
                         <div>
-                            <CSVLink 
-                                data={JSON.stringify(this.state.imgData)}
-                                onClick={() => {
-                                    console.log("You click the link");
-                                    console.log({imgData}) // 👍🏻 Your click handling logic
-                                  }}
+                            <Button
+                                variant="outline-dark" size="lg" block
+                                name="Annotation"
+                                type="submit"
+                                id="submitButton"
+                                href={`data:text/json;charset=utf-8,${encodeURIComponent(
+                                JSON.stringify(this.state.imgData)
+                                )}`}
+                                download="filename.json"
                             >
-                                Download me
-                            </CSVLink>
+                            {`Download Json`}
+                            </Button>   
                         </div>
                     </form>
                 </div>
