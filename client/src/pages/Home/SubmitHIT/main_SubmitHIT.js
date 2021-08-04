@@ -15,25 +15,10 @@ export default class SubmitHIT extends Component {
             EnabledTools:null,
             AllowComments:null,
             Tags:null,
-            imgData: [
-                {
-                    src:"https://geodata.lib.utexas.edu/assets/blac_featured_image_map-dca4cbca4e07010e5bd201ad8fab1cc0aa9abd24a8842f90e3c1eef1834e8498.jpg",
-                    name: "Image 1",
-                    regions: []
-                },
-                {
-                    src:"https://geodata.lib.utexas.edu/assets/utlmaps_featured_image_map-c07ae2551145ff2e5f5fa3c71baa345d9d674a33b08f422449203cf9ed47e0d1.jpg",
-                    name: "Image 2",
-                    regions: []
-                },
-                {
-                    src:"https://1igc0ojossa412h1e3ek8d1w-wpengine.netdna-ssl.com/wp-content/uploads/2018/03/TMSELEMWORLD.M.jpg",
-                    name: "Image 3",
-                    regions: []
-                }
-            ],
+            imgData: null,
             Local:null
         }
+
         this.props = props;
         this.submitTask = this.submitTask.bind(this);
         this.getSubmissionUrl = this.getSubmissionUrl.bind(this);
@@ -75,13 +60,22 @@ export default class SubmitHIT extends Component {
             .then(
                 (result) => {
                     const enabledTools=getEnabledTools(result["setup"])
+                    if (result["setup"]["importData"]) {
+                        this.setState({imgData:result["setup"]["importData"]});
+                    } else {
+                        this.setState({imgData:result["setup"]["defaultImgData"]});
+                    }
+                    
                     this.setState({
                         isLoaded: true,
                         EnabledTools:enabledTools,
                         AllowComments:result["setup"]["allow-comments"],
                         Tags:result["setup"]["tags"],
-                        Local:result["setup"]["local"]
+                        Local:result["setup"]["local"],
                     });
+
+
+
                     console.log("res is: ", result)
                 },
                 // Note: it's important to handle errors here
@@ -179,6 +173,7 @@ export default class SubmitHIT extends Component {
                             regionTagList={Tags}
                             allowComments={AllowComments}
                             Local={Local}
+                            imgData={imgData}
                             onExit={output => {
                                 this.setState({imgData: output.images});
                                 console.log("output:", JSON.stringify(output.images));
@@ -196,9 +191,9 @@ export default class SubmitHIT extends Component {
                                 href={`data:text/json;charset=utf-8,${encodeURIComponent(
                                 JSON.stringify(this.state.imgData)
                                 )}`}
-                                download="filename.json"
+                                download="results.json"
                             >
-                            {`Download Json`}
+                            {`Download Annotations as Json File`}
                             </Button>   
                         </div>
                     </form>
@@ -225,6 +220,7 @@ export default class SubmitHIT extends Component {
                             regionTagList={Tags}
                             allowComments={AllowComments}
                             Local={Local}
+                            imgData={imgData}
                             onExit={output => {
                                 this.setState({imgData: output.images});
                                 console.log("output:", JSON.stringify(output.images));
