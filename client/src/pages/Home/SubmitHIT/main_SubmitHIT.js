@@ -76,7 +76,7 @@ export default class SubmitHIT extends Component {
 
 
 
-                    console.log("res is: ", result)
+                    // console.log("res is: ", result)
                 },
                 // Note: it's important to handle errors here
                 // instead of a catch() block so that we don't swallow
@@ -119,7 +119,7 @@ export default class SubmitHIT extends Component {
         e.preventDefault();
         const input = document.getElementById('submitButton');
         input.setAttribute('value', JSON.stringify(this.state.imgData));
-        console.log(input);
+        // console.log(input);
         const form = document.getElementById('submitForm');
         HTMLFormElement.prototype.submit.call(form);
 
@@ -142,13 +142,13 @@ export default class SubmitHIT extends Component {
         let mturkParams = this.parseParameters(window.location.href);
         const assignmentID =  mturkParams['assignmentId'];
         const url = config["submit"][env] + "/?assignmentId=" + assignmentID;
-        console.log(url);
+        // console.log(url);
         return url;
     }
 
     render() {
         const { error, isLoaded, EnabledTools, AllowComments, Tags, imgData, Local} = this.state;
-        console.log("render data is:", this.state)
+        // console.log("render data is:", this.state)
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
@@ -177,8 +177,8 @@ export default class SubmitHIT extends Component {
                             onExit={output => {
                                 this.setState({imgData: output.images});
                                 console.log("output:", JSON.stringify(output.images));
-                                console.log(typeof({imgData}));
-                                console.log({imgData});
+                                // console.log(typeof({imgData}));
+                                // console.log({imgData});
                             }}
 
                         />

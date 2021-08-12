@@ -22,7 +22,7 @@ export default function Home() {
         setLoading(true);
         fetch("./backendConfig.json").then(res=>res.json()).then(
             (result) => {
-                console.log("start setState");
+                // console.log("start setState");
                 setTutorial({
                     steps:result["setup"]["tutorial"]["steps"],
                     imgUrl:result["setup"]["tutorial"]["imgUrl"]
