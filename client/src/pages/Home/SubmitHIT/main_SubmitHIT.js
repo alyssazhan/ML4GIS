@@ -182,6 +182,7 @@ export default class SubmitHIT extends Component {
                             }}
 
                         />
+                        <br />
                         <div>
                             <Button
                                 variant="outline-dark" size="lg" block
@@ -196,6 +197,8 @@ export default class SubmitHIT extends Component {
                             {`Download Annotations as Json File`}
                             </Button>   
                         </div>
+                        <br />
+                        <br />
                     </form>
                 </div>
             );
@@ -227,6 +230,7 @@ export default class SubmitHIT extends Component {
                             }}
 
                         />
+                        <br />
                         <div>
                             <Button variant="outline-dark" size="lg" block
                                     name="Annotation"
@@ -238,6 +242,8 @@ export default class SubmitHIT extends Component {
                                     }}
                             >Complete the HIT</Button>
                         </div>
+                        <br />
+                        <br />
                     </form>
                 </div>
             );
